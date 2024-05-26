@@ -1,0 +1,84 @@
+#btnEntrar {
+  -fx-background-color: #E15959;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnEntrar:hover {
+  -fx-background-color: #B63C3C; /* Cor desejada ao passar o cursor */
+}
+
+#btnEntrar:pressed {
+  -fx-background-color: #E15959;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+.button{
+  -fx-background-color: #322073;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+.button:hover {
+  -fx-background-color: #5E4D85; /* Cor desejada ao passar o cursor */
+}
+
+.button:pressed {
+  -fx-background-color: #322073;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+.label{
+  -fx-font-weight: bold;
+  -fx-font-family: "Quicksand";
+}
+
+.text-field{
+  -fx-font-weight: bold;
+  -fx-background-color: #7756A6;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+.text-field:focused {
+  -fx-border-radius: 60px;
+  -fx-border-color: #322073;
+  -fx-background-color: #AA9ACF;
+}
+
+/*.text-field.erro {
+  -fx-border-color: red;
+  -fx-effect: dropshadow(three-pass-box, rgba(255, 0, 0, 0.5), 5, 0.0, 0, 0);
+}*/
+
+.radio-button {
+  -fx-font-family: "Quicksand";
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #322073;
+}
+
+.radio-button .radio {
+  -fx-background-color: #AA9ACF;
+  -fx-border-color: #322073;
+  -fx-border-width: 1px;
+  -fx-border-radius: 50%;
+  -fx-padding: 5px;
+}
+
+.radio-button:selected .radio {
+  -fx-background-color: #AA9ACF; /* Cor da bolinha quando selecionada */
+  -fx-border-color: #322073; /* Cor da borda da bolinha quando selecionada */
+}
+
+.radio-button:selected .dot {
+  -fx-background-color: #322073; /* Cor do ponto dentro da bolinha */
+  -fx-padding: 4px;
+  -fx-background-radius: 50%;
+}
