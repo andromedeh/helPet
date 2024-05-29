@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="AnchorPaneTelaInicial" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #AA9ACF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorTelaInicial">
    <children>
-      <ImageView>
+      <ImageView layoutX="14.0">
          <image>
             <Image url="@../img/telainicial.png" />
          </image>

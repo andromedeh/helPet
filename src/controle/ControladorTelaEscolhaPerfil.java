@@ -13,17 +13,19 @@ public class ControladorTelaEscolhaPerfil extends ControladorBase {
 
   @FXML
   void perfilAdministrador(ActionEvent event) {
+    gerenciador.getStage().close();
     gerenciador.trocarCena("/visao/fxml/TelaLogin.fxml");
   }
 
   @FXML
   void perfilCliente(ActionEvent event) {
+    gerenciador.getStage().close();
     gerenciador.trocarCena("/visao/fxml/TelaLogin.fxml");
   }
 
   @FXML
   void perfilFuncionario(ActionEvent event) {
+    gerenciador.getStage().close();
     gerenciador.trocarCena("/visao/fxml/TelaLogin.fxml");
   }
-
 }
