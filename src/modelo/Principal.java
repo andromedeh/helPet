@@ -11,7 +11,6 @@ public class Principal extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		// Configura o estágio inicial
 		gerenciador = new GerenciadorCena(primaryStage);
 		gerenciador.trocarCena("/visao/fxml/TelaInicial.fxml");
 	}

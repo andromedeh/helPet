@@ -7,7 +7,7 @@
 }
 
 #btnEntrar:hover {
-  -fx-background-color: #B63C3C; /* Cor desejada ao passar o cursor */
+  -fx-background-color: #B63C3C;
 }
 
 #btnEntrar:pressed {
@@ -24,7 +24,7 @@
 }
 
 .button:hover {
-  -fx-background-color: #5E4D85; /* Cor desejada ao passar o cursor */
+  -fx-background-color: #5E4D85; 
 }
 
 .button:pressed {
@@ -33,6 +33,13 @@
 }
 
 .label{
+  -fx-text-fill: #322073;
+  -fx-font-weight: bold;
+  -fx-font-family: "Quicksand";
+}
+
+#labelStatus{
+  -fx-text-fill: #FF0000;
   -fx-font-weight: bold;
   -fx-font-family: "Quicksand";
 }
@@ -52,10 +59,23 @@
   -fx-background-color: #AA9ACF;
 }
 
-/*.text-field.erro {
-  -fx-border-color: red;
-  -fx-effect: dropshadow(three-pass-box, rgba(255, 0, 0, 0.5), 5, 0.0, 0, 0);
-}*/
+#campoEmailLogin{
+  -fx-font-weight: bold;
+  -fx-background-color: #E15959;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+#campoSenhaLogin{
+  -fx-font-weight: bold;
+  -fx-background-color: #E15959;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
 
 .radio-button {
   -fx-font-family: "Quicksand";
@@ -73,12 +93,22 @@
 }
 
 .radio-button:selected .radio {
-  -fx-background-color: #AA9ACF; /* Cor da bolinha quando selecionada */
-  -fx-border-color: #322073; /* Cor da borda da bolinha quando selecionada */
+  -fx-background-color: #AA9ACF;
+  -fx-border-color: #322073; 
 }
 
 .radio-button:selected .dot {
-  -fx-background-color: #322073; /* Cor do ponto dentro da bolinha */
+  -fx-background-color: #322073;
   -fx-padding: 4px;
   -fx-background-radius: 50%;
+}
+
+#AnchorPaneConfirmacao{
+  -fx-background-color:#FFE5D1;
+  -fx-border-color : #322073;
+  -fx-border-width: 5px;
+  -fx-border-radius: 50px;
+  -fx-background-radius: 60px;
+  -fx-padding: 10px; /* Define o preenchimento interno */
+    -fx-margin: 10px;
 }

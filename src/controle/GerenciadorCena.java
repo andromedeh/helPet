@@ -10,8 +10,7 @@ import java.io.IOException;
 
 public class GerenciadorCena {
     private Stage stage;
-    Image icon = new Image(getClass().getClassLoader().getResourceAsStream("visao/img/icon.png")); // busca o icone do
-                                                                                                   // programa
+    Image icon = new Image(getClass().getClassLoader().getResourceAsStream("visao/img/icon.png"));
 
     public GerenciadorCena(Stage stage) {
         this.stage = stage;
@@ -22,19 +21,15 @@ public class GerenciadorCena {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            stage.getIcons().add(icon); // troca icone
-            stage.setScene(scene); // define a cena
-            stage.setTitle("HelPet"); // define titulo
-            stage.setResizable(false); // nao redimensionar a tela
-            Font.loadFont(getClass().getResourceAsStream("/visao/fontes/Quicksand_Bold.ttf"), 12.2); // adcionando fonte
-            scene.getStylesheets().add("/visao/Estilo.css"); // adicionando folhas de
-            // estilo css
-            stage.setOnCloseRequest(e -> { // encerrar corretamente
+            stage.getIcons().add(icon);
+            stage.setScene(scene);
+            stage.setTitle("HelPet");
+            stage.setResizable(false);
+            Font.loadFont(getClass().getResourceAsStream("/visao/fontes/Quicksand_Bold.ttf"), 12.2);
+            scene.getStylesheets().add("/visao/Estilo.css");
+            stage.setOnCloseRequest(e -> {
                 System.exit(0);
             });
-
-            // Obtém o controlador associado à nova cena e define o gerenciador de cena como
-            // seu proprietário
             ControladorBase controller = loader.getController();
             controller.setGerenciador(this);
             stage.show();

@@ -20,11 +20,13 @@ public class ControladorTelaInicial extends ControladorBase implements Initializ
 
   @FXML
   void entrar(ActionEvent event) {
+    gerenciador.getStage().close();
     gerenciador.trocarCena("/visao/fxml/TelaEscolhaPerfil.fxml");
   }
 
   @FXML
   void cadastrarUsuario(ActionEvent event) {
+    gerenciador.getStage().close();
     gerenciador.trocarCena("/visao/fxml/TelaCadastroCliente.fxml");
   }
 }
