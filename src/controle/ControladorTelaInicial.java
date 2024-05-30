@@ -29,4 +29,5 @@ public class ControladorTelaInicial extends ControladorBase implements Initializ
     gerenciador.getStage().close();
     gerenciador.trocarCena("/visao/fxml/TelaCadastroCliente.fxml");
   }
+
 }

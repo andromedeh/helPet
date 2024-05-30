@@ -1,6 +1,5 @@
 package modelo;
 
-import visao.*;
 import java.io.IOException;
 import controle.GerenciadorCena;
 import javafx.application.Application;

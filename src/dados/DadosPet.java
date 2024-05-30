@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
-import modelo.Cliente;
 import modelo.Pet;
 
 public class DadosPet {
@@ -30,6 +28,7 @@ public class DadosPet {
     }
   }
 
+  @SuppressWarnings("unchecked")
   public ArrayList<Pet> listarPet() throws IOException {
     ArrayList<Pet> pets = new ArrayList<Pet>();
     File arq = new File(arquivoPet);
