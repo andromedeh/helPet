@@ -59,7 +59,7 @@
   -fx-background-color: #AA9ACF;
 }
 
-#campoEmailLogin{
+#campoEmailLoginCliente{
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;
@@ -68,7 +68,43 @@
   -fx-font-family: "Quicksand";
 }
 
-#campoSenhaLogin{
+#campoSenhaLoginCliente{
+  -fx-font-weight: bold;
+  -fx-background-color: #E15959;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+#campoEmailLoginAdm{
+  -fx-font-weight: bold;
+  -fx-background-color: #E15959;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+#campoSenhaLoginAdm{
+  -fx-font-weight: bold;
+  -fx-background-color: #E15959;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+#campoEmailLoginFuncionario{
+  -fx-font-weight: bold;
+  -fx-background-color: #E15959;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+#campoSenhaLoginFuncionario{
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;

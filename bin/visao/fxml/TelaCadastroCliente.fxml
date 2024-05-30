@@ -61,5 +61,6 @@
       <PasswordField fx:id="campoSenha" layoutX="117.0" layoutY="450.0" prefHeight="25.0" prefWidth="206.0" stylesheets="@../Estilo.css" />
       <PasswordField fx:id="campoConfirmarSenha" layoutX="406.0" layoutY="450.0" prefHeight="25.0" prefWidth="206.0" stylesheets="@../Estilo.css" />
       <Label fx:id="labelStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="530.0" prefHeight="21.0" prefWidth="637.0" stylesheets="@../Estilo.css" text="Preencha todos os campos!" />
+      <Button fx:id="btnVoltar" layoutX="807.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltar" stylesheets="@../Estilo.css" text="VOLTAR" textFill="#faf9f6" />
    </children>
 </AnchorPane>

@@ -18,7 +18,7 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
   @FXML
   private AnchorPane AnchorPaneTelaCadastroCliente;
   @FXML
-  private Button btnContinuar;
+  private Button btnContinuar, btnVoltar;
   @FXML
   private TextField campoNome, campoSobrenome, campoCpf, campoTelefone, campoEmail, campoEndereco;
   @FXML
@@ -125,5 +125,12 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
     campoSenha.setText("");
     campoConfirmarSenha.setText("");
     labelStatus.setText("");
+  }
+
+  @FXML
+  void voltar(ActionEvent event) {
+    limparCampos();
+    gerenciador.getStage().close();
+    gerenciador.trocarCena("/visao/fxml/TelaInicial.fxml");
   }
 }
