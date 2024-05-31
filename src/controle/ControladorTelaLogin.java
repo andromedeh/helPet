@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import modelo.Administrador;
 
@@ -27,15 +28,17 @@ public class ControladorTelaLogin extends ControladorBase implements Initializab
   private PasswordField campoSenhaLoginCliente, campoSenhaLoginFuncionario, campoSenhaLoginAdm;
   @FXML
   private Label labelStatus;
-
+  @FXML
+  private ImageView iconBtnVer;
   private ControleCliente cliente = new ControleCliente();
   private Administrador adm = new Administrador();
+  private boolean controleBtnVer = true;
 
   @Override
   public void initialize(URL url, ResourceBundle resources) {
     limparCampos();
     labelStatus.setText("");
-
+    controleBtnVer = true;
   }
 
   @FXML
@@ -94,6 +97,15 @@ public class ControladorTelaLogin extends ControladorBase implements Initializab
   @FXML
   void verSenha(ActionEvent event) {
     // logica para deixar o campo da senha visivel/invisivel ex: "123" ou "***"
+    Image icon;
+    if (controleBtnVer){ // se estiver aberto e quiser fechar
+      icon = new Image("visao/img/iconOlhoFechado.png");
+      controleBtnVer = false;
+    } else{ // esta fechado
+      icon = new Image("visao/img/iconOlhoAberto.png");
+      controleBtnVer = true;
+    } // fim do if-else
+    iconBtnVer.setImage(icon);
   }
 
   @FXML
