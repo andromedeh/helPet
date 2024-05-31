@@ -28,6 +28,7 @@ public class DadosCliente {
     }
   }
 
+  @SuppressWarnings("unchecked")
   public ArrayList<Cliente> listarCliente() throws IOException {
     ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     File arq = new File(arquivoCliente);

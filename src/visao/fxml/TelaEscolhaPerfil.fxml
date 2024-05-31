@@ -25,5 +25,14 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <Button fx:id="btnVoltar" layoutX="838.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltar" stylesheets="@../Estilo.css" textFill="#faf9f6">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/iconVoltar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
