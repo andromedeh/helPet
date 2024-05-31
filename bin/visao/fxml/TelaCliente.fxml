@@ -5,6 +5,13 @@
 
 <AnchorPane fx:id="AnchorPaneTelaCliente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorTelaCliente">
    <children>
-      <Button fx:id="btnVoltar" layoutX="418.0" layoutY="310.0" mnemonicParsing="false" onAction="#voltar" text="INICIO" textFill="WHITE" />
+      <Button fx:id="btnVoltar" layoutX="826.0" layoutY="12.0" mnemonicParsing="false" onAction="#voltar" prefHeight="46.0" prefWidth="50.0" stylesheets="@../Estilo.css" textFill="#faf9f6">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../img/iconVoltar.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>
