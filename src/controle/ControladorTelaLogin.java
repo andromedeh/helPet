@@ -13,7 +13,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import modelo.Administrador;
 import modelo.Administrador;
 
 public class ControladorTelaLogin extends ControladorBase implements Initializable {
@@ -29,16 +32,18 @@ public class ControladorTelaLogin extends ControladorBase implements Initializab
   @FXML
   private Label labelStatus;
   @FXML
-  private ImageView iconBtnVer;
+  private ImageView imgVerSenha;
+
   private ControleCliente cliente = new ControleCliente();
   private Administrador adm = new Administrador();
-  private boolean controleBtnVer = true;
+  private boolean controleBtnVer = false;
 
   @Override
   public void initialize(URL url, ResourceBundle resources) {
     limparCampos();
     labelStatus.setText("");
-    controleBtnVer = true;
+    controleBtnVer = false;
+
   }
 
   @FXML
@@ -98,14 +103,14 @@ public class ControladorTelaLogin extends ControladorBase implements Initializab
   void verSenha(ActionEvent event) {
     // logica para deixar o campo da senha visivel/invisivel ex: "123" ou "***"
     Image icon;
-    if (controleBtnVer){ // se estiver aberto e quiser fechar
+    if (controleBtnVer) { // se estiver aberto e quiser fechar
       icon = new Image("visao/img/iconOlhoFechado.png");
       controleBtnVer = false;
-    } else{ // esta fechado
+    } else { // esta fechado
       icon = new Image("visao/img/iconOlhoAberto.png");
       controleBtnVer = true;
     } // fim do if-else
-    iconBtnVer.setImage(icon);
+    imgVerSenha.setImage(icon);
   }
 
   @FXML

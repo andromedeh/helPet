@@ -25,23 +25,22 @@
       <Label layoutX="200.0" layoutY="361.0" stylesheets="@../Estilo.css" text="SENHA:" />
       <Label fx:id="labelStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="457.0" prefHeight="21.0" prefWidth="542.0" stylesheets="@../Estilo.css" textAlignment="CENTER" />
       <PasswordField fx:id="campoSenhaLoginAdm" layoutX="200.0" layoutY="382.0" prefHeight="43.0" prefWidth="500.0" stylesheets="@../Estilo.css" />
-      <Label alignment="CENTER" layoutX="293.0" layoutY="205.0" prefHeight="21.0" prefWidth="314.0" stylesheets="@../Estilo.css" text="ADMINISTRADOR" />
-      <Button fx:id="btnVoltar" layoutX="826.0" layoutY="12.0" mnemonicParsing="false" onAction="#voltar" prefHeight="46.0" prefWidth="50.0" stylesheets="@../Estilo.css" textFill="#faf9f6">
+      <Button fx:id="btnVerSenha" layoutX="645.0" layoutY="388.0" mnemonicParsing="false" onAction="#verSenha" prefHeight="21.0" prefWidth="48.0" stylesheets="@../Estilo.css" textFill="WHITE">
          <graphic>
-            <ImageView>
+            <ImageView fx:id="imgVerSenha" fitHeight="17.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/iconOlhoFechado.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label alignment="CENTER" layoutX="293.0" layoutY="205.0" prefHeight="21.0" prefWidth="314.0" stylesheets="@../Estilo.css" text="ADMINISTRADOR" />
+      <Button fx:id="btnVoltar" layoutX="838.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltar" stylesheets="@../Estilo.css" textFill="#faf9f6">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/iconVoltar.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="btnVerSenha" layoutX="647.0" layoutY="387.0" mnemonicParsing="false" onAction="#verSenha" prefHeight="33.0" prefWidth="33.0" stylesheets="@../Estilo.css" textFill="WHITE">
-         <graphic>
-            <ImageView fx:id="iconBtnVer" fitHeight="18.0" fitWidth="27.0">
-               <image>
-                  <Image url="@../img/iconOlhoAberto.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
    </children>
 </AnchorPane>
