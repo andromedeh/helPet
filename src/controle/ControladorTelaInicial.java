@@ -1,5 +1,4 @@
 package controle;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -12,7 +11,7 @@ public class ControladorTelaInicial extends ControladorBase implements Initializ
   @FXML
   private AnchorPane AnchorPaneTelaInicial;
   @FXML
-  private Button btnEntrar, btnCadastrar;
+  private Button btnCliente, btnProfissional, btnAdministrador;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -20,14 +19,17 @@ public class ControladorTelaInicial extends ControladorBase implements Initializ
 
   @FXML
   void entrar(ActionEvent event) {
-    gerenciador.getStage().close();
-    gerenciador.trocarCena("/visao/fxml/TelaEscolhaPerfil.fxml");
+    if (event.getSource().equals(btnCliente)){
+      gerenciador.getStage().close();
+      gerenciador.trocarCena("/visao/fxml/TelaEscolhaCliente.fxml");
+    }
+    if (event.getSource().equals(btnProfissional)){
+      gerenciador.getStage().close();
+      gerenciador.trocarCena("/visao/fxml/TelaLoginProfissional.fxml");
+    }
+    if (event.getSource().equals(btnAdministrador)){
+      gerenciador.getStage().close();
+      gerenciador.trocarCena("/visao/fxml/TelaLoginAdministrador.fxml");
+    }
   }
-
-  @FXML
-  void cadastrarUsuario(ActionEvent event) {
-    gerenciador.getStage().close();
-    gerenciador.trocarCena("/visao/fxml/TelaCadastroCliente.fxml");
-  }
-
 }

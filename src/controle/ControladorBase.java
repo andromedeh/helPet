@@ -1,3 +1,4 @@
+// Classe abstrata dos controladores, serve para trocar de forma mais eficiente o gerenciador das cenas
 package controle;
 
 public abstract class ControladorBase {
