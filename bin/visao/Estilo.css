@@ -1,17 +1,136 @@
-#btnEntrar {
-  -fx-background-color: #E15959;
+#btnSolicitarConsulta {
+  -fx-background-color: #AA9ACF;
   -fx-font-weight: bold;
   -fx-opacity: 1;
   -fx-background-radius: 60px;
   -fx-font-family: "Quicksand";
 }
 
-#btnEntrar:hover {
-  -fx-background-color: #B63C3C;
+#btnSolicitarConsulta:hover {
+  -fx-background-color: #8b7ab3;
 }
 
-#btnEntrar:pressed {
-  -fx-background-color: #E15959;
+#btnSolicitarConsulta:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#btnVacinacao {
+  -fx-background-color: #AA9ACF;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnVacinacao:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnVacinacao:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#btnCadastrarNovoPet {
+  -fx-background-color: #AA9ACF;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnCadastrarNovoPet:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnCadastrarNovoPet:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#btnRemedios {
+  -fx-background-color: #AA9ACF;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnRemedios:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnRemedios:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#btnExames {
+  -fx-background-color: #AA9ACF;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnExames:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnExames:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#btnNotificacoes {
+  -fx-background-color: #AA9ACF;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnNotificacoes:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnNotificacoes:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#btnFAQ {
+  -fx-background-color: #AA9ACF;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnFAQ:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnFAQ:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#btnSair {
+  -fx-background-color: #AA9ACF;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnSair:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnSair  :pressed {
+  -fx-background-color: #AA9ACF;
   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
 }
 
@@ -24,7 +143,7 @@
 }
 
 .button:hover {
-  -fx-background-color: #5E4D85; 
+  -fx-background-color: #665788; 
 }
 
 .button:pressed {
@@ -37,8 +156,19 @@
   -fx-font-weight: bold;
   -fx-font-family: "Quicksand";
 }
+#labelNome{
+  -fx-text-fill: #665788;
+  -fx-font-weight: bold;
+  -fx-font-family: "Quicksand";
+}
 
-#labelStatus{
+#labelStatusCliente{
+  -fx-text-fill: #FF0000;
+  -fx-font-weight: bold;
+  -fx-font-family: "Quicksand";
+}
+
+#labelStatusPet{
   -fx-text-fill: #FF0000;
   -fx-font-weight: bold;
   -fx-font-family: "Quicksand";
@@ -59,7 +189,7 @@
   -fx-background-color: #AA9ACF;
 }
 
-#campoEmailLoginCliente{
+#campoEmail{
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;
@@ -68,7 +198,7 @@
   -fx-font-family: "Quicksand";
 }
 
-#campoSenhaLoginCliente{
+#campoSenhaTexto{
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;
@@ -77,34 +207,7 @@
   -fx-font-family: "Quicksand";
 }
 
-#campoEmailLoginAdm{
-  -fx-font-weight: bold;
-  -fx-background-color: #E15959;
-  -fx-background-radius: 60px;
-  -fx-font-size: 12px;
-  -fx-text-fill: #FAF9F6;
-  -fx-font-family: "Quicksand";
-}
-
-#campoSenhaLoginAdm{
-  -fx-font-weight: bold;
-  -fx-background-color: #E15959;
-  -fx-background-radius: 60px;
-  -fx-font-size: 12px;
-  -fx-text-fill: #FAF9F6;
-  -fx-font-family: "Quicksand";
-}
-
-#campoEmailLoginFuncionario{
-  -fx-font-weight: bold;
-  -fx-background-color: #E15959;
-  -fx-background-radius: 60px;
-  -fx-font-size: 12px;
-  -fx-text-fill: #FAF9F6;
-  -fx-font-family: "Quicksand";
-}
-
-#campoSenhaLoginFuncionario{
+#campoSenhaOculto{
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;
@@ -139,12 +242,26 @@
   -fx-background-radius: 50%;
 }
 
-#AnchorPaneConfirmacao{
-  -fx-background-color:#FFE5D1;
+#AnchorPaneConfirmacaoCadastroPet{
+  -fx-background-color:#f8f4f2;
   -fx-border-color : #322073;
   -fx-border-width: 5px;
   -fx-border-radius: 50px;
   -fx-background-radius: 60px;
   -fx-padding: 10px; /* Define o preenchimento interno */
-    -fx-margin: 10px;
+  -fx-margin: 10px;
+}
+
+#AnchorPaneConfirmacao{
+  -fx-background-color:#f8f4f2;
+  -fx-border-color : #322073;
+  -fx-border-width: 5px;
+  -fx-border-radius: 50px;
+  -fx-background-radius: 60px;
+  -fx-padding: 10px; /* Define o preenchimento interno */
+  -fx-margin: 10px;
+}
+
+#fotoPerfil{
+  -fx-background-radius: 60px;
 }

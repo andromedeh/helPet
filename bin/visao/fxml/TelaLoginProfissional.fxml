@@ -9,14 +9,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="AnchorPaneTelaLoginCliente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #FFE5D1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorTelaLoginCliente">
+<AnchorPane fx:id="AnchorPaneTelaLoginProfissional" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #FFE5D1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorTelaLoginProfissional">
    <children>
       <ImageView>
          <image>
             <Image url="@../img/TelaLogin.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnLoginCliente" layoutX="369.0" layoutY="549.0" mnemonicParsing="false" onAction="#loginCliente" prefHeight="46.6" prefWidth="161.7" stylesheets="@../Estilo.css" text="LOGIN" textFill="#faf9f6">
+      <Button fx:id="btnLoginProfissional" layoutX="369.0" layoutY="549.0" mnemonicParsing="false" onAction="#loginProfissional" prefHeight="46.6" prefWidth="161.7" stylesheets="@../Estilo.css" text="LOGIN" textFill="#faf9f6">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -26,7 +26,7 @@
       <Label fx:id="labelStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="457.0" prefHeight="21.0" prefWidth="542.0" stylesheets="@../Estilo.css" textAlignment="CENTER" />
       <TextField fx:id="campoSenhaTexto" layoutX="200.0" layoutY="382.0" onAction="#verSenha" prefHeight="43.0" prefWidth="500.0" stylesheets="@../Estilo.css" />
       <PasswordField fx:id="campoSenhaOculto" layoutX="200.0" layoutY="382.0" onAction="#verSenha" prefHeight="43.0" prefWidth="500.0" stylesheets="@../Estilo.css" />
-      <Label alignment="CENTER" layoutX="303.0" layoutY="215.0" prefHeight="21.0" prefWidth="314.0" stylesheets="@../Estilo.css" text="CLIENTE" />
+      <Label alignment="CENTER" layoutX="303.0" layoutY="215.0" prefHeight="21.0" prefWidth="314.0" stylesheets="@../Estilo.css" text="PROFISSIONAL" />
      <Button fx:id="btnVoltar" layoutX="826.0" layoutY="12.0" mnemonicParsing="false" onAction="#voltar" prefHeight="46.0" prefWidth="50.0" stylesheets="@../Estilo.css" textFill="#faf9f6">
          <graphic>
             <ImageView>
