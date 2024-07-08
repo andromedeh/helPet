@@ -1,4 +1,5 @@
 package controle;
+import modelo.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -16,7 +17,7 @@ public class ControladorTelaLoginAdministrador extends ControladorBase implement
     @FXML
     private AnchorPane AnchorPaneTelaLoginAdm;
     @FXML
-    private TextField campoEmail, campoSenhaTexto;
+    private TextField campoCodigo, campoSenhaTexto;
     @FXML
     private Label labelStatus;
     @FXML
@@ -25,10 +26,13 @@ public class ControladorTelaLoginAdministrador extends ControladorBase implement
     private Button btnVoltar, btnVerSenha, btnLoginAdm;
     @FXML
     private ImageView iconBtnVer;
+
     private boolean controleBtnVer = true;
+    private Administrador Adm = new Administrador ();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+      //Inicializa tudo limpo
       limparCampos();
       // Configuração inicial: PasswordField visível, TextField oculto
       campoSenhaTexto.setVisible(false);
@@ -39,7 +43,30 @@ public class ControladorTelaLoginAdministrador extends ControladorBase implement
 
     @FXML
     void loginAdm(ActionEvent event) {
+      int valorCodigo = 0;
+      String valorSenha = campoSenhaTexto.getText();
+      
+      if (campoCodigo.getText().isEmpty() || valorSenha.isEmpty()) {
+        labelStatus.setText("Preencha todos os campos!");
+        return;
+      }
 
+      if (!eInteiro(campoCodigo.getText())) {
+        labelStatus.setText("Entrada inválida para o código. Por favor, insira um número válido.");
+        return;
+      } else {
+        valorCodigo = Integer.parseInt(campoCodigo.getText());
+      }
+      
+      // verifica se os valores de codigo e senha sao do adm
+      if (valorCodigo != Adm.getCodigo() || !valorSenha.equals(Adm.getSenha())){ 
+        labelStatus.setText("Codigo ou senha incorretos.");
+        return;
+      } else { // loga como adm
+        labelStatus.setText("");
+        gerenciador.getStage().close();
+        gerenciador.trocarCena("/visao/fxml/TelaPrincipalAdministrador.fxml");
+      }
     }
 
     @FXML
@@ -73,9 +100,18 @@ public class ControladorTelaLoginAdministrador extends ControladorBase implement
     }
 
     public void limparCampos (){
-      campoEmail.clear();
+      campoCodigo.clear();
       campoSenhaTexto.clear();
       campoSenhaOculto.clear();
+    }
+
+    private boolean eInteiro(String str) {
+      try {
+        Integer.parseInt(str);
+        return true;
+      } catch (NumberFormatException e) {
+          return false;
+      }
     }
 
 }

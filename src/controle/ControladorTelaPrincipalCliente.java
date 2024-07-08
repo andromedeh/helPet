@@ -185,7 +185,6 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
     especie.selectToggle(null);
     labelStatusPet.setText("");
   }
-  // =========CADASTRO DO PET=========
 
   public void visibilidadeTelas(boolean conteudo, boolean cadastroPet, boolean solicitarConsulta, boolean vacinacao,
       boolean remedios, boolean exames, boolean notificacao, boolean faq) {
