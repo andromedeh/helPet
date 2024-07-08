@@ -1,4 +1,5 @@
 package controle;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -19,15 +20,15 @@ public class ControladorTelaInicial extends ControladorBase implements Initializ
 
   @FXML
   void entrar(ActionEvent event) {
-    if (event.getSource().equals(btnCliente)){
+    if (event.getSource().equals(btnCliente)) {
       gerenciador.getStage().close();
       gerenciador.trocarCena("/visao/fxml/TelaEscolhaCliente.fxml");
     }
-    if (event.getSource().equals(btnProfissional)){
+    if (event.getSource().equals(btnProfissional)) {
       gerenciador.getStage().close();
-      gerenciador.trocarCena("/visao/fxml/TelaLoginProfissional.fxml");
+      gerenciador.trocarCena("/visao/fxml/TelaEscolhaProfissional.fxml");
     }
-    if (event.getSource().equals(btnAdministrador)){
+    if (event.getSource().equals(btnAdministrador)) {
       gerenciador.getStage().close();
       gerenciador.trocarCena("/visao/fxml/TelaLoginAdministrador.fxml");
     }

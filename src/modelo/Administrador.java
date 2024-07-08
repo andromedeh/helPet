@@ -4,7 +4,7 @@ public class Administrador {
   private final int codigo;
   private final String senha;
 
-  public Administrador (){
+  public Administrador() {
     this.codigo = 123456;
     this.senha = "Adm00000";
   }
@@ -13,7 +13,7 @@ public class Administrador {
     return codigo;
   }
 
-  public String getSenha(){
+  public String getSenha() {
     return senha;
   }
 }
