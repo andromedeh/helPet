@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
@@ -31,7 +33,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="btnSolicitarConsulta" layoutX="32.0" layoutY="238.0" mnemonicParsing="false" onAction="#solicitarConsulta" prefHeight="34.0" prefWidth="196.0" stylesheets="@../Estilo.css" text="SOLICITAR CONSULTA">
+            <Button fx:id="btnConsultas" layoutX="32.0" layoutY="238.0" mnemonicParsing="false" onAction="#Consultas" prefHeight="34.0" prefWidth="196.0" stylesheets="@../Estilo.css" text="CONSULTAS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -132,21 +134,62 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Pane fx:id="PaneSolicitarConsulta" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;">
+      <Pane fx:id="PaneConsultas" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;" visible="false">
          <children>
-            <Label layoutX="10.0" layoutY="10.0" text="solicitacao" />
+            <Label layoutX="10.0" layoutY="10.0" text="Consultas" />
+            <TableView fx:id="tabelaConsultas" layoutX="107.0" layoutY="136.0" prefHeight="378.0" prefWidth="436.0">
+              <columns>
+                <TableColumn fx:id="colunaConsultaData" prefWidth="68.0" text="DATA" />
+                <TableColumn fx:id="colunaConsultaHora" text="HORA" />
+                  <TableColumn fx:id="colunaConsultaMedico" prefWidth="208.0" text="MÉDICO RESPONSÁVEL" />
+                  <TableColumn fx:id="colunaConsultaPet" prefWidth="79.0" text="PET" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnSolicitarConsulta" layoutX="110.0" layoutY="557.0" mnemonicParsing="false" onAction="#solicitarConsulta" text="SOLICITAR CONSULTA" />
+            <Button fx:id="btnCancelarConsulta" layoutX="369.0" layoutY="557.0" mnemonicParsing="false" onAction="#cancelarConsulta" text="CANCELAR CONSULTA" />
          </children></Pane>
       <Pane fx:id="PaneVacinacao" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;" visible="false">
          <children>
             <Label text="vacinacao" />
+            <TableView fx:id="tabelaVacinacao" layoutX="10.0" layoutY="136.0" prefHeight="378.0" prefWidth="631.0">
+              <columns>
+                <TableColumn fx:id="colunaVacinacaoCodigo" prefWidth="70.0" text="CÓDIGO" />
+                <TableColumn fx:id="colunaVacinacaoNome" prefWidth="62.0" text="NOME" />
+                  <TableColumn fx:id="colunaVacinacaoDataAplicacao" prefWidth="169.0" text="DATA 1ª APLICAÇÃO" />
+                  <TableColumn fx:id="colunaVacinacaoDataReforço" minWidth="0.0" prefWidth="129.0" text="DATA REFORÇO" />
+                  <TableColumn fx:id="colunaVacinacaoMedico" prefWidth="103.0" text="MÉDICO" />
+                  <TableColumn fx:id="colunaVacinacaoPet" prefWidth="97.0" text="PET" />
+              </columns>
+            </TableView>
          </children></Pane>
       <Pane fx:id="PaneRemedios" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;" visible="false">
          <children>
             <Label text="remedio" />
+            <TableView fx:id="tabelaRemedios" layoutX="61.0" layoutY="127.0" prefHeight="397.0" prefWidth="529.0">
+              <columns>
+                <TableColumn fx:id="colunaRemedioCodigo" prefWidth="69.0" text="CÓDIGO" />
+                <TableColumn fx:id="colunaRemedioNome" prefWidth="81.0" text="NOME" />
+                  <TableColumn fx:id="colunaRemedioQtd" prefWidth="44.0" text="QTD" />
+                  <TableColumn fx:id="colunaRemedioHorario" prefWidth="86.0" text="HORÁRIO" />
+                  <TableColumn fx:id="colunaRemedioDuracao" prefWidth="90.0" text="DURAÇÃO" />
+                  <TableColumn fx:id="colunaRemedioMedico" prefWidth="100.0" text="MÉDICO" />
+                  <TableColumn fx:id="colunaRemedioPet" prefWidth="58.0" text="PET" />
+              </columns>
+            </TableView>
          </children></Pane>
-      <Pane fx:id="PaneExames" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;" visible="false">
+      <Pane fx:id="PaneExames" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;">
          <children>
             <Label text="exame" />
+            <TableView fx:id="tabelaExames" layoutX="110.0" layoutY="136.0" prefHeight="378.0" prefWidth="430.0">
+              <columns>
+                  <TableColumn fx:id="colunaExameData" prefWidth="53.0" text="DATA" />
+                  <TableColumn fx:id="colunaExameHora" prefWidth="60.0" text="HORA" />
+                <TableColumn fx:id="colunaExameCodigo" prefWidth="72.0" text="CÓDIGO" />
+                <TableColumn fx:id="colunaExameNome" prefWidth="70.0" text="NOME" />
+                  <TableColumn fx:id="colunaExameMedico" prefWidth="97.0" text="MÉDICO" />
+                  <TableColumn fx:id="colunaExamePet" prefWidth="77.0" text="PET" />
+              </columns>
+            </TableView>
          </children></Pane>
       <Pane fx:id="PaneNotificacao" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;" visible="false">
          <children>

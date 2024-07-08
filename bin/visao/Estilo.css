@@ -1,4 +1,4 @@
-#btnSolicitarConsulta {
+#btnConsultas {
   -fx-background-color: #AA9ACF;
   -fx-font-weight: bold;
   -fx-opacity: 1;
@@ -6,11 +6,11 @@
   -fx-font-family: "Quicksand";
 }
 
-#btnSolicitarConsulta:hover {
+#btnConsultas:hover {
   -fx-background-color: #8b7ab3;
 }
 
-#btnSolicitarConsulta:pressed {
+#btnConsultas:pressed {
   -fx-background-color: #AA9ACF;
   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
 }
