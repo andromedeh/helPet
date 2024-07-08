@@ -17,7 +17,7 @@
          <children>
             <ImageView>
                <image>
-                  <Image url="@../../../../../helPet/src/visao/img/TelaCadastroClientePet.png" />
+                  <Image url="@../img/TelaCadastroClientePet.png" />
                </image>
             </ImageView>
             <Button fx:id="btnConfirmar" layoutX="366.0" layoutY="587.0" mnemonicParsing="false" onAction="#confirmar" prefHeight="42.0" prefWidth="135.0" stylesheets="@../../../../../helPet/src/visao/Estilo.css" text="CONFIRMAR" textFill="#faf9f6">
@@ -96,7 +96,7 @@
             <Label fx:id="labelStatusPet" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="504.0" prefHeight="21.0" prefWidth="542.0" stylesheets="@../../../../../helPet/src/visao/Estilo.css" textAlignment="CENTER" />
             <Label layoutX="163.0" layoutY="422.0" stylesheets="@../../../../../helPet/src/visao/Estilo.css" text="(anos):" />
             <Label layoutX="293.0" layoutY="422.0" stylesheets="@../../../../../helPet/src/visao/Estilo.css" text="(Kg):" />
-            <AnchorPane fx:id="AnchorPaneConfirmacao" layoutX="63.0" layoutY="154.0" prefHeight="430.0" prefWidth="778.0" stylesheets="@../Estilo.css">
+            <AnchorPane fx:id="AnchorPaneConfirmacao" layoutX="63.0" layoutY="154.0" prefHeight="430.0" prefWidth="778.0" stylesheets="@../Estilo.css" visible="false">
                <children>
                   <Button fx:id="btnContinuarPet" layoutX="316.0" layoutY="359.0" mnemonicParsing="false" onAction="#continuarCadastroPet" prefHeight="48.0" prefWidth="115.0" text="CONTINUAR" textFill="#faf9f6">
                      <cursor>

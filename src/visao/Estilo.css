@@ -156,6 +156,7 @@
   -fx-font-weight: bold;
   -fx-font-family: "Quicksand";
 }
+
 #labelNome{
   -fx-text-fill: #665788;
   -fx-font-weight: bold;
@@ -264,4 +265,94 @@
 
 #fotoPerfil{
   -fx-background-radius: 60px;
+}
+
+#campoCodigo{
+  -fx-font-weight: bold;
+  -fx-background-color: #E15959;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+#btnGerenciarClientes {
+  -fx-background-color: #FFE5D1;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnGerenciarClientes:hover {
+  -fx-background-color: #c49c7e;
+}
+
+#btnGerenciarClientes:pressed {
+  -fx-background-color: #FFE5D1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#btnGerenciarProfissionais {
+  -fx-background-color:  #FFE5D1;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnGerenciarProfissionais:hover {
+  -fx-background-color: #c49c7e;
+}
+
+#btnGerenciarProfissionais:pressed {
+  -fx-background-color:  #FFE5D1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#btnSairAdm {
+  -fx-background-color:  #FFE5D1;
+  -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+}
+
+#btnSairAdm:hover {
+  -fx-background-color: #c49c7e;
+}
+
+#btnSairAdm:pressed {
+  -fx-background-color:  #FFE5D1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+#labelStatus{
+  -fx-text-fill: #FF0000;
+  -fx-font-weight: bold;
+  -fx-font-family: "Quicksand";
+}
+
+#labelAdm{
+  -fx-text-fill:  #FFE5D1;
+  -fx-font-weight: bold;
+  -fx-font-size: 14;
+  -fx-font-family: "Quicksand";
+}
+
+.table-view {
+  -fx-background-color: #F19797;
+  -fx-border-color: #dcdcdc;
+  -fx-table-cell-border-color: #E15959;
+}
+
+.column-header-background {
+  -fx-background-color: #E15959;
+}
+
+.table-column-header {
+  -fx-background-color: #E15959;
+  -fx-padding: 8px;
+  -fx-font-size: 14px;
+  -fx-font-weight: bold;
 }
