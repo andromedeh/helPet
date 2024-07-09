@@ -7,26 +7,26 @@ import java.sql.Date;
 public class Vacina implements Serializable{
 
 private String nomeVacina;
-private static int codVacina=1;
-private Date data;
-private String hora;
+private int codVacina;
+private Date data_aplicacao;
+private Date data_reforco;
 
 public Vacina() {
 }
 
-public Vacina(String nome, Date data, String hora){
+public Vacina(String nome, Date data_aplicacao, Date data_reforco){
   setNomeVacina(nome);
-  setData(data);
-  setHora(hora);
-  codVacina++;
+  setData_aplicacao(data_aplicacao);
+  setData_reforco(data_reforco);
+
 }
 
-public static int getCodVacina() {
+public int getCodVacina() {
   return codVacina;
 }
 
-public static void setCodVacina(int codVacina) {
-  Vacina.codVacina = codVacina;
+public void setCodVacina(int codVacina) {
+  this.codVacina = codVacina;
 }
 
 public String getNomeVacina() {
@@ -37,21 +37,22 @@ public void setNomeVacina(String nomeVacina) {
   this.nomeVacina = nomeVacina;
 }
 
-public Date getData() {
-  return data;
+public Date getData_aplicacao() {
+  return data_aplicacao;
 }
 
-public void setData(Date data) {
-  this.data = data;
+public void setData_aplicacao(Date data_aplicacao) {
+  this.data_aplicacao = data_aplicacao;
 }
 
-public String getHora() {
-  return hora;
+public Date getData_reforco() {
+  return data_reforco;
 }
 
-public void setHora(String hora) {
-  this.hora = hora;
+public void setData_reforco(Date data_reforco) {
+  this.data_reforco = data_reforco;
 }
+
 
 
 }

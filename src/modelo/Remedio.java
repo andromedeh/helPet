@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Remedio implements Serializable{
 
-  private static int codRemedio=1;
+  private int codRemedio;
   private String nome;
   private String descricao;
 
@@ -14,14 +14,13 @@ public class Remedio implements Serializable{
   public Remedio(String nome, String descricao) {
     this.nome = nome;
     this.descricao = descricao;
-    codRemedio++;
   }
 
-  public static void setCodRemedio(int codRemedio) {
-    Remedio.codRemedio = codRemedio;
+  public  void setCodRemedio(int codRemedio) {
+    this.codRemedio = codRemedio;
   }
   
-  public static int getCodRemedio() {
+  public int getCodRemedio() {
     return codRemedio;
   }
   

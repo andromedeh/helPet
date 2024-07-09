@@ -7,9 +7,8 @@ public class MedicoVeterinario extends Profissional {
     
   }
 
-  public MedicoVeterinario(String nome, long cpf, long telefone, String funcao, String email, String senha,
-      String confirmarSenha, int crmv) {
-    super(nome, cpf, telefone, funcao, email, senha, confirmarSenha);
+  public MedicoVeterinario(String nome, long cpf, long telefone, String funcao, String email, String senha, int crmv) {
+    super(nome, cpf, telefone, funcao, email, senha);
     setCrmv(crmv);
   }
 

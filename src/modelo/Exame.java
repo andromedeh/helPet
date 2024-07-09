@@ -5,7 +5,7 @@ import java.sql.Date;
 
 
 public class Exame implements Serializable{
-  private static int codExame=1;
+  private int codExame;
   private String nomeExame;
   private String descricao;
   private Date data;
@@ -21,7 +21,6 @@ public class Exame implements Serializable{
       setDescricao(descricao);
       setData(data);
       setHora(hora);
-      codExame++;
     }
 
   public int getCodExame(){
@@ -29,7 +28,7 @@ public class Exame implements Serializable{
   }
 
   public void setCodExame(int codExame){
-    Exame.codExame = codExame;
+    this.codExame = codExame;
   }
   
   public String getNomeExame() {

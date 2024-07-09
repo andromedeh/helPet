@@ -15,8 +15,7 @@ public class Cliente implements Serializable {
     
   }
 
-  public Cliente(String nome, String sobrenome, long cpf, long telefone, String email, String endereco, String senha,
-      String confirmarSenha) {
+  public Cliente(String nome, String sobrenome, long cpf, long telefone, String email, String endereco, String senha){
     setNome(nome);
     setSobrenome(sobrenome);
     setCpf(cpf);

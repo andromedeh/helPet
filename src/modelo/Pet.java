@@ -8,16 +8,18 @@ public class Pet implements Serializable {
   private int idade;
   private float peso;
   private String especie;
+  private Long cpfDono;
 
   public Pet() {
   }
 
-  public Pet(String nomePet, String raca, int idade, float peso, String especie) {
+  public Pet(String nomePet, String raca, int idade, float peso, String especie, Long cpfDono) {
     setNomePet(nomePet);
     setRaca(raca);
     setIdade(idade);
     setPeso(peso);
     setEspecie(especie);
+    setCpfDono(cpfDono);
   }
 
   public String getNomePet() {
@@ -59,4 +61,14 @@ public class Pet implements Serializable {
   public void setEspecie(String especie) {
     this.especie = especie;
   }
+
+  public Long getCpfDono() {
+    return cpfDono;
+  }
+
+  public void setCpfDono(Long cpfDono) {
+    this.cpfDono = cpfDono;
+  }
+
+  
 }

@@ -1,5 +1,5 @@
 package data.JBDC;
 
-public class ExameDaoJbdc {
+public class ExameDaoJdbc {
 
 }
