@@ -66,12 +66,13 @@ public class PetDaoJdbc implements IPetDAO {
     }
 
     @Override
-    public Pet readPet(String nome) {
-        String query = "select * from pet where cpf_dono_Pet=?";
+    public Pet readPet(Long cpfDono, String nome) {
+        String query = "select * from pet where cpf_dono_Pet=? and nome_pet =?";
         Connection connection = ConnectionFactory.concectBD();
         Pet p = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setLong(1, cpfDono);
             preparedStatement.setString(1, nome);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet != null) {
