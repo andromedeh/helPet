@@ -155,7 +155,7 @@ public class PetDaoJdbc implements IPetDAO {
         try {
             connection = ConnectionFactory.concectBD();
             pst = connection.prepareStatement(query);
-            pst.setLong(1,pet.getCpfDono());
+            pst.setLong(1, pet.getCpfDono());
             pst.setString(2, pet.getNomePet());
             pst.execute();
             pst.close();
