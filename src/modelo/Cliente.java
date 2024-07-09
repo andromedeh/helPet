@@ -12,6 +12,10 @@ public class Cliente implements Serializable {
   private String senha;
   private String confirmarSenha;
 
+  public Cliente(){
+    
+  }
+
   public Cliente(String nome, String sobrenome, long cpf, long telefone, String email, String endereco, String senha,
       String confirmarSenha) {
     setNome(nome);
