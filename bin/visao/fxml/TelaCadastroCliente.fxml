@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="AnchorPaneTelaCadastroCliente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #AA9ACF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorTelaCadastroCliente">
+   <children>
+      <ImageView>
+         <image>
+            <Image url="@../img/TelaCadastroCliente.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnContinuar" layoutX="383.0" layoutY="587.0" mnemonicParsing="false" onAction="#continuar" prefHeight="42.0" prefWidth="135.0" stylesheets="@../Estilo.css" text="CONTINUAR" textFill="#faf9f6">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="campoNome" layoutX="116.0" layoutY="228.0" prefHeight="25.0" prefWidth="177.0" stylesheets="@../Estilo.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="campoSobrenome" layoutX="354.0" layoutY="228.0" prefHeight="25.0" prefWidth="434.0" stylesheets="@../Estilo.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="campoCpf" layoutX="117.0" layoutY="301.0" prefWidth="177.0" stylesheets="@../Estilo.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="campoTelefone" layoutX="332.0" layoutY="301.0" prefWidth="177.0" stylesheets="@../Estilo.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="campoEmailCadastro" layoutX="548.0" layoutY="301.0" prefHeight="25.0" prefWidth="241.0" stylesheets="@../Estilo.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="campoEndereco" layoutX="115.0" layoutY="372.0" prefHeight="25.0" prefWidth="673.0" stylesheets="@../Estilo.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="117.0" layoutY="211.0" stylesheets="@../Estilo.css" text="NOME:" textFill="#322073" />
+      <Label layoutX="355.0" layoutY="211.0" stylesheets="@../Estilo.css" text="SOBRENOME:" textFill="#322073" />
+      <Label layoutX="117.0" layoutY="284.0" stylesheets="@../Estilo.css" text="CPF:" textFill="#322073" />
+      <Label layoutX="117.0" layoutY="355.0" stylesheets="@../Estilo.css" text="ENDEREÇO:" textFill="#322073" />
+      <Label layoutX="117.0" layoutY="433.0" stylesheets="@../Estilo.css" text="SENHA:" textFill="#322073" />
+      <Label layoutX="406.0" layoutY="433.0" stylesheets="@../Estilo.css" text="CONFIRME A SENHA:" textFill="#322073" />
+      <Label layoutX="332.0" layoutY="284.0" stylesheets="@../Estilo.css" text="TELEFONE:" textFill="#322073" />
+      <Label layoutX="548.0" layoutY="284.0" stylesheets="@../Estilo.css" text="E-MAIL:" textFill="#322073" />
+      <PasswordField fx:id="campoSenha" layoutX="117.0" layoutY="450.0" prefHeight="25.0" prefWidth="206.0" stylesheets="@../Estilo.css" />
+      <PasswordField fx:id="campoConfirmarSenha" layoutX="406.0" layoutY="450.0" prefHeight="25.0" prefWidth="206.0" stylesheets="@../Estilo.css" />
+      <Label fx:id="labelStatusCliente" alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="530.0" prefHeight="21.0" prefWidth="637.0" stylesheets="@../Estilo.css" text="Preencha todos os campos!" />
+      <Button fx:id="btnVoltar" layoutX="826.0" layoutY="12.0" mnemonicParsing="false" onAction="#voltar" prefHeight="46.0" prefWidth="50.0" stylesheets="@../Estilo.css" textFill="#faf9f6">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../img/iconVoltar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

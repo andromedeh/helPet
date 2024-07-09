@@ -1,12 +1,15 @@
 package controle;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -25,21 +28,34 @@ import javafx.stage.Stage;
 
 public class ControladorTelaPrincipalCliente extends ControladorBase implements Initializable {
   @FXML
-  private AnchorPane AnchorPanePrincipalCliente, AnchorPaneConfirmacaoCadastroPet;
+  private AnchorPane AnchorPanePrincipalCliente;
 
   @FXML
-  private Pane paneMenu, PaneConteudo, PaneCadastrarPet, PaneConsultas, PaneVacinacao, PaneRemedios, PaneExames,
+  private Pane paneMenu, PaneConteudo, PaneMeusPets, PaneConsultas, PaneVacinacao, PaneRemedios, PaneExames,
       PaneNotificacao, PaneFAQ;
 
+  // BOTOES DA PANE MENU
   @FXML
-  private Button btnCadastrarNovoPet, btnConsultas, btnVacinacao, btnRemedios, btnExames, btnNotificacoes,
-      btnFAQ, btnSair, btnSolicitarConsulta, btnCancelarConsulta;
+  private Button btnMeusPets, btnConsultas, btnVacinacao, btnRemedios, btnExames, btnNotificacoes,
+      btnFAQ, btnSair;
+
+  // BOTOES GERAIS
+  @FXML
+  private Button btnCadastrarPet, btnDeletarPet, btnAtualizarTabelaPet, btnSolicitarConsulta, btnCancelarConsulta,
+      btnAtualizarTabelaConsulta, btnAtualizarTabelaVacinas, btnAtualizarTabelaRemedios, btnAtualizarTabelaExames;
 
   @FXML
   private Label labelNome;
 
   @FXML
   private ImageView fotoPerfil;
+
+  @FXML
+  private TableView<?> tabelaMeusPets;
+
+  @FXML
+  private TableColumn<?, ?> colunaMeuPetNome, colunaMeuPetEspecie, colunaMeuPetRaca, colunaMeuPetPeso,
+      colunaMeuPetIdade;
 
   @FXML
   private TableView<?> tabelaConsultas;
@@ -52,7 +68,7 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
 
   @FXML
   private TableColumn<?, ?> colunaVacinacaoCodigo, colunaVacinacaoNome, colunaVacinacaoDataAplicacao,
-      colunaVacinacaoDataReforço, colunaVacinacaoMedico, colunaVacinacaoPet;
+      colunaVacinacaoDataReforco, colunaVacinacaoMedico, colunaVacinacaoPet;
 
   @FXML
   private TableView<?> tabelaRemedios;
@@ -70,25 +86,10 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
 
   private Stage stage;
 
-  // Tela CadastrarNovoPet
-  @FXML
-  private TextField campoNomePet, campoRaca, campoIdade, campoPeso;
-  @FXML
-  private RadioButton rbGato, rbCachorro;
-  @FXML
-  private ToggleGroup especie;
-  @FXML
-  private Button btnConfirmarCadastroPet, btnContinuarPet;
-  @FXML
-  private Label labelStatusPet;
-  String especiePet;
-
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     visibilidadeTelas(true, false, false, false, false, false, false, false);
     labelNome.setText("Bem vindx, Fulano!");
-    AnchorPaneConfirmacaoCadastroPet.setVisible(false);
-    limparCamposPet();
   }
 
   @FXML
@@ -105,14 +106,36 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
   }
 
   @FXML
-  void cadastrarPet(ActionEvent event) {
+  void meusPets(ActionEvent event) {
     visibilidadeTelas(false, true, false, false, false, false, false, false);
+  }
+
+  @FXML
+  void cadastrarPet(ActionEvent event) {
+    AnchorPane anchorPane;
+    try {
+      anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/visao/fxml/TelaCadastroPet.fxml"));
+      Stage secondStage = new Stage();
+      Scene secondScene = new Scene(anchorPane);
+      secondStage.setScene(secondScene);
+      secondStage.show();
+    } catch (IOException ex) {
+    }
+  }
+
+  @FXML
+  void deletarPet(ActionEvent event) {
+
+  }
+
+  @FXML
+  void atualizarTabelaPet(ActionEvent event) {
+
   }
 
   @FXML
   void Consultas(ActionEvent event) {
     visibilidadeTelas(false, false, true, false, false, false, false, false);
-    limparCamposPet();
   }
 
   @FXML
@@ -126,109 +149,54 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
   }
 
   @FXML
+  void atualizarTabelaConsulta(ActionEvent event) {
+
+  }
+
+  @FXML
   void vacinacao(ActionEvent event) {
     visibilidadeTelas(false, false, false, true, false, false, false, false);
-    limparCamposPet();
+  }
+
+  @FXML
+  void atualizarTabelaVacinas(ActionEvent event) {
+
   }
 
   @FXML
   void remedios(ActionEvent event) {
     visibilidadeTelas(false, false, false, false, true, false, false, false);
-    limparCamposPet();
+  }
+
+  @FXML
+  void atualizarTabelaRemedios(ActionEvent event) {
+
   }
 
   @FXML
   void exames(ActionEvent event) {
     visibilidadeTelas(false, false, false, false, false, true, false, false);
-    limparCamposPet();
+  }
+
+  @FXML
+  void atualizarTabelaExames(ActionEvent event) {
+
   }
 
   @FXML
   void notificacao(ActionEvent event) {
     visibilidadeTelas(false, false, false, false, false, false, true, false);
-    limparCamposPet();
   }
 
   @FXML
   void faq(ActionEvent event) {
     visibilidadeTelas(false, false, false, false, false, false, false, true);
-    limparCamposPet();
   }
 
-  // =========CADASTRO DO PET=========
-  @FXML
-  void cadastroNovoPet(ActionEvent event) {
-    String nomePet = campoNomePet.getText();
-    String raca = campoRaca.getText();
-    float idade = 0;
-    float peso = 0;
-
-    if (nomePet.isEmpty() || raca.isEmpty() || campoIdade.getText().isEmpty() || campoPeso.getText().isEmpty()
-        || especie.getSelectedToggle() == null) {
-      labelStatusPet.setText("Preencha todos os campos!");
-      return;
-    }
-
-    if (!nomePet.matches("[a-zA-Z\\s]+")) {
-      labelStatusPet.setText("O nome do pet deve conter apenas letras.");
-      return;
-    }
-    if (!raca.matches("[a-zA-Z\\s]+")) {
-      labelStatusPet.setText("a raça do pet deve conter apenas letras.");
-      return;
-    }
-    if (!eFlutuante(campoIdade.getText())) {
-      labelStatusPet.setText("Entrada inválida para a idade. Por favor, insira um número válido.");
-      return;
-    } else {
-      idade = Float.parseFloat(campoIdade.getText());
-    }
-    if (!eFlutuante(campoPeso.getText())) {
-      labelStatusPet.setText("Entrada inválida para o peso. Por favor, insira um número válido.");
-      return;
-    } else {
-      peso = Float.parseFloat(campoPeso.getText());
-    }
-
-    RadioButton especieSelecionada = (RadioButton) especie.getSelectedToggle();
-    especiePet = especieSelecionada.getText(); // "Gato" ou "Cachorro"
-
-    // LOGICA DE BD
-
-    limparCamposPet();
-
-    AnchorPaneConfirmacaoCadastroPet.setVisible(true);
-
-  }
-
-  @FXML
-  void continuarCadastroPet(ActionEvent event) {
-    AnchorPaneConfirmacaoCadastroPet.setVisible(false);
-    visibilidadeTelas(true, false, false, false, false, false, false, false);
-  }
-
-  private boolean eFlutuante(String str) {
-    try {
-      Float.parseFloat(str);
-      return true;
-    } catch (NumberFormatException e) {
-      return false;
-    }
-  }
-
-  void limparCamposPet() {
-    campoNomePet.setText("");
-    campoRaca.setText("");
-    campoIdade.setText("");
-    campoPeso.setText("");
-    especie.selectToggle(null);
-    labelStatusPet.setText("");
-  }
-
-  public void visibilidadeTelas(boolean conteudo, boolean cadastroPet, boolean solicitarConsulta, boolean vacinacao,
+  public void visibilidadeTelas(boolean conteudo, boolean meusPets, boolean solicitarConsulta, boolean vacinacao,
       boolean remedios, boolean exames, boolean notificacao, boolean faq) {
     PaneConteudo.setVisible(conteudo);
-    PaneCadastrarPet.setVisible(cadastroPet);
+    PaneMeusPets.setVisible(meusPets);
     PaneConsultas.setVisible(solicitarConsulta);
     PaneVacinacao.setVisible(vacinacao);
     PaneRemedios.setVisible(remedios);
@@ -239,7 +207,6 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
 
   @FXML
   void sair(ActionEvent event) {
-    limparCamposPet();
     gerenciador.getStage().close();
     gerenciador.trocarCena("/visao/fxml/TelaEscolhaCliente.fxml");
   }
