@@ -11,7 +11,7 @@ private static int codVacina=1;
 private Date data;
 private String hora;
 
-private Vacina(String nome, Date data, String hora){
+public Vacina(String nome, Date data, String hora){
   setNomeVacina(nome);
   setData(data);
   setHora(hora);

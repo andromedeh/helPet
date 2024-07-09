@@ -1,10 +1,10 @@
-package DAO;
+package data.DAO;
 
 import java.util.List;
 
 import modelo.Profissional;
 
-public interface IProfissional {
+public interface IProfissionalDAO {
     public List<Profissional> getAllProfissional();
     public void createProfissional (Profissional profissional);
     public Profissional readProfissional (long cpf);
