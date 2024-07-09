@@ -1,140 +1,4 @@
-#btnConsultas {
-  -fx-background-color: #AA9ACF;
-  -fx-font-weight: bold;
-  -fx-opacity: 1;
-  -fx-background-radius: 60px;
-  -fx-font-family: "Quicksand";
-}
-
-#btnConsultas:hover {
-  -fx-background-color: #8b7ab3;
-}
-
-#btnConsultas:pressed {
-  -fx-background-color: #AA9ACF;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
-}
-
-#btnVacinacao {
-  -fx-background-color: #AA9ACF;
-  -fx-font-weight: bold;
-  -fx-opacity: 1;
-  -fx-background-radius: 60px;
-  -fx-font-family: "Quicksand";
-}
-
-#btnVacinacao:hover {
-  -fx-background-color: #8b7ab3;
-}
-
-#btnVacinacao:pressed {
-  -fx-background-color: #AA9ACF;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
-}
-
-#btnCadastrarNovoPet {
-  -fx-background-color: #AA9ACF;
-  -fx-font-weight: bold;
-  -fx-opacity: 1;
-  -fx-background-radius: 60px;
-  -fx-font-family: "Quicksand";
-}
-
-#btnCadastrarNovoPet:hover {
-  -fx-background-color: #8b7ab3;
-}
-
-#btnCadastrarNovoPet:pressed {
-  -fx-background-color: #AA9ACF;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
-}
-
-#btnRemedios {
-  -fx-background-color: #AA9ACF;
-  -fx-font-weight: bold;
-  -fx-opacity: 1;
-  -fx-background-radius: 60px;
-  -fx-font-family: "Quicksand";
-}
-
-#btnRemedios:hover {
-  -fx-background-color: #8b7ab3;
-}
-
-#btnRemedios:pressed {
-  -fx-background-color: #AA9ACF;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
-}
-
-#btnExames {
-  -fx-background-color: #AA9ACF;
-  -fx-font-weight: bold;
-  -fx-opacity: 1;
-  -fx-background-radius: 60px;
-  -fx-font-family: "Quicksand";
-}
-
-#btnExames:hover {
-  -fx-background-color: #8b7ab3;
-}
-
-#btnExames:pressed {
-  -fx-background-color: #AA9ACF;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
-}
-
-#btnNotificacoes {
-  -fx-background-color: #AA9ACF;
-  -fx-font-weight: bold;
-  -fx-opacity: 1;
-  -fx-background-radius: 60px;
-  -fx-font-family: "Quicksand";
-}
-
-#btnNotificacoes:hover {
-  -fx-background-color: #8b7ab3;
-}
-
-#btnNotificacoes:pressed {
-  -fx-background-color: #AA9ACF;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
-}
-
-#btnFAQ {
-  -fx-background-color: #AA9ACF;
-  -fx-font-weight: bold;
-  -fx-opacity: 1;
-  -fx-background-radius: 60px;
-  -fx-font-family: "Quicksand";
-}
-
-#btnFAQ:hover {
-  -fx-background-color: #8b7ab3;
-}
-
-#btnFAQ:pressed {
-  -fx-background-color: #AA9ACF;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
-}
-
-#btnSair {
-  -fx-background-color: #AA9ACF;
-  -fx-font-weight: bold;
-  -fx-opacity: 1;
-  -fx-background-radius: 60px;
-  -fx-font-family: "Quicksand";
-}
-
-#btnSair:hover {
-  -fx-background-color: #8b7ab3;
-}
-
-#btnSair  :pressed {
-  -fx-background-color: #AA9ACF;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
-}
-
-.button{
+.button {
   -fx-background-color: #322073;
   -fx-font-weight: bold;
   -fx-opacity: 1;
@@ -143,39 +7,39 @@
 }
 
 .button:hover {
-  -fx-background-color: #665788; 
+  -fx-background-color: #665788;
 }
 
 .button:pressed {
   -fx-background-color: #322073;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
 }
 
-.label{
+.label {
   -fx-text-fill: #322073;
   -fx-font-weight: bold;
   -fx-font-family: "Quicksand";
 }
 
-#labelNome{
+#labelNome {
   -fx-text-fill: #665788;
   -fx-font-weight: bold;
   -fx-font-family: "Quicksand";
 }
 
-#labelStatusCliente{
+#labelStatusCliente {
   -fx-text-fill: #FF0000;
   -fx-font-weight: bold;
   -fx-font-family: "Quicksand";
 }
 
-#labelStatusPet{
+#labelStatusPet {
   -fx-text-fill: #FF0000;
   -fx-font-weight: bold;
   -fx-font-family: "Quicksand";
 }
 
-.text-field{
+.text-field {
   -fx-font-weight: bold;
   -fx-background-color: #7756A6;
   -fx-background-radius: 60px;
@@ -190,7 +54,7 @@
   -fx-background-color: #AA9ACF;
 }
 
-#campoEmail{
+#campoEmail {
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;
@@ -199,7 +63,7 @@
   -fx-font-family: "Quicksand";
 }
 
-#campoSenhaTexto{
+#campoSenhaTexto {
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;
@@ -208,7 +72,7 @@
   -fx-font-family: "Quicksand";
 }
 
-#campoSenhaOculto{
+#campoSenhaOculto {
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;
@@ -234,7 +98,7 @@
 
 .radio-button:selected .radio {
   -fx-background-color: #AA9ACF;
-  -fx-border-color: #322073; 
+  -fx-border-color: #322073;
 }
 
 .radio-button:selected .dot {
@@ -243,31 +107,33 @@
   -fx-background-radius: 50%;
 }
 
-#AnchorPaneConfirmacaoCadastroPet{
-  -fx-background-color:#f8f4f2;
-  -fx-border-color : #322073;
+#AnchorPaneConfirmacaoCadastroPet {
+  -fx-background-color: #f8f4f2;
+  -fx-border-color: #322073;
   -fx-border-width: 5px;
   -fx-border-radius: 50px;
   -fx-background-radius: 60px;
-  -fx-padding: 10px; /* Define o preenchimento interno */
+  -fx-padding: 10px;
+  /* Define o preenchimento interno */
   -fx-margin: 10px;
 }
 
-#AnchorPaneConfirmacao{
-  -fx-background-color:#f8f4f2;
-  -fx-border-color : #322073;
+#AnchorPaneConfirmacao {
+  -fx-background-color: #f8f4f2;
+  -fx-border-color: #322073;
   -fx-border-width: 5px;
   -fx-border-radius: 50px;
   -fx-background-radius: 60px;
-  -fx-padding: 10px; /* Define o preenchimento interno */
+  -fx-padding: 10px;
+  /* Define o preenchimento interno */
   -fx-margin: 10px;
 }
 
-#fotoPerfil{
+#fotoPerfil {
   -fx-background-radius: 60px;
 }
 
-#campoCodigo{
+#campoCodigo {
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;
@@ -290,11 +156,11 @@
 
 #btnGerenciarClientes:pressed {
   -fx-background-color: #FFE5D1;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
 }
 
 #btnGerenciarProfissionais {
-  -fx-background-color:  #FFE5D1;
+  -fx-background-color: #FFE5D1;
   -fx-font-weight: bold;
   -fx-opacity: 1;
   -fx-background-radius: 60px;
@@ -306,12 +172,12 @@
 }
 
 #btnGerenciarProfissionais:pressed {
-  -fx-background-color:  #FFE5D1;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+  -fx-background-color: #FFE5D1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
 }
 
 #btnSairAdm {
-  -fx-background-color:  #FFE5D1;
+  -fx-background-color: #FFE5D1;
   -fx-font-weight: bold;
   -fx-opacity: 1;
   -fx-background-radius: 60px;
@@ -323,36 +189,337 @@
 }
 
 #btnSairAdm:pressed {
-  -fx-background-color:  #FFE5D1;
-  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+  -fx-background-color: #FFE5D1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
 }
 
-#labelStatus{
+#labelStatus {
   -fx-text-fill: #FF0000;
   -fx-font-weight: bold;
   -fx-font-family: "Quicksand";
 }
 
-#labelAdm{
-  -fx-text-fill:  #FFE5D1;
+#labelAdm {
+  -fx-text-fill: #FFE5D1;
   -fx-font-weight: bold;
   -fx-font-size: 14;
   -fx-font-family: "Quicksand";
 }
 
-.table-view {
+#tabelaProfissionais,
+#tabelaAdmClientes {
+  -fx-background-radius: 4px;
+  -fx-background-color: #E15959;
+  -fx-padding: 3px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+#colunaProfissionalCpf,
+#colunaProfissionalNome,
+#colunaProfissionalFuncao,
+#colunaCpfCliente,
+#colunaNomeCliente,
+#colunaNomePet {
   -fx-background-color: #F19797;
-  -fx-border-color: #dcdcdc;
-  -fx-table-cell-border-color: #E15959;
+  -fx-border-color: #E15959;
+  -fx-border-width: 1px;
+  -fx-font-size: 12px;
+  -fx-border-radius: 2px;
 }
 
-.column-header-background {
-  -fx-background-color: #E15959;
-}
-
-.table-column-header {
-  -fx-background-color: #E15959;
-  -fx-padding: 8px;
-  -fx-font-size: 14px;
+#btnAdministarConsultas,
+#btnMeusClientes,
+#btnConsultasAgendadas,
+#btnExamesAgendados,
+#btnSair,
+#btnFAQ,
+#btnMeusPets,
+#btnConsultas,
+#btnVacinacao,
+#btnRemedios,
+#btnExames,
+#btnNotificacoes {
+  -fx-background-color: #AA9ACF;
   -fx-font-weight: bold;
+  -fx-opacity: 1;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Quicksand";
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+#btnMeusPets:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnMeusPets:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
+}
+
+#btnConsultas:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnConsultas:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
+}
+
+#btnVacinacao:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnVacinacao:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
+}
+
+#btnRemedios:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnRemedios:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
+}
+
+#btnExames:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnExames:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
+}
+
+#btnNotificacoes:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnNotificacoes:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
+}
+
+#btnFAQ:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnFAQ:pressed {
+  -fx-background-color: #AA9ACF;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
+}
+
+#btnSair:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnSair :pressed {
+  -fx-background-color: #AA9ACF;
+}
+
+#btnAdministarConsultas:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnAdministarConsultas :pressed {
+  -fx-background-color: #AA9ACF;
+}
+
+#btnMeusClientes:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnMeusClientes :pressed {
+  -fx-background-color: #AA9ACF;
+}
+
+#btnConsultasAgendadas:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnConsultasAgendadas :pressed {
+  -fx-background-color: #AA9ACF;
+}
+
+#btnExamesAgendados:hover {
+  -fx-background-color: #8b7ab3;
+}
+
+#btnExamesAgendados :pressed {
+  -fx-background-color: #AA9ACF;
+}
+
+#btnMarcarConsulta,
+#btnCancelarConsulta,
+#btnCancelarExame,
+#btnAcessarCliente,
+#btnSolicitarConsulta,
+#btnAtualizarTabelaConsulta,
+#btnAtualizarTabelaVacinas,
+#btnAtualizarTabelaRemedios,
+#btnAtualizarTabelaExames,
+#btnCadastrarPet,
+#btnDeletarPet,
+#btnAtualizarTabelaPet {
+  -fx-background-color: #E15959;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+#btnCadastrarPet:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnCadastrarPet:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnDeletarPet:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnDeletarPet:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnAtualizarTabelaPet:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnAtualizarTabelaPet:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnAtualizarTabelaExames:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnAtualizarTabelaExames:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnAtualizarTabelaRemedios:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnAtualizarTabelaRemedios:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnAtualizarTabelaVacinas:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnAtualizarTabelaVacinas:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnAtualizarTabelaConsulta:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnAtualizarTabelaConsulta:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnSolicitarConsulta:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnSolicitarConsulta:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnMarcarConsulta:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnMarcarConsulta:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnCancelarConsulta:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnCancelarConsulta:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnCancelarExame:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnCancelarExame:pressed {
+  -fx-background-color: #E15959;
+}
+
+#btnAcessarCliente:hover {
+  -fx-background-color: #e34141;
+}
+
+#btnAcessarCliente:pressed {
+  -fx-background-color: #E15959;
+}
+
+#tabelaConsultas,
+#tabelaExames,
+#tabelaClientes,
+#tabelaExames,
+#tabelaRemedios,
+#tabelaVacinacao,
+#tabelaMeusPets {
+  -fx-background-radius: 4px;
+  -fx-background-color: #322073;
+  -fx-padding: 3px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+#colunaConsultaData,
+#colunaConsultaHora,
+#colunaConsultaMedico,
+#colunaConsultaCliente,
+#colunaConsultaMedicoCpf,
+#colunaConsultaClienteCpf,
+#colunaConsultaPet,
+#colunaExameData,
+#colunaExameHora,
+#colunaExameTipo,
+#colunaExameNomeCliente,
+#colunaExameCPF,
+#colunaExameNomePet,
+#colunaConsultaNomeCliente,
+#colunaConsultaCPF,
+#colunaConsultaNomePet,
+#colunaClienteNome,
+#colunaClienteSobrenome,
+#colunaClienteCPF,
+#colunaClienteTelefone,
+#colunaExameCodigo,
+#colunaExameNome,
+#colunaExameMedico,
+#colunaExamePet,
+#colunaRemedioCodigo,
+#colunaRemedioNome,
+#colunaRemedioQtd,
+#colunaRemedioHorario,
+#colunaRemedioDuracao,
+#colunaRemedioMedico,
+#colunaRemedioPet,
+#colunaVacinacaoCodigo,
+#colunaVacinacaoNome,
+#colunaVacinacaoDataAplicacao,
+#colunaVacinacaoDataReforco,
+#colunaVacinacaoMedico,
+#colunaVacinacaoPet,
+#colunaMeuPetNome,
+#colunaMeuPetEspecie,
+#colunaMeuPetRaca,
+#colunaMeuPetPeso,
+#colunaMeuPetIdade {
+  -fx-background-color: #AA9ACF;
+  -fx-border-color: #322073;
+  -fx-border-width: 1px;
+  -fx-font-size: 12px;
+  -fx-border-radius: 2px;
 }

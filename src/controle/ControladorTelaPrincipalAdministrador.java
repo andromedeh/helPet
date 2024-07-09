@@ -34,31 +34,31 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   private TableView<?> tabelaProfissionais;
 
   @FXML
-  private TableColumn<?,?> cpf;
+  private TableColumn<?, ?> colunaProfissionalCpf;
 
   @FXML
-  private TableColumn<?,?> nome;
+  private TableColumn<?, ?> colunaProfissionalNome;
 
   @FXML
-  private TableColumn<?,?> funcao;
+  private TableColumn<?, ?> colunaProfissionalFuncao;
 
-  @FXML 
+  @FXML
   private Label labelAdm;
 
   @FXML // botoes da PaneClientes
   private Button btnExcluirCliente, btnAtualizarCliente;
 
   @FXML
-  private TableView<?> tabelaClientes;
+  private TableView<?> tabelaAdmClientes;
 
   @FXML
-  private TableColumn<?, ?> cpfCliente;
+  private TableColumn<?, ?> colunaCpfCliente;
 
   @FXML
-  private TableColumn<?, ?> nomeCliente;
+  private TableColumn<?, ?> colunaNomeCliente;
 
   @FXML
-  private TableColumn<?, ?> nomePet;
+  private TableColumn<?, ?> colunaNomePet;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -76,13 +76,13 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   void gerenciarClientes(ActionEvent event) {
     visibilidade(false, false, true);
   }
-  
-  public void sair (){
+
+  public void sair() {
     gerenciador.getStage().close();
-		gerenciador.trocarCena("/visao/fxml/TelaInicial.fxml");
+    gerenciador.trocarCena("/visao/fxml/TelaInicial.fxml");
   }
 
-  public void visibilidade (boolean conteudo, boolean profissionais, boolean clientes){
+  public void visibilidade(boolean conteudo, boolean profissionais, boolean clientes) {
     PaneConteudo.setVisible(conteudo);
     PaneProfissionais.setVisible(profissionais);
     PaneClientes.setVisible(clientes);
@@ -97,13 +97,14 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   @FXML
   void cadastrarProfissional(ActionEvent event) {
     AnchorPane anchorPane;
-      try {
-        anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/visao/fxml/TelaCadastroProfissionais.fxml"));
-        Stage secondStage = new Stage();
-        Scene secondScene = new Scene(anchorPane);
-        secondStage.setScene(secondScene);
-        secondStage.show();
-      } catch (IOException ex) {}
+    try {
+      anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/visao/fxml/TelaCadastroProfissionais.fxml"));
+      Stage secondStage = new Stage();
+      Scene secondScene = new Scene(anchorPane);
+      secondStage.setScene(secondScene);
+      secondStage.show();
+    } catch (IOException ex) {
+    }
   }
 
   @FXML
@@ -111,7 +112,7 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
     // IMPLEMENTAR LOGICA DE EXCLUIR LINHA DA TABELA
   }
 
-  public void carregarTabelaProfissional(){
+  public void carregarTabelaProfissional() {
     // IMPLEMENTAR LOGICA DE CARREGAR TABELA
   }
 
@@ -121,7 +122,7 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
 
   }
 
-  public void carregarTabelaCliente(){
+  public void carregarTabelaCliente() {
     // IMPLEMENTAR LOGICA DE CARREGAR TABELA
   }
 

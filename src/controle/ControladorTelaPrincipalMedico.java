@@ -84,7 +84,7 @@ public class ControladorTelaPrincipalMedico extends ControladorBase implements I
   }
 
   @FXML
-  void meusAcessarCliente(ActionEvent event) {
+  void acessarCliente(ActionEvent event) {
 
   }
 
