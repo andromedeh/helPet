@@ -23,7 +23,15 @@ public class PetController {
       return petDAO.readPet(cpfDono, nome);
     }
 
-    public atualizarPet (Long cpfDono, String nome){
-      
+    public void atualizarPet (String nome, String raca, int idade, float peso, String especie, Long cpfDono){
+      Pet pet = new Pet(nome, raca, idade, peso, especie, cpfDono);
+      petDAO.updatePet(pet);
     }
+
+    public void deletarPet (String nome, String raca, int idade, float peso, String especie, Long cpfDono){
+      Pet pet = new Pet(nome, raca, idade, peso, especie, cpfDono);
+      petDAO.deletePet(pet);
+    }
+
+
 }
