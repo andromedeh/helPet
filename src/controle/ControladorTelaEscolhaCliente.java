@@ -22,7 +22,7 @@ public class ControladorTelaEscolhaCliente extends ControladorBase implements In
   @FXML
   void cadastrar(ActionEvent event) {
     gerenciador.getStage().close();
-    gerenciador.trocarCena("/visao/fxml/TelaCadastroClientePet.fxml");
+    gerenciador.trocarCena("/visao/fxml/TelaCadastroCliente.fxml");
   }
 
   @FXML

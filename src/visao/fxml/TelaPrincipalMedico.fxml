@@ -9,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="AnchorPanePrincipalMedico" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorTelaPrincipalMedico">
    <children>
@@ -24,70 +23,96 @@
                </cursor>
             </ImageView>
             <Label fx:id="labelNome" alignment="CENTER" layoutX="45.0" layoutY="153.0" prefHeight="17.0" prefWidth="171.0" stylesheets="@../Estilo.css" />
-            <Button fx:id="btnMeusClientes" layoutX="34.0" layoutY="230.0" mnemonicParsing="false" onAction="#meusClientes" prefHeight="31.0" prefWidth="194.0" text="MEUS CLIENTES" />
-            <Button fx:id="btnConsultasAgendadas" layoutX="34.0" layoutY="310.0" mnemonicParsing="false" onAction="#consultasAgendadas" text="CONSULTAS AGENDADAS" />
-            <Button fx:id="btnExamesAgendados" layoutX="34.0" layoutY="390.0" mnemonicParsing="false" onAction="#examesAgendados" prefHeight="31.0" prefWidth="194.0" text="EXAMES AGENDADOS" />
-            <Button fx:id="btnSair" layoutX="89.0" layoutY="590.0" mnemonicParsing="false" onAction="#sair" prefHeight="34.0" prefWidth="83.0" stylesheets="@../Estilo.css" text="SAIR" />
+            <Button fx:id="btnMeusClientes" layoutX="34.0" layoutY="247.0" mnemonicParsing="false" onAction="#meusClientes" prefHeight="31.0" prefWidth="194.0" stylesheets="@../Estilo.css" text="MEUS CLIENTES" />
+            <Button fx:id="btnConsultasAgendadas" layoutX="34.0" layoutY="310.0" mnemonicParsing="false" onAction="#consultasAgendadas" prefHeight="31.0" prefWidth="194.0" stylesheets="@../Estilo.css" text="CONSULTAS AGENDADAS" />
+            <Button fx:id="btnExamesAgendados" layoutX="34.0" layoutY="372.0" mnemonicParsing="false" onAction="#examesAgendados" prefHeight="31.0" prefWidth="194.0" stylesheets="@../Estilo.css" text="EXAMES AGENDADOS" />
+            <Button fx:id="btnSair" layoutX="89.0" layoutY="593.0" mnemonicParsing="false" onAction="#sair" prefHeight="31.0" prefWidth="83.0" stylesheets="@../Estilo.css" text="SAIR" />
          </children>
       </Pane>
       <Pane fx:id="PaneMeusClientes" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;">
          <children>
-            <Label alignment="CENTER" layoutX="157.0" layoutY="30.0" prefHeight="60.0" prefWidth="340.0" text="MEUS CLIENTES">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tabelaClientes" layoutX="24.0" layoutY="136.0" prefHeight="378.0" prefWidth="603.0">
+            <TableView fx:id="tabelaClientes" layoutX="48.0" layoutY="252.0" prefHeight="347.0" prefWidth="566.0" stylesheets="@../Estilo.css">
               <columns>
-                <TableColumn fx:id="colunaClienteNome" prefWidth="143.0" text="NOME" />
-                <TableColumn fx:id="colunaClienteSobrenome" prefWidth="207.0" text="SOBRENOME" />
-                  <TableColumn fx:id="colunaClienteCPF" prefWidth="108.0" text="CPF" />
-                  <TableColumn fx:id="colunaClienteTelefone" prefWidth="144.0" text="TELEFONE" />
+                <TableColumn fx:id="colunaClienteNome" prefWidth="133.0" text="Nome" />
+                <TableColumn fx:id="colunaClienteSobrenome" prefWidth="207.0" text="Sobrenome" />
+                  <TableColumn fx:id="colunaClienteCPF" minWidth="0.0" prefWidth="108.0" text="CPF" />
+                  <TableColumn fx:id="colunaClienteTelefone" prefWidth="117.0" text="Telefone" />
               </columns>
             </TableView>
-            <Button fx:id="btnAcessarCliente" layoutX="230.0" layoutY="560.0" mnemonicParsing="false" onAction="#meusAcessarCliente" prefHeight="31.0" prefWidth="194.0" text="ACESSAR CLIENTE" />
+            <Button fx:id="btnAcessarCliente" layoutX="303.0" layoutY="186.0" mnemonicParsing="false" onAction="#acessarCliente" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css" text="C">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView layoutX="128.0" layoutY="36.0">
+               <image>
+                  <Image url="@../img/logoHelPet.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="PaneConsultasAgendadas" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;" visible="false">
+      <Pane fx:id="PaneConsultasAgendadas" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;">
          <children>
-            <Label alignment="CENTER" layoutX="157.0" layoutY="30.0" prefHeight="60.0" prefWidth="340.0" text="CONSULTAS">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tabelaConsultas" layoutX="24.0" layoutY="136.0" prefHeight="378.0" prefWidth="603.0">
+            <TableView fx:id="tabelaConsultas" layoutX="48.0" layoutY="252.0" prefHeight="347.0" prefWidth="566.0" stylesheets="@../Estilo.css">
                <columns>
-                  <TableColumn fx:id="colunaConsultaData" prefWidth="65.0" text="DATA" />
-                  <TableColumn fx:id="colunaConsultaHora" prefWidth="69.0" text="HORA" />
-                  <TableColumn fx:id="colunaConsultaNomeCliente" prefWidth="160.0" text="NOME DO CLIENTE" />
-                  <TableColumn fx:id="colunaConsultaCPF" prefWidth="119.0" text="CPF" />
-                  <TableColumn fx:id="colunaConsultaNomePet" prefWidth="189.0" text="NOME DO PET" />
+                  <TableColumn fx:id="colunaConsultaData" prefWidth="72.0" text="Data" />
+                  <TableColumn fx:id="colunaConsultaHora" prefWidth="75.0" text="Hora" />
+                  <TableColumn fx:id="colunaConsultaNomeCliente" prefWidth="197.0" text="Nome do cliente" />
+                  <TableColumn fx:id="colunaConsultaCPF" prefWidth="82.0" text="CPF" />
+                  <TableColumn fx:id="colunaConsultaNomePet" prefWidth="139.0" text="Nome do pet" />
                </columns>
             </TableView>
-            <Button fx:id="btnCancelarConsulta" layoutX="230.0" layoutY="560.0" mnemonicParsing="false" onAction="#cancelarConsulta" prefHeight="31.0" prefWidth="194.0" text="CANCELAR CONSULTA" />
+            <Button fx:id="btnCancelarConsulta" layoutX="303.0" layoutY="186.0" mnemonicParsing="false" onAction="#cancelarConsulta" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="33.0">
+                     <image>
+                        <Image url="@../img/iconApagar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView layoutX="128.0" layoutY="36.0">
+               <image>
+                  <Image url="@../img/logoHelPet.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="PaneExamesAgendados" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;" visible="false">
+      <Pane fx:id="PaneExamesAgendados" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;">
          <children>
-            <Label alignment="CENTER" layoutX="157.0" layoutY="30.0" prefHeight="60.0" prefWidth="340.0" text="EXAMES">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tabelaExames" layoutX="24.0" layoutY="136.0" prefHeight="378.0" prefWidth="603.0">
+            <TableView fx:id="tabelaExames" layoutX="48.0" layoutY="252.0" prefHeight="347.0" prefWidth="566.0" stylesheets="@../Estilo.css">
                <columns>
-                  <TableColumn fx:id="colunaExameData" prefWidth="52.0" text="DATA" />
-                  <TableColumn fx:id="colunaExameHora" prefWidth="59.0" text="HORA" />
-                  <TableColumn fx:id="colunaExameTipo" prefWidth="118.0" text="TIPO" />
-                  <TableColumn fx:id="colunaExameNomeCliente" prefWidth="154.0" text="NOME DO CLIENTE" />
-                  <TableColumn fx:id="colunaExameCPF" prefWidth="99.0" text="CPF" />
-                  <TableColumn fx:id="colunaExameNomePet" prefWidth="120.0" text="NOME DO PET" />
+                  <TableColumn fx:id="colunaExameData" prefWidth="52.0" text="Data" />
+                  <TableColumn fx:id="colunaExameHora" prefWidth="59.0" text="Hora" />
+                  <TableColumn fx:id="colunaExameTipo" prefWidth="95.0" text="Tipo" />
+                  <TableColumn fx:id="colunaExameNomeCliente" prefWidth="155.0" text="Nome do cliente" />
+                  <TableColumn fx:id="colunaExameCPF" prefWidth="84.0" text="CPF" />
+                  <TableColumn fx:id="colunaExameNomePet" prefWidth="120.0" text="Nome do pet" />
                </columns>
             </TableView>
-            <Button fx:id="btnCancelarExame" layoutX="230.0" layoutY="560.0" mnemonicParsing="false" onAction="#cancelarExame" prefHeight="31.0" prefWidth="194.0" text="CANCELAR EXAME" />
+            <Button fx:id="btnCancelarExame" layoutX="303.0" layoutY="186.0" mnemonicParsing="false" onAction="#cancelarExame" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="33.0">
+                     <image>
+                        <Image url="@../img/iconApagar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView layoutX="128.0" layoutY="36.0">
+               <image>
+                  <Image url="@../img/logoHelPet.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="PaneConteudo" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;" visible="false">
+      <Pane fx:id="PaneConteudo" layoutX="261.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #AA9ACF;">
          <children>
             <ImageView layoutX="9.0" layoutY="127.0">
                <image>
