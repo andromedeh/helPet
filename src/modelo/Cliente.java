@@ -11,6 +11,7 @@ public class Cliente implements Serializable {
   private String endereco;
   private String senha;
 
+  
   public Cliente(){
     
   }

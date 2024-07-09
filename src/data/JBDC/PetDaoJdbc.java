@@ -42,6 +42,36 @@ public class PetDaoJdbc implements IPetDAO {
         return pets;
     }
 
+    public List<Pet> getAllPetDono(Long cpf) {
+        List<Pet> pets = null;
+        String query = "select * from pet where cpf_dono_pet=?";
+        PreparedStatement preparedStatement= null;
+        Connection connection;
+        try {
+            connection = ConnectionFactory.concectBD();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setLong(1, cpf);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet != null) {
+                pets = new ArrayList<Pet>();
+                while (resultSet.next()) {
+                    Pet p = new Pet();
+                    p.setNomePet(resultSet.getString("Nome_Pet"));
+                    p.setRaca(resultSet.getString("Raca_Pet"));
+                    p.setIdade(resultSet.getInt("Idade_Pet"));
+                    p.setPeso(resultSet.getFloat("Peso_Pet"));
+                    p.setEspecie(resultSet.getString("Especie_Pet"));
+                    p.setCpfDono(resultSet.getLong("CPF_dono_pet"));
+                    pets.add(p);
+                }
+            }
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pets;
+    }
+
     @Override
     public void createPet(Pet pet) {
         String query = "insert into pet (Nome_Pet, Raca_Pet, Idade_Pet, Peso_Pet, Especie_Pet, CPF_dono_pet) values (?,?,?,?,?,?)";
@@ -95,18 +125,18 @@ public class PetDaoJdbc implements IPetDAO {
 
     @Override
     public void updatePet(Pet pet) {
-        String query = "update pet set Nome_Pet=?, Raca_Pet=?, Idade_Pet=?, Peso_Pet=?, Especie_Pet=? where cpf_dono_Pet=?";
+        String query = "update pet set Raca_Pet=?, Idade_Pet=?, Peso_Pet=?, Especie_Pet=? where cpf_dono_Pet=? where nome_pet=?";
         PreparedStatement pst;
         Connection connection;
         try {
             connection = ConnectionFactory.concectBD();
             pst = connection.prepareStatement(query);
-            pst.setString(1, pet.getNomePet());
-            pst.setString(2, pet.getRaca());
-            pst.setInt(3, pet.getIdade());
-            pst.setFloat(4, pet.getPeso());
-            pst.setString(5, pet.getEspecie());
-            pst.setLong(6, pet.getCpfDono());
+            pst.setString(1, pet.getRaca());
+            pst.setInt(2, pet.getIdade());
+            pst.setFloat(3, pet.getPeso());
+            pst.setString(4, pet.getEspecie());
+            pst.setLong(5, pet.getCpfDono());
+            pst.setString(6, pet.getNomePet());
             pst.executeUpdate();
             pst.close();
             connection.close();
