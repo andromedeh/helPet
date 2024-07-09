@@ -11,6 +11,9 @@ private static int codVacina=1;
 private Date data;
 private String hora;
 
+public Vacina() {
+}
+
 public Vacina(String nome, Date data, String hora){
   setNomeVacina(nome);
   setData(data);

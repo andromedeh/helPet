@@ -11,6 +11,9 @@ public class Profissional implements Serializable {
   private String senha;
   private String confirmarSenha;
 
+  public Profissional() {
+  }
+
   public Profissional(String nome, long cpf, long telefone, String funcao, String email, String senha, String confirmarSenha) {
     setNome(nome);
     setCpf(cpf);
