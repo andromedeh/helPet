@@ -10,4 +10,5 @@ public interface IExameDAO {
     public Exame readExame(int codigo);
     public void updateExame(Exame exame);
     public void deleteExame(Exame exame);
+    
 }

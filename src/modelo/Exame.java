@@ -11,6 +11,11 @@ public class Exame implements Serializable{
   private Date data;
   private String hora;
 
+  
+
+    public Exame() {
+  }
+
     public Exame (String nome, String descricao, Date data, String hora){
       setNomeExame(nome);
       setDescricao(descricao);

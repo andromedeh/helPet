@@ -8,6 +8,9 @@ public class Remedio implements Serializable{
   private String nome;
   private String descricao;
 
+  public Remedio() {
+  }
+
   public Remedio(String nome, String descricao) {
     this.nome = nome;
     this.descricao = descricao;

@@ -10,4 +10,5 @@ public interface IProfissionalDAO {
     public Profissional readProfissional (long cpf);
     public void updateProfissional (Profissional profissional);
     public void deleteProfissional (Profissional profissional);
+    
 }

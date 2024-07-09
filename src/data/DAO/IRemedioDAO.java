@@ -10,4 +10,5 @@ public interface IRemedioDAO {
     public Remedio readRemedio(int codigo);
     public void updateRemedio(Remedio remedio);
     public void deleteRemedio(Remedio remedio);
+    
 }

@@ -10,4 +10,5 @@ public interface IClienteDAO {
     public Cliente readCliente(long cpf);
     public void updateCliente(Cliente cliente);
     public void deleteCliente(Cliente cliente);
+    
 }

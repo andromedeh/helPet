@@ -9,6 +9,9 @@ public class Pet implements Serializable {
   private float peso;
   private String especie;
 
+  public Pet() {
+  }
+
   public Pet(String nomePet, String raca, int idade, float peso, String especie) {
     setNomePet(nomePet);
     setRaca(raca);

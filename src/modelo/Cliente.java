@@ -10,7 +10,10 @@ public class Cliente implements Serializable {
   private String email;
   private String endereco;
   private String senha;
-  private String confirmarSenha;
+
+  public Cliente(){
+    
+  }
 
   public Cliente(String nome, String sobrenome, long cpf, long telefone, String email, String endereco, String senha,
       String confirmarSenha) {
@@ -21,7 +24,6 @@ public class Cliente implements Serializable {
     setEmail(email);
     setEndereco(endereco);
     setSenha(senha);
-    setConfirmarSenha(confirmarSenha);
   }
 
   public String getNome() {
@@ -78,14 +80,6 @@ public class Cliente implements Serializable {
 
   public void setSenha(String senha) {
     this.senha = senha;
-  }
-
-  public String getConfirmarSenha() {
-    return confirmarSenha;
-  }
-
-  public void setConfirmarSenha(String confirmarSenha) {
-    this.confirmarSenha = confirmarSenha;
   }
 
 }

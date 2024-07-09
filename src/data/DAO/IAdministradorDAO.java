@@ -10,4 +10,5 @@ public interface IAdministradorDAO {
     public Administrador readAdministrador(int codigo);
     public void updateAdministrador(Administrador administrador);
     public void deleteAdministrador(Administrador administrador);
+    
 }

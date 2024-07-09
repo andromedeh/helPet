@@ -20,17 +20,5 @@ public class ConnectionFactory{
             System.out.println("Erro ao conectar ao banco de dados: " + e.getMessage());
         }
         return connection;
-    }
-    public static void unconnectBD(Connection connection){
-        if (connection != null){
-            try {
-                connection.close();
-                System.out.println("Connection closed successfully");
-            } catch (SQLException e) {
-                System.out.println("Connection close fail");
-                e.printStackTrace();
-            }
-        }
-    }
-    
+    } 
 }

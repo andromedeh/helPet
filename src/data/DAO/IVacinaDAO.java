@@ -10,4 +10,5 @@ public interface IVacinaDAO {
     public Vacina readVacina(int codigo);
     public void updateVacina(Vacina vacina);
     public void deleteVacina(Vacina vacina);
+    
 }

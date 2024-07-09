@@ -10,4 +10,5 @@ public interface IPetDAO {
     public Pet readPet(String nome);
     public void updatePet(Pet pet);
     public void deletePet(Pet pet);
+    
 }
