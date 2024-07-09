@@ -9,13 +9,21 @@ import modelo.Pet;
 public class PetController {
     IPetDAO petDAO = new PetDaoJdbc();
 
-    public void cadastrarPet (String nome, String raca, int idade, float peso, String especie){
-        Pet pet = new Pet(nome, raca, idade, peso, especie);
+    public void cadastrarPet (String nome, String raca, int idade, float peso, String especie, Long cpfDono){
+        Pet pet = new Pet(nome, raca, idade, peso, especie, cpfDono);
         petDAO.createPet(pet);
     }
     
     public ArrayList<Pet> listarPet(){
         ArrayList<Pet> pets = (ArrayList<Pet>) petDAO.getAllPet();
         return pets;
+    }
+
+    public Pet pesquisarPets (Long cpfDono, String nome){
+      return petDAO.readPet(cpfDono, nome);
+    }
+
+    public atualizarPet (Long cpfDono, String nome){
+      
     }
 }
