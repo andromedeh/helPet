@@ -148,14 +148,15 @@ public class PetDaoJdbc implements IPetDAO {
 
     @Override
     public void deletePet(Pet pet) {
-        String query = "delete from pet where cpf_dono_Pet =?";
+        String query = "delete from pet where cpf_dono_Pet =? and nome_pet=?";
         PreparedStatement pst;
         Connection connection;
 
         try {
             connection = ConnectionFactory.concectBD();
             pst = connection.prepareStatement(query);
-            pst.setString(1, pet.getNomePet());
+            pst.setLong(1,pet.getCpfDono());
+            pst.setString(2, pet.getNomePet());
             pst.execute();
             pst.close();
             connection.close();
