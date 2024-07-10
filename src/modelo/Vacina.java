@@ -3,54 +3,43 @@ package modelo;
 import java.io.Serializable;
 import java.sql.Date;
 
+public class Vacina implements Serializable {
 
-public class Vacina implements Serializable{
+  private String nomeVacina;
+  private int codVacina;
+  private String data_reforco;
 
-private String nomeVacina;
-private int codVacina;
+  public Vacina() {
+  }
 
-public Vacina() {
-}
+  public Vacina(String nome, String data_reforco) {
+    setNomeVacina(nome);
+    setData_reforco(data_reforco);
 
-public Vacina(String nome, Date data_aplicacao, Date data_reforco){
-  setNomeVacina(nome);
-  setData_aplicacao(data_aplicacao);
-  setData_reforco(data_reforco);
+  }
 
-}
+  public int getCodVacina() {
+    return codVacina;
+  }
 
-public int getCodVacina() {
-  return codVacina;
-}
+  public void setCodVacina(int codVacina) {
+    this.codVacina = codVacina;
+  }
 
-public void setCodVacina(int codVacina) {
-  this.codVacina = codVacina;
-}
+  public String getNomeVacina() {
+    return nomeVacina;
+  }
 
-public String getNomeVacina() {
-  return nomeVacina;
-}
+  public void setNomeVacina(String nomeVacina) {
+    this.nomeVacina = nomeVacina;
+  }
 
-public void setNomeVacina(String nomeVacina) {
-  this.nomeVacina = nomeVacina;
-}
+  public String getData_reforco() {
+    return data_reforco;
+  }
 
-public Date getData_aplicacao() {
-  return data_aplicacao;
-}
-
-public void setData_aplicacao(Date data_aplicacao) {
-  this.data_aplicacao = data_aplicacao;
-}
-
-public Date getData_reforco() {
-  return data_reforco;
-}
-
-public void setData_reforco(Date data_reforco) {
-  this.data_reforco = data_reforco;
-}
-
-
+  public void setData_reforco(String data_reforco) {
+    this.data_reforco = data_reforco;
+  }
 
 }

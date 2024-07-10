@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,27 +15,42 @@
    <children>
       <Pane fx:id="PaneMenu" prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #E15959;" stylesheets="@../Estilo.css">
          <children>
-            <Button fx:id="btnGerenciarProfissionais" layoutX="57.0" layoutY="261.0" mnemonicParsing="false" onAction="#gerenciarProfissionais" prefHeight="45.0" prefWidth="133.0" text="PROFISSIONAIS">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="btnGerenciarClientes" layoutX="57.0" layoutY="354.0" mnemonicParsing="false" onAction="#gerenciarClientes" prefHeight="45.0" prefWidth="133.0" text="CLIENTES">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="btnSairAdm" layoutX="57.0" layoutY="449.0" mnemonicParsing="false" onAction="#sair" prefHeight="45.0" prefWidth="133.0" text="SAIR">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label fx:id="labelAdm" alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="148.0" prefHeight="45.0" prefWidth="133.0" text="ADMINISTRADOR" textAlignment="CENTER" />
+            <Label fx:id="labelAdm" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="133.0" text="ADMINISTRADOR" textAlignment="CENTER" />
             <ImageView layoutX="78.0" layoutY="50.0">
                <image>
                   <Image url="@../img/iconAdm.png" />
                </image>
             </ImageView>
+            <Button fx:id="btnGerenciarProfissionais" layoutX="58.0" layoutY="186.0" mnemonicParsing="false" onAction="#gerenciarProfissionais" prefHeight="45.0" prefWidth="133.0" text="PROFISSIONAIS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnGerenciarClientes" layoutX="58.0" layoutY="248.0" mnemonicParsing="false" onAction="#gerenciarClientes" prefHeight="45.0" prefWidth="133.0" text="CLIENTES">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnSairAdm" layoutX="58.0" layoutY="572.0" mnemonicParsing="false" onAction="#sair" prefHeight="45.0" prefWidth="133.0" text="SAIR">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnGerenciarVacinas" layoutX="58.0" layoutY="380.0" mnemonicParsing="false" onAction="#gerenciarVacinas" prefHeight="45.0" prefWidth="133.0" text="ADD VACINAS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnGerenciarExames" layoutX="58.0" layoutY="442.0" mnemonicParsing="false" onAction="#gerenciarExames" prefHeight="45.0" prefWidth="133.0" text="ADD EXAMES">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnGerenciarRemedios" layoutX="58.0" layoutY="315.0" mnemonicParsing="false" onAction="#gerenciarRemedios" prefHeight="45.0" prefWidth="133.0" text="ADD REMEDIOS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </Pane>
       <Pane fx:id="PaneProfissionais" layoutX="251.0" layoutY="1.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css">
@@ -129,7 +145,167 @@
             </TableView>
          </children>
       </Pane>
-      <Pane fx:id="PaneConteudo" layoutX="251.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css" visible="false">
+      <Pane fx:id="PaneRemedios" layoutX="251.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css">
+         <children>
+            <ImageView layoutX="128.0" layoutY="36.0">
+               <image>
+                  <Image url="@../img/logoHelPet.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnCadastrarRemedio" layoutX="230.0" layoutY="186.0" mnemonicParsing="false" onAction="#cadastrarRemedio" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../img/iconCadastrar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnExcluirRemedio" layoutX="303.0" layoutY="186.0" mnemonicParsing="false" onAction="#excluirRemedio" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="33.0">
+                     <image>
+                        <Image url="@../img/iconApagar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnAtualizarRemedio" layoutX="378.0" layoutY="186.0" mnemonicParsing="false" onAction="#atualizarTabelaRemedio" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="27.0">
+                     <image>
+                        <Image url="@../img/iconAtualizar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TableView fx:id="tabelaAdmRemedios" layoutX="48.0" layoutY="252.0" prefHeight="347.0" prefWidth="566.0">
+               <columns>
+                  <TableColumn fx:id="colunaAdmRemedioCod" prefWidth="133.0" text="Código" />
+                  <TableColumn fx:id="colunaAdmRemedioNome" prefWidth="266.0" text="Nome" />
+                  <TableColumn fx:id="colunaAdmRemedioDescricao" prefWidth="164.0" text="Descrição" />
+               </columns>
+               <stylesheets>
+                  <URL value="@../Estilo.css" />
+                  <URL value="@../Estilo.css" />
+               </stylesheets>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="PaneVacinas" layoutX="251.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css" visible="false">
+         <children>
+            <ImageView layoutX="128.0" layoutY="36.0">
+               <image>
+                  <Image url="@../img/logoHelPet.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnCadastrarVacina" layoutX="230.0" layoutY="186.0" mnemonicParsing="false" onAction="#cadastrarVacina" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../img/iconCadastrar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnExcluirVacina" layoutX="303.0" layoutY="186.0" mnemonicParsing="false" onAction="#excluirVacina" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="33.0">
+                     <image>
+                        <Image url="@../img/iconApagar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnAtualizarVacina" layoutX="378.0" layoutY="186.0" mnemonicParsing="false" onAction="#atualizarTabelaVacina" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="27.0">
+                     <image>
+                        <Image url="@../img/iconAtualizar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TableView fx:id="tabelaAdmVacinas" layoutX="48.0" layoutY="252.0" prefHeight="347.0" prefWidth="566.0" stylesheets="@../Estilo.css">
+               <columns>
+                  <TableColumn fx:id="colunaAdmVacinaCod" prefWidth="133.0" text="Código" />
+                  <TableColumn fx:id="colunaAdmVacinaNome" prefWidth="266.0" text="Nome" />
+                  <TableColumn fx:id="colunaAdmVacinaDataReforco" prefWidth="164.0" text="Data de Reforço" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="PaneExames" layoutX="251.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css" visible="false">
+         <children>
+            <ImageView layoutX="128.0" layoutY="36.0">
+               <image>
+                  <Image url="@../img/logoHelPet.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnCadastrarExame" layoutX="230.0" layoutY="186.0" mnemonicParsing="false" onAction="#cadastrarExame" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../img/iconCadastrar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnExcluirExame" layoutX="303.0" layoutY="186.0" mnemonicParsing="false" onAction="#excluirExame" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="33.0">
+                     <image>
+                        <Image url="@../img/iconApagar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnAtualizarExame" layoutX="378.0" layoutY="186.0" mnemonicParsing="false" onAction="#atualizarTabelaExame" prefHeight="45.0" prefWidth="45.0" stylesheets="@../Estilo.css">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="27.0">
+                     <image>
+                        <Image url="@../img/iconAtualizar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TableView fx:id="tabelaAdmExames" layoutX="48.0" layoutY="252.0" prefHeight="347.0" prefWidth="566.0" stylesheets="@../Estilo.css">
+               <columns>
+                  <TableColumn fx:id="colunaAdmExameCod" prefWidth="133.0" text="Código" />
+                  <TableColumn fx:id="colunaAdmExameNome" prefWidth="266.0" text="Nome" />
+                  <TableColumn fx:id="colunaAdmExameDescricao" prefWidth="164.0" text="Descrição" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="PaneConteudo" layoutX="251.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css">
          <children>
             <ImageView layoutX="7.0" layoutY="122.0" style="-fx-background-color: #AA9ACF;">
                <image>
