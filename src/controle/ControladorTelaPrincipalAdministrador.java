@@ -42,7 +42,7 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
 
   @FXML // botoes da PaneClientes
   private Button btnExcluirCliente, btnAtualizarCliente;
-  
+
   // TABELA PROFISSIONAIS
   @FXML
   private TableView<Profissional> tabelaProfissionais;
@@ -67,20 +67,19 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   private TableColumn<Cliente, String> colunaNomeCliente;
 
   @FXML
-  private TableColumn<Cliente, String> colunaNomePet;
+  private TableColumn<Cliente, String> colunaSobrenomeCliente;
 
-  private static ProfissionalController pc = new ProfissionalController();
-  private static ClienteController cc = new ClienteController();
+  private static ProfissionalController profissional = new ProfissionalController();
+  private static ClienteController cliente = new ClienteController();
 
-  private static ObservableList <Profissional> profissionais = FXCollections.observableArrayList(pc.listarProfissional());
-  private static ObservableList <Cliente> clientes = FXCollections.observableArrayList(cc.listarCliente());
-  
-  
+  private static ObservableList<Profissional> profissionais = FXCollections
+      .observableArrayList(profissional.listarProfissional());
+
+  private static ObservableList<Cliente> clientes = FXCollections.observableArrayList(cliente.listarCliente());
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-
-    
-    carregarTabelaCliente(); // IMPLEMENTACAO PENDENTE
+    carregarTabelaCliente();
     carregarTabelaProfissional();
     visibilidade(true, false, false);
   }
@@ -106,12 +105,6 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
     PaneClientes.setVisible(clientes);
   }
 
-  // PANE GERENCIAR PROFISSINAIS
-  @FXML
-  void atualizarTabelaProfissional(ActionEvent event) {
-    // IMPLEMENTAR LOGICA DE ATUALIZAR TABELA
-  }
-
   @FXML
   void cadastrarProfissional(ActionEvent event) {
     AnchorPane anchorPane;
@@ -125,33 +118,61 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
     }
   }
 
-  @FXML
-  void excluirProfissional(ActionEvent event) {
-    // IMPLEMENTAR LOGICA DE EXCLUIR LINHA DA TABELA
-  }
-
   public void carregarTabelaProfissional() {
-    colunaProfissionalCpf.setCellValueFactory(new PropertyValueFactory<Profissional,Long>("cpf"));
-    colunaProfissionalNome.setCellValueFactory(new PropertyValueFactory<Profissional,String>("nome"));
-    colunaProfissionalFuncao.setCellValueFactory(new PropertyValueFactory<Profissional,String>("funcao"));
+    colunaProfissionalCpf.setCellValueFactory(new PropertyValueFactory<Profissional, Long>("cpf"));
+    colunaProfissionalNome.setCellValueFactory(new PropertyValueFactory<Profissional, String>("nome"));
+    colunaProfissionalFuncao.setCellValueFactory(new PropertyValueFactory<Profissional, String>("funcao"));
     tabelaProfissionais.setItems(profissionais);
   }
 
-  // PANE GERENCIAR CLIENTES
   @FXML
-  void atualizarTabelaCliente(ActionEvent event) {
+  void excluirProfissional(ActionEvent event) {
+    Profissional selecionado = tabelaProfissionais.getSelectionModel().getSelectedItem();
+    if (selecionado != null) {
+      Long cpf = selecionado.getCpf();
+      String nome = selecionado.getNome();
+      Long telefone = selecionado.getTelefone();
+      String funcao = selecionado.getFuncao();
+      String email = selecionado.getEmail();
+      String senha = selecionado.getSenha();
+      profissional.deletarProfissional(nome, cpf, telefone, funcao, email, senha);
+      atualizarTabelaProfissional(event);
+    }
+  }
 
+  @FXML
+  void atualizarTabelaProfissional(ActionEvent event) {
+    profissionais = FXCollections.observableArrayList(profissional.listarProfissional());
+    tabelaProfissionais.setItems(profissionais);
   }
 
   public void carregarTabelaCliente() {
-    colunaCpfCliente.setCellValueFactory(new PropertyValueFactory<Cliente,Long>("cpf"));
-    colunaProfissionalNome.setCellValueFactory(new PropertyValueFactory<Profissional,String>("nome"));
+    colunaCpfCliente.setCellValueFactory(new PropertyValueFactory<Cliente, Long>("cpf"));
+    colunaNomeCliente.setCellValueFactory(new PropertyValueFactory<Cliente, String>("nome"));
+    colunaSobrenomeCliente.setCellValueFactory(new PropertyValueFactory<Cliente, String>("sobrenome"));
     tabelaAdmClientes.setItems(clientes);
   }
 
   @FXML
   void excluirCliente(ActionEvent event) {
-    // IMPLEMENTAR LOGICA DE EXCLUIR LINHA DA TABELA
+    Cliente selecionado = tabelaAdmClientes.getSelectionModel().getSelectedItem();
+    if (selecionado != null) {
+      String nome = selecionado.getNome();
+      String sobrenome = selecionado.getSobrenome();
+      Long cpf = selecionado.getCpf();
+      Long telefone = selecionado.getTelefone();
+      String email = selecionado.getEmail();
+      String endereco = selecionado.getEndereco();
+      String senha = selecionado.getSenha();
+      cliente.deletarCliente(nome, sobrenome, cpf, telefone, email, endereco, senha);
+      atualizarTabelaCliente(event);
+    }
+  }
+
+  @FXML
+  void atualizarTabelaCliente(ActionEvent event) {
+    clientes = FXCollections.observableArrayList(cliente.listarCliente());
+    tabelaAdmClientes.setItems(clientes);
   }
 
 }

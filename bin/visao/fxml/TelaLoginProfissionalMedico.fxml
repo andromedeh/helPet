@@ -21,9 +21,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="campoEmail" layoutX="200.0" layoutY="267.0" prefHeight="43.0" prefWidth="500.0" stylesheets="@../Estilo.css" />
-      <Label layoutX="200.0" layoutY="246.0" stylesheets="@../Estilo.css" text="E-MAIL:" />
-      <Label layoutX="200.0" layoutY="361.0" stylesheets="@../Estilo.css" text="SENHA:" />
+      <TextField fx:id="campoCRMV" layoutX="200.0" layoutY="267.0" prefHeight="43.0" prefWidth="500.0" stylesheets="@../Estilo.css" />
+      <Label layoutX="200.0" layoutY="246.0" stylesheets="@../Estilo.css" text="CRMV:" />
+      <Label layoutX="200.0" layoutY="361.0" stylesheets="@../Estilo.css" text="SENHA (CPF):" />
       <Label fx:id="labelStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="457.0" prefHeight="21.0" prefWidth="542.0" stylesheets="@../Estilo.css" textAlignment="CENTER" />
       <TextField fx:id="campoSenhaTexto" layoutX="200.0" layoutY="382.0" onAction="#verSenha" prefHeight="43.0" prefWidth="500.0" stylesheets="@../Estilo.css" />
       <PasswordField fx:id="campoSenhaOculto" layoutX="200.0" layoutY="382.0" onAction="#verSenha" prefHeight="43.0" prefWidth="500.0" stylesheets="@../Estilo.css" />
