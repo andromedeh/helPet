@@ -146,7 +146,7 @@ public class TableCreator {
                 "FOREIGN KEY (nomePet_PrescicaoRemedio, cpfDono_PrescicaoRemedio) REFERENCES pet(Nome_Pet, CPF_dono_pet),"
                 +
                 "FOREIGN KEY (crmvMedico_PrescicaoRemedio) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)," +
-                "FOREIGN KEY (codigoExame_PrescicaoRemedio) REFERENCES exame(Cod_Exame)" +
+                "FOREIGN KEY (codigoExame_PrescicaoRemedio) REFERENCES remedio(Cod_remedio)" +
                 ");";
         statementExtUpdate(connection, query);
         System.out.println("PrescicaoRemedio table created");
@@ -158,16 +158,17 @@ public class TableCreator {
                 "cpfDono_AplicaVacina BIGINT NOT NULL," +
                 "crmvMedico_AplicaVacina INT NOT NULL," +
                 "codigoExame_AplicaVacina INT," +
-                "Data_aplicacao_vacina DATE," +
-                "Data_reforco_vacina DATE" +
+                "Data_aplicacao_vacina_AplicaVacina DATE," +
+                "Data_reforco_vacina_AplicaVacina DATE," +
                 "PRIMARY KEY(nomePet_AplicaVacina, cpfDono_AplicaVacina, crmvMedico_AplicaVacina)," +
                 "FOREIGN KEY (nomePet_AplicaVacina, cpfDono_AplicaVacina) REFERENCES pet(Nome_Pet, CPF_dono_pet)," +
                 "FOREIGN KEY (crmvMedico_AplicaVacina) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)," +
-                "FOREIGN KEY (codigoExame_AplicaVacina) REFERENCES exame(Cod_Exame)" +
+                "FOREIGN KEY (codigoExame_AplicaVacina) REFERENCES vacina(Cod_vacina)" +
                 ");";
         statementExtUpdate(connection, query);
         System.out.println("AplicaVacina table created");
     }
+    
 
     public void createTableConsulta(Connection connection) throws SQLException {
         String query = "CREATE TABLE IF NOT EXISTS consulta (" +
