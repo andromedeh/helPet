@@ -5,6 +5,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controle.controle_back.PetController;
+import controle.controle_back.VacinaController;
+import controle.controle_back.RemedioController;
+import controle.controle_back.ExameController;
+import controle.controle_back.ProfissionalController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +32,12 @@ import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import modelo.Cliente;
+import modelo.Exame;
+import modelo.Pet;
+import modelo.Profissional;
+import modelo.Remedio;
+import modelo.Vacina;
 
 public class ControladorTelaPrincipalCliente extends ControladorBase implements Initializable {
   @FXML
@@ -50,39 +63,119 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
   @FXML
   private ImageView fotoPerfil;
 
+  // TABELA PETS
   @FXML
   private TableView<?> tabelaMeusPets;
 
   @FXML
-  private TableColumn<?, ?> colunaMeuPetNome, colunaMeuPetEspecie, colunaMeuPetRaca, colunaMeuPetPeso,
-      colunaMeuPetIdade;
+  private TableColumn<?, ?> colunaMeuPetNome;
+  
+  @FXML
+  private TableColumn<?, ?> colunaMeuPetEspecie;
 
+  @FXML
+  private TableColumn<?, ?> colunaMeuPetRaca;
+
+  @FXML
+  private TableColumn<?, ?> colunaMeuPetPeso;
+
+  @FXML
+  private TableColumn<?, ?> colunaMeuPetIdade;
+
+  // TABELA CONSULTAS
   @FXML
   private TableView<?> tabelaConsultas;
 
   @FXML
-  private TableColumn<?, ?> colunaConsultaData, colunaConsultaHora, colunaConsultaMedico, colunaConsultaPet;
+  private TableColumn<?, ?> colunaConsultaData;
 
+  @FXML
+  private TableColumn<?, ?> colunaConsultaHora;
+
+  @FXML
+  private TableColumn<?, ?> colunaConsultaMedico;
+
+  @FXML
+  private TableColumn<?, ?> colunaConsultaPet;
+  
+  // TABELA VACINAS
   @FXML
   private TableView<?> tabelaVacinacao;
 
   @FXML
-  private TableColumn<?, ?> colunaVacinacaoCodigo, colunaVacinacaoNome, colunaVacinacaoDataAplicacao,
-      colunaVacinacaoDataReforco, colunaVacinacaoMedico, colunaVacinacaoPet;
+  private TableColumn<?, ?> colunaVacinacaoCodigo;
 
+  @FXML
+  private TableColumn<?, ?> colunaVacinacaoNome;
+
+  @FXML
+  private TableColumn<?, ?> colunaVacinacaoDataAplicacao;
+  
+  @FXML
+  private TableColumn<?, ?> colunaVacinacaoDataReforco;
+  
+  @FXML
+  private TableColumn<?, ?> colunaVacinacaoMedico;
+  
+  @FXML
+  private TableColumn<?, ?> colunaVacinacaoPet;
+  
+  // TABELA REMEDIOS
   @FXML
   private TableView<?> tabelaRemedios;
 
   @FXML
-  private TableColumn<?, ?> colunaRemedioCodigo, colunaRemedioNome, colunaRemedioQtd, colunaRemedioHorario,
-      colunaRemedioDuracao, colunaRemedioMedico, colunaRemedioPet;
+  private TableColumn<?, ?> colunaRemedioCodigo;
 
+  @FXML
+  private TableColumn<?, ?> colunaRemedioNome;
+  
+  @FXML
+  private TableColumn<?, ?> colunaRemedioQtd;
+  
+  @FXML
+  private TableColumn<?, ?> colunaRemedioHorario;
+  
+  @FXML
+  private TableColumn<?, ?> colunaRemedioDuracao;
+  
+  @FXML
+  private TableColumn<?, ?> colunaRemedioMedico;
+  
+  @FXML
+  private TableColumn<?, ?> colunaRemedioPet;
+
+  // TABELA EXAMES
   @FXML
   private TableView<?> tabelaExames;
 
   @FXML
-  private TableColumn<?, ?> colunaExameData, colunaExameHora, colunaExameCodigo, colunaExameNome, colunaExameMedico,
-      colunaExamePet;
+  private TableColumn<?, ?> colunaExameData;
+  
+  @FXML
+  private TableColumn<?, ?> colunaExameHora;
+  
+  @FXML
+  private TableColumn<?, ?> colunaExameCodigo;
+  
+  @FXML
+  private TableColumn<?, ?> colunaExameNome;
+  
+  @FXML
+  private TableColumn<?, ?> colunaExameMedico;
+  
+  @FXML
+  private TableColumn<?, ?> colunaExamePet;
+  
+  private static PetController ptc = new PetController();
+  private static VacinaController vc = new VacinaController();
+  private static RemedioController rc = new RemedioController();
+  private static ExameController ec = new ExameController();
+
+  private static ObservableList <Pet> pets = FXCollections.observableArrayList(ptc.listarPet());
+  private static ObservableList <Vacina> vacinas = FXCollections.observableArrayList(vc.listarVacinas());
+  private static ObservableList <Remedio> remedios = FXCollections.observableArrayList(rc.listarRemedios());
+  private static ObservableList <Exame> exames = FXCollections.observableArrayList(ec.listarExames());
 
   private Stage stage;
 

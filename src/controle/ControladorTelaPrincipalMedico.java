@@ -31,25 +31,62 @@ public class ControladorTelaPrincipalMedico extends ControladorBase implements I
   private Button btnMeusClientes, btnConsultasAgendadas, btnExamesAgendados, btnSair, btnAcessarCliente,
       btnCancelarConsulta, btnCancelarExame;
 
+  // TABELA CLIENTES
   @FXML
   private TableView<?> tabelaClientes;
 
   @FXML
-  private TableColumn<?, ?> colunaClienteNome, colunaClienteSobrenome, colunaClienteCPF, colunaClienteTelefone;
+  private TableColumn<?, ?> colunaClienteNome;
 
+  @FXML
+  private TableColumn<?, ?> colunaClienteSobrenome;
+
+  @FXML
+  private TableColumn<?, ?> colunaClienteCPF;
+  
+  @FXML
+  private TableColumn<?, ?> colunaClienteTelefone;
+
+  // TABELA CONSULTAS
   @FXML
   private TableView<?> tabelaConsultas;
 
   @FXML
-  private TableColumn<?, ?> colunaConsultaData, colunaConsultaHora, colunaConsultaNomeCliente, colunaConsultaCPF,
-      colunaConsultaNomePet;
+  private TableColumn<?, ?> colunaConsultaData;
 
+  @FXML
+  private TableColumn<?, ?> colunaConsultaHora;
+
+  @FXML
+  private TableColumn<?, ?> colunaConsultaNomeCliente;
+  
+  @FXML
+  private TableColumn<?, ?> colunaConsultaCPF;
+  
+  @FXML
+  private TableColumn<?, ?> colunaConsultaNomePet;
+  
+// TABELA EXAMES
   @FXML
   private TableView<?> tabelaExames;
 
   @FXML
-  private TableColumn<?, ?> colunaExameData, colunaExameHora, colunaExameTipo, colunaExameNomeCliente, colunaExameCPF,
-      colunaExameNomePet;
+  private TableColumn<?, ?> colunaExameData;
+  
+  @FXML
+  private TableColumn<?, ?> colunaExameHora;
+
+  @FXML
+  private TableColumn<?, ?> colunaExameTipo;
+  
+  @FXML
+  private TableColumn<?, ?> colunaExameNomeCliente;
+  
+  @FXML
+  private TableColumn<?, ?> colunaExameCPF;
+  
+  @FXML
+  private TableColumn<?, ?> colunaExameNomePet;
 
   @FXML
   private Label labelNome;

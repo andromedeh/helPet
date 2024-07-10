@@ -20,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import modelo.Cliente;
 import modelo.Profissional;
 
 public class ControladorTelaPrincipalAdministrador extends ControladorBase implements Initializable {
@@ -35,7 +36,13 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   @FXML // botoes da PaneProfissionais
   private Button btnCadastrarProfissional, btnExcluirProfissional, btnAtualizarProfissional;
 
-  // NOMEAR CORRETAMENTE A TABELA E COLUNAS
+  @FXML
+  private Label labelAdm;
+
+  @FXML // botoes da PaneClientes
+  private Button btnExcluirCliente, btnAtualizarCliente;
+  
+  // TABELA PROFISSIONAIS
   @FXML
   private TableView<Profissional> tabelaProfissionais;
 
@@ -48,27 +55,24 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   @FXML
   private TableColumn<Profissional, String> colunaProfissionalFuncao;
 
+  // TABELA CLIENTES
   @FXML
-  private Label labelAdm;
-
-  @FXML // botoes da PaneClientes
-  private Button btnExcluirCliente, btnAtualizarCliente;
+  private TableView<Cliente> tabelaAdmClientes;
 
   @FXML
-  private TableView<?> tabelaAdmClientes;
+  private TableColumn<Cliente, Long> colunaCpfCliente;
 
   @FXML
-  private TableColumn<?, ?> colunaCpfCliente;
+  private TableColumn<Cliente, String> colunaNomeCliente;
 
   @FXML
-  private TableColumn<?, ?> colunaNomeCliente;
-
-  @FXML
-  private TableColumn<?, ?> colunaNomePet;
+  private TableColumn<Cliente, String> colunaNomePet;
 
   private static ProfissionalController pc = new ProfissionalController();
 
   private static ObservableList <Profissional> profissionais = FXCollections.observableArrayList(pc.listarProfissional());
+  
+  
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 

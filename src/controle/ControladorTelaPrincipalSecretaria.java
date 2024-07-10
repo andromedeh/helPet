@@ -40,8 +40,25 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
   private TableView<?> tabelaConsultas;
 
   @FXML
-  private TableColumn<?, ?> colunaConsultaData, colunaConsultaHora, colunaConsultaMedico, colunaConsultaMedicoCpf,
-      colunaConsultaCliente, colunaConsultaClienteCpf, colunaConsultaPet;
+  private TableColumn<?, ?> colunaConsultaData;
+
+  @FXML
+  private TableColumn<?, ?> colunaConsultaHora;
+  
+  @FXML
+  private TableColumn<?, ?> colunaConsultaMedico;
+
+  @FXML
+  private TableColumn<?, ?> colunaConsultaMedicoCpf;
+  
+  @FXML
+  private TableColumn<?, ?> colunaConsultaCliente;
+  
+  @FXML
+  private TableColumn<?, ?> colunaConsultaClienteCpf;
+  
+  @FXML
+  private TableColumn<?, ?> colunaConsultaPet;
 
   private Stage stage;
 
