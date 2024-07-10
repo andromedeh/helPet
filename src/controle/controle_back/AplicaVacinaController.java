@@ -1,6 +1,7 @@
 package controle.controle_back;
 
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import data.DAO.IAplicaVacinaDAO;
@@ -10,8 +11,8 @@ import modelo.AplicaVacina;
 public class AplicaVacinaController {
     IAplicaVacinaDAO AplicaVacinaDAO = new AplicaVacinaDaoJdbc();
 
-    public void cadastrarAplicaVacina (String nomePet,long cpfDono, int crmvMedico, int codigoVacina){
-        AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina);
+    public void cadastrarAplicaVacina (String nomePet,long cpfDono, int crmvMedico, int codigoVacina, Date data_aplicacao, Date data_reforco){
+        AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina, data_aplicacao, data_reforco);
         AplicaVacinaDAO.createAplicaVacina(AplicaVacina);
     }
     
@@ -33,13 +34,13 @@ public class AplicaVacinaController {
     }
     
 
-    public void atualizarAplicaVacina (String nomePet,long cpfDono, int crmvMedico, int codigoVacina){
-      AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina);
+    public void atualizarAplicaVacina(String nomePet,long cpfDono, int crmvMedico, int codigoVacina, Date data_aplicacao, Date data_reforco){
+      AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina, data_aplicacao, data_reforco);
       AplicaVacinaDAO.updateAplicaVacina(AplicaVacina);
     }
 
-    public void deletarAplicaVacina (String nomePet,long cpfDono, int crmvMedico, int codigoVacina){
-      AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina);
+    public void deletarAplicaVacina (String nomePet,long cpfDono, int crmvMedico, int codigoVacina, Date data_aplicacao, Date data_reforco){
+      AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina, data_aplicacao, data_reforco);
       AplicaVacinaDAO.deleteAplicaVacina(AplicaVacina);
     }
 }

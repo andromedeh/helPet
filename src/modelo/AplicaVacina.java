@@ -1,17 +1,23 @@
 package modelo;
 
+import java.sql.Date;
+
 public class AplicaVacina {
     private String nomePet;
     private long cpfDono;
     private int crmvMedico;
     private int codigoVacina;
+    private Date data_aplicacao;
+    private Date data_reforco;
 
     public AplicaVacina(){}
-    public AplicaVacina(String nomePet, long cpfDono, int crmcMedico,int codigoVacina){
+    public AplicaVacina(String nomePet, long cpfDono, int crmcMedico,int codigoVacina, Date data_aplicacao, Date data_reforco){
         setCodigoVacina(codigoVacina);
         setCpfDono(cpfDono);
         setCrmvMedico(crmcMedico);
         setNomePet(nomePet);
+        setData_aplicacao(data_aplicacao);
+        setData_reforco(data_reforco);
     }
 
     public String getNomePet() {
@@ -38,6 +44,18 @@ public class AplicaVacina {
     public void setCodigoVacina(int codigoVacina) {
         this.codigoVacina = codigoVacina;
     }
-
+    public Date getData_aplicacao() {
+        return data_aplicacao;
+    }
+    public void setData_aplicacao(Date data_aplicacao) {
+        this.data_aplicacao = data_aplicacao;
+    }
+    public Date getData_reforco() {
+        return data_reforco;
+    }
+    public void setData_reforco(Date data_reforco) {
+        this.data_reforco = data_reforco;
+    }
+    
     
 }
