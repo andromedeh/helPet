@@ -31,7 +31,6 @@ public class AplicaVacinaDaoJdbc implements IAplicaVacinaDAO {
                     r.setCrmvMedico(resultSet.getInt("crmvMedico_AplicaVacina"));
                     r.setCodigoVacina(resultSet.getInt("codigoVacina_AplicaVacina"));
                     r.setData_aplicacao(resultSet.getDate("Data_aplicacao_AplicaVacina"));
-                    r.setData_reforco(resultSet.getDate("Data_reforco_AplicaVacina"));
                     AplicaVacinas.add(r);
                 }
             }
@@ -44,7 +43,7 @@ public class AplicaVacinaDaoJdbc implements IAplicaVacinaDAO {
 
     @Override
     public void createAplicaVacina(AplicaVacina AplicaVacina) {
-        String query = "INSERT INTO AplicaVacina (nomePet_AplicaVacina, cpfDono_AplicaVacina, crmvMedico_AplicaVacina, codigoVacina_AplicaVacina, Data_aplicacao_AplicaVacina, Data_reforco_AplicaVacina) VALUES (?, ?, ?, ?,?,?)";
+        String query = "INSERT INTO AplicaVacina (nomePet_AplicaVacina, cpfDono_AplicaVacina, crmvMedico_AplicaVacina, codigoVacina_AplicaVacina, Data_aplicacao_AplicaVacina VALUES (?, ?, ?, ?,?)";
         try {
             connection = ConnectionFactory.concectBD();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -53,7 +52,6 @@ public class AplicaVacinaDaoJdbc implements IAplicaVacinaDAO {
             preparedStatement.setInt(3, AplicaVacina.getCrmvMedico());
             preparedStatement.setInt(4, AplicaVacina.getCodigoVacina());
             preparedStatement.setDate(5, AplicaVacina.getData_aplicacao());
-            preparedStatement.setDate(6, AplicaVacina.getData_reforco());
             preparedStatement.executeUpdate();
             preparedStatement.close();
             connection.close();
@@ -77,8 +75,6 @@ public class AplicaVacinaDaoJdbc implements IAplicaVacinaDAO {
                 AplicaVacina.setCrmvMedico(resultSet.getInt("crmvMedico_AplicaVacina"));
                 AplicaVacina.setCodigoVacina(resultSet.getInt("codigoVacina_AplicaVacina"));
                 AplicaVacina.setData_aplicacao(resultSet.getDate("Data_aplicacao_AplicaVacina"));
-                AplicaVacina.setData_reforco(resultSet.getDate("Data_reforco_AplicaVacina"));
-
             }
             resultSet.close();
             connection.close();
@@ -91,16 +87,14 @@ public class AplicaVacinaDaoJdbc implements IAplicaVacinaDAO {
 
     @Override
     public void updateAplicaVacina(AplicaVacina AplicaVacina) {
-        String query = "UPDATE AplicaVacina SET codigoVacina_AplicaVacina = ?, Data_aplicacao_AplicaVacina=?, Data_reforco_AplicaVacina=? WHERE nomePet_AplicaVacina = ? AND cpfDono_AplicaVacina = ? AND crmvMedico_AplicaVacina = ?";
+        String query = "UPDATE AplicaVacina SET codigoVacina_AplicaVacina = ?, Data_aplicacao_AplicaVacina=? WHERE nomePet_AplicaVacina = ? AND cpfDono_AplicaVacina = ? AND crmvMedico_AplicaVacina = ?";
         try {
             connection = ConnectionFactory.concectBD();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, AplicaVacina.getCodigoVacina());
             preparedStatement.setDate(2, AplicaVacina.getData_aplicacao());
-            preparedStatement.setDate(3, AplicaVacina.getData_reforco());
-            preparedStatement.setString(4, AplicaVacina.getNomePet());
-            preparedStatement.setLong(5, AplicaVacina.getCpfDono());
-            preparedStatement.setInt(6, AplicaVacina.getCrmvMedico());
+            preparedStatement.setString(3, AplicaVacina.getNomePet());
+            preparedStatement.setLong(4, AplicaVacina.getCpfDono());
             preparedStatement.executeUpdate();
             preparedStatement.close();
             connection.close();
@@ -112,7 +106,7 @@ public class AplicaVacinaDaoJdbc implements IAplicaVacinaDAO {
 
     @Override
     public void deleteAplicaVacina(AplicaVacina AplicaVacina) {
-        String query = "DELETE FROM AplicaVacina WHERE nomePet_AplicaVacina = ? AND cpfDono_AplicaVacina = ? AND crmvMedico_AplicaVacina = ? AND codigoVacina_AplicaVacina = ? and Data_aplicacao_AplicaVacina=? and Data_reforco_AplicaVacina=?";
+        String query = "DELETE FROM AplicaVacina WHERE nomePet_AplicaVacina = ? AND cpfDono_AplicaVacina = ? AND crmvMedico_AplicaVacina = ? AND codigoVacina_AplicaVacina = ? and Data_aplicacao_AplicaVacina=? ";
         try {
             connection = ConnectionFactory.concectBD();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -121,7 +115,6 @@ public class AplicaVacinaDaoJdbc implements IAplicaVacinaDAO {
             preparedStatement.setInt(3, AplicaVacina.getCrmvMedico());
             preparedStatement.setInt(4, AplicaVacina.getCodigoVacina());
             preparedStatement.setDate(5, AplicaVacina.getData_aplicacao());
-            preparedStatement.setDate(6, AplicaVacina.getData_reforco());
             preparedStatement.executeUpdate();
             preparedStatement.close();
             connection.close();
@@ -152,7 +145,6 @@ public class AplicaVacinaDaoJdbc implements IAplicaVacinaDAO {
                     r.setCrmvMedico(resultSet.getInt("crmvMedico_AplicaVacina"));
                     r.setCodigoVacina(resultSet.getInt("codigoVacina_AplicaVacina"));
                     r.setData_aplicacao(resultSet.getDate("Data_aplicacao_AplicaVacina"));
-                    r.setData_reforco(resultSet.getDate("Data_reforco_AplicaVacina"));
                     AplicaVacinas.add(r);
                 }
             }
@@ -179,7 +171,6 @@ public class AplicaVacinaDaoJdbc implements IAplicaVacinaDAO {
                     r.setCrmvMedico(resultSet.getInt("crmvMedico_AplicaVacina"));
                     r.setCodigoVacina(resultSet.getInt("codigoVacina_AplicaVacina"));
                     r.setData_aplicacao(resultSet.getDate("Data_aplicacao_AplicaVacina"));
-                    r.setData_reforco(resultSet.getDate("Data_reforco_AplicaVacina"));
                     AplicaVacinas.add(r);
                 }
             }

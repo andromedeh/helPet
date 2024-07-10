@@ -159,7 +159,6 @@ public class TableCreator {
                 "crmvMedico_AplicaVacina INT NOT NULL," +
                 "codigoExame_AplicaVacina INT," +
                 "Data_aplicacao_vacina_AplicaVacina DATE," +
-                "Data_reforco_vacina_AplicaVacina DATE," +
                 "PRIMARY KEY(nomePet_AplicaVacina, cpfDono_AplicaVacina, crmvMedico_AplicaVacina)," +
                 "FOREIGN KEY (nomePet_AplicaVacina, cpfDono_AplicaVacina) REFERENCES pet(Nome_Pet, CPF_dono_pet)," +
                 "FOREIGN KEY (crmvMedico_AplicaVacina) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)," +

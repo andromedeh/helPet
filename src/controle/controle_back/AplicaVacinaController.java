@@ -11,8 +11,8 @@ import modelo.AplicaVacina;
 public class AplicaVacinaController {
     IAplicaVacinaDAO AplicaVacinaDAO = new AplicaVacinaDaoJdbc();
 
-    public void cadastrarAplicaVacina (String nomePet,long cpfDono, int crmvMedico, int codigoVacina, Date data_aplicacao, Date data_reforco){
-        AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina, data_aplicacao, data_reforco);
+    public void cadastrarAplicaVacina (String nomePet,long cpfDono, int crmvMedico, int codigoVacina, Date data_aplicacao){
+        AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina, data_aplicacao);
         AplicaVacinaDAO.createAplicaVacina(AplicaVacina);
     }
     
@@ -34,13 +34,13 @@ public class AplicaVacinaController {
     }
     
 
-    public void atualizarAplicaVacina(String nomePet,long cpfDono, int crmvMedico, int codigoVacina, Date data_aplicacao, Date data_reforco){
-      AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina, data_aplicacao, data_reforco);
+    public void atualizarAplicaVacina(String nomePet,long cpfDono, int crmvMedico, int codigoVacina, Date data_aplicacao){
+      AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina, data_aplicacao);
       AplicaVacinaDAO.updateAplicaVacina(AplicaVacina);
     }
 
-    public void deletarAplicaVacina (String nomePet,long cpfDono, int crmvMedico, int codigoVacina, Date data_aplicacao, Date data_reforco){
-      AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina, data_aplicacao, data_reforco);
+    public void deletarAplicaVacina (String nomePet,long cpfDono, int crmvMedico, int codigoVacina, Date data_aplicacao){
+      AplicaVacina AplicaVacina = new AplicaVacina(nomePet, cpfDono, crmvMedico, codigoVacina, data_aplicacao);
       AplicaVacinaDAO.deleteAplicaVacina(AplicaVacina);
     }
 }

@@ -34,6 +34,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import modelo.Cliente;
+import modelo.Consulta;
 import modelo.Exame;
 import modelo.Pet;
 import modelo.Profissional;
@@ -85,7 +86,7 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
 
   // TABELA CONSULTAS
   @FXML
-  private TableView<?> tabelaConsultas;
+  private TableView<Consulta> tabelaConsultas;
 
   @FXML
   private TableColumn<?, ?> colunaConsultaData;
