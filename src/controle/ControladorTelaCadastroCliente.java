@@ -3,6 +3,11 @@ package controle;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controle.controle_back.ClienteController;
+import controle.controle_back.MedicoVeterinarioController;
+import controle.controle_back.PetController;
+import controle.controle_back.ProfissionalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,6 +55,11 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
   String endereco;
   String senha;
   String confirmarSenha;
+
+  ProfissionalController profissional = new ProfissionalController();
+  MedicoVeterinarioController medicoVeterinario = new MedicoVeterinarioController();
+  ClienteController cliente = new ClienteController();
+  PetController pet = new PetController();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -102,6 +112,13 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
       labelStatusCliente.setText("Senhas diferentes!");
       return;
     }
+
+    if (profissional.pesquisarProfissionais(cpf) != null || cliente.pesquisarCliente(cpf) != null) {
+      labelStatusCliente.setText("CPF já existente!");
+      return;
+    }
+
+    cliente.cadastrarCliente(nome, sobrenome, cpf, telefone, email, endereco, senha);
 
     AnchorPane anchorPane;
     try {

@@ -54,7 +54,26 @@
   -fx-background-color: #AA9ACF;
 }
 
-#campoEmail {
+#campoCRMVCadastro {
+  -fx-font-weight: bold;
+  -fx-background-color: #7756A6;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+#campoEmail,
+#campoCPF {
+  -fx-font-weight: bold;
+  -fx-background-color: #E15959;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+#campoCRMV {
   -fx-font-weight: bold;
   -fx-background-color: #E15959;
   -fx-background-radius: 60px;
@@ -219,7 +238,8 @@
 #colunaProfissionalFuncao,
 #colunaCpfCliente,
 #colunaNomeCliente,
-#colunaNomePet {
+#colunaNomePet,
+#colunaProfissionalCrmv {
   -fx-background-color: #F19797;
   -fx-border-color: #E15959;
   -fx-border-width: 1px;

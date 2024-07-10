@@ -2,8 +2,12 @@ package controle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
+import controle.controle_back.ClienteController;
+import controle.controle_back.MedicoVeterinarioController;
 import controle.controle_back.ProfissionalController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,6 +53,9 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   private TableColumn<Profissional, String> colunaProfissionalFuncao;
 
   @FXML
+  private TableColumn<Profissional, String> colunaProfissionalCrmv;
+
+  @FXML
   private Label labelAdm;
 
   @FXML // botoes da PaneClientes
@@ -66,15 +73,16 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   @FXML
   private TableColumn<?, ?> colunaNomePet;
 
-  private static ProfissionalController pc = new ProfissionalController();
+  private static ProfissionalController profissional = new ProfissionalController();
+  MedicoVeterinarioController medicoVeterinario = new MedicoVeterinarioController();
+  ClienteController cliente = new ClienteController();
 
-  private static ObservableList <Profissional> profissionais = FXCollections.observableArrayList(pc.listarProfissional());
+  private static ObservableList<Profissional> profissionais = FXCollections
+      .observableArrayList(profissional.listarProfissional());
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
-    colunaProfissionalCpf.setCellValueFactory(new PropertyValueFactory<Profissional,Long>("cpf"));
-    colunaProfissionalNome.setCellValueFactory(new PropertyValueFactory<Profissional,String>("nome"));
-    colunaProfissionalFuncao.setCellValueFactory(new PropertyValueFactory<Profissional,String>("funcao"));
     tabelaProfissionais.setItems(profissionais);
     carregarTabelaCliente(); // IMPLEMENTACAO PENDENTE
     carregarTabelaProfissional();
@@ -102,10 +110,9 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
     PaneClientes.setVisible(clientes);
   }
 
-  // PANE GERENCIAR PROFISSINAIS
   @FXML
   void atualizarTabelaProfissional(ActionEvent event) {
-    // IMPLEMENTAR LOGICA DE ATUALIZAR TABELA
+    profissionais.setAll(profissional.listarProfissional());
   }
 
   @FXML
@@ -123,26 +130,47 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
 
   @FXML
   void excluirProfissional(ActionEvent event) {
-    // IMPLEMENTAR LOGICA DE EXCLUIR LINHA DA TABELA
+    Profissional profissionalSelecionado = tabelaProfissionais.getSelectionModel().getSelectedItem();
+    if (profissionalSelecionado != null) {
+      String nome = profissionalSelecionado.getNome();
+      Long cpf = profissionalSelecionado.getCpf();
+      Long telefone = profissionalSelecionado.getTelefone();
+      String funcao = profissionalSelecionado.getFuncao();
+      String email = profissionalSelecionado.getEmail();
+      String senha = profissionalSelecionado.getSenha();
+      profissional.deletarProfissional(nome, cpf, telefone, funcao, email, senha);
+      List<Long> cpfs = medicoVeterinario.listarCPFsMedicoVeterinario();
+      if (cpfs.contains(cpf)) {
+        System.out.println("É MEDICO");
+        medicoVeterinario.deletarMedicoVeterinario(cpf);
+      } else {
+        System.out.println("Nao e medico");
+      }
+
+      atualizarTabelaProfissional(event);
+    }
   }
 
   public void carregarTabelaProfissional() {
     // IMPLEMENTAR LOGICA DE CARREGAR TABELA
+    colunaProfissionalCpf.setCellValueFactory(new PropertyValueFactory<Profissional, Long>("cpf"));
+    colunaProfissionalNome.setCellValueFactory(new PropertyValueFactory<Profissional, String>("nome"));
+    colunaProfissionalFuncao.setCellValueFactory(new PropertyValueFactory<Profissional, String>("funcao"));
+    tabelaProfissionais.setItems(profissionais);
   }
 
-  // PANE GERENCIAR CLIENTES
   @FXML
   void atualizarTabelaCliente(ActionEvent event) {
 
   }
 
   public void carregarTabelaCliente() {
-    // IMPLEMENTAR LOGICA DE CARREGAR TABELA
+
   }
 
   @FXML
   void excluirCliente(ActionEvent event) {
-    // IMPLEMENTAR LOGICA DE EXCLUIR LINHA DA TABELA
+
   }
 
 }

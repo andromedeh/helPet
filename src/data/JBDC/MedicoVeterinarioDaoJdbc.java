@@ -120,14 +120,14 @@ public class MedicoVeterinarioDaoJdbc implements IMedicoVeterinarioDAO {
     }
 
     @Override
-    public void deleteMedicoVeterinario(MedicoVeterinario medico) {
-        String query = "delete from medico_veterinario where CRMV_MedicoVeterinario=?";
+    public void deleteMedicoVeterinario(Long cpf) {
+        String query = "DELETE FROM medico_veterinario WHERE CPF_MedicoVeterinario=?";
         PreparedStatement pst;
         Connection connection;
         try {
             connection = ConnectionFactory.concectBD();
             pst = connection.prepareStatement(query);
-            pst.setLong(1, medico.getCrmv());
+            pst.setLong(1, cpf);
             pst.execute();
             pst.close();
             connection.close();

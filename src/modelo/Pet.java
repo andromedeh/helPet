@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Pet implements Serializable {
   private String nomePet;
   private String raca;
-  private int idade;
+  private float idade;
   private float peso;
   private String especie;
   private Long cpfDono;
@@ -13,7 +13,7 @@ public class Pet implements Serializable {
   public Pet() {
   }
 
-  public Pet(String nomePet, String raca, int idade, float peso, String especie, Long cpfDono) {
+  public Pet(String nomePet, String raca, float idade, float peso, String especie, Long cpfDono) {
     setNomePet(nomePet);
     setRaca(raca);
     setIdade(idade);
@@ -38,11 +38,11 @@ public class Pet implements Serializable {
     this.raca = raca;
   }
 
-  public int getIdade() {
+  public Float getIdade() {
     return idade;
   }
 
-  public void setIdade(int idade) {
+  public void setIdade(Float idade) {
     this.idade = idade;
   }
 
@@ -70,5 +70,4 @@ public class Pet implements Serializable {
     this.cpfDono = cpfDono;
   }
 
-  
 }

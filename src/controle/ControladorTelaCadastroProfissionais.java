@@ -5,6 +5,10 @@ import java.util.ResourceBundle;
 
 import controle.controle_back.MedicoVeterinarioController;
 import controle.controle_back.ProfissionalController;
+
+import controle.controle_back.ClienteController;
+import controle.controle_back.MedicoVeterinarioController;
+import controle.controle_back.ProfissionalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +19,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import modelo.MedicoVeterinario;
+import modelo.Profissional;
 
 public class ControladorTelaCadastroProfissionais extends ControladorBase implements Initializable {
 
@@ -25,7 +31,7 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
   private Button btnConfirmar;
 
   @FXML
-  private TextField campoNome, campoSobrenome, campoCpf, campoTelefone, campoEmailCadastro, campoCRMV;
+  private TextField campoNome, campoSobrenome, campoCpf, campoTelefone, campoEmailCadastro, campoCRMVCadastro;
 
   @FXML
   private PasswordField campoSenha, campoConfirmarSenha;
@@ -39,10 +45,15 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
   @FXML
   private ToggleGroup funcao;
 
+  ProfissionalController profissional = new ProfissionalController();
+  MedicoVeterinarioController medicoVeterinario = new MedicoVeterinarioController();
+  ClienteController cliente = new ClienteController();
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     labelStatus.setText("");
     limparCampos();
+
   }
 
   @FXML
@@ -58,92 +69,92 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
 
     if (nome.isEmpty() || sobrenome.isEmpty() || campoCpf.getText().isEmpty() || campoTelefone.getText().isEmpty()
         || email.isEmpty() || senha.isEmpty() || confirmarSenha.isEmpty() || funcao.getSelectedToggle() == null) {
-      labelStatus.setText("Preencha todos os campos!");
-      return;
-    } else {
-      if (rbMedico.isSelected()) {
-        if (campoCRMV.getText().isEmpty()) {
-          labelStatus.setText("Preencha todos os campos!");
-          return;
-        }
-      }
-    }
-
-    if (!(eString(nome, sobrenome))) {
-      labelStatus.setText("Os dados (nome, sobrenome) devem conter apenas letras!");
-      return;
-    }
-
-    if (!eLong(campoCpf.getText()) || campoCpf.getLength() != 11) {
-      labelStatus.setText("Entrada inválida para o CPF. Por favor, insira um número válido.");
-      return;
-    } else {
-      cpf = Long.parseLong(campoCpf.getText());
-    }
-
-    if (rbMedico.isSelected()) {
-      if (!eInteiro(campoCRMV.getText())) {
-        labelStatus.setText("Entrada inválida para o CRMV. Por favor, insira um número válido.");
+      if (nome.isEmpty() || sobrenome.isEmpty() || campoCpf.getText().isEmpty() || campoTelefone.getText().isEmpty()
+          || email.isEmpty() || senha.isEmpty() || confirmarSenha.isEmpty() || funcao.getSelectedToggle() == null) {
+        labelStatus.setText("Preencha todos os campos!");
         return;
       } else {
-        CRMV = Integer.parseInt(campoCRMV.getText());
+        if (rbMedico.isSelected()) {
+          if (campoCRMVCadastro.getText().isEmpty()) {
+            labelStatus.setText("Preencha todos os campos!");
+            return;
+          }
+        }
       }
-    }
 
-    if (!eLong(campoTelefone.getText()) || campoTelefone.getLength() != 11) {
-      labelStatus.setText("Entrada inválida para o telefone. Por favor, insira um número válido.");
-      return;
-    } else {
-      telefone = Long.parseLong(campoTelefone.getText());
-    }
-
-    if (!email.toLowerCase().endsWith("@gmail.com")) {
-      labelStatus.setText("O e-mail deve ser do domínio '@gmail.com'");
-      return;
-    }
-
-    if (!(senha.equals(confirmarSenha))) {
-      labelStatus.setText("Senhas diferentes!");
-      return;
-    }
-    
-    
-    
-    // CADASTRAR PROFISSIONAL NO BD: FALTA IMPLEMENTAR.... OK!
-    if (rbMedico.isSelected()) {
-      MedicoVeterinarioController mc = new MedicoVeterinarioController();
-      ProfissionalController pc = new ProfissionalController();
-      if(mc.pesquisarMedicoVeterinarios(CRMV)!= null || pc.pesquisarProfissionals(cpf)!= null){
-        labelStatus.setText("Cadastro já existe!");
+      if (!(eString(nome, sobrenome))) {
+        labelStatus.setText("Os dados (nome, sobrenome) devem conter apenas letras!");
         return;
       }
-      RadioButton funcaoSelecionada = (RadioButton) funcao.getSelectedToggle();
-      String funcaoCliente = funcaoSelecionada.getText();
-      mc.cadastrarMedicoVeterinario(nome, cpf, telefone, funcaoCliente, email, senha, CRMV);
-    } else {
-      ProfissionalController pc = new ProfissionalController();
-      if(pc.pesquisarProfissionals(cpf)!= null){
-        labelStatus.setText("Cadastro já existe!");
+
+      if (!eLong(campoCpf.getText()) || campoCpf.getLength() != 11) {
+        labelStatus.setText("Entrada inválida para o CPF. Por favor, insira um número válido.");
+        return;
+      } else {
+        cpf = Long.parseLong(campoCpf.getText());
+      }
+
+      if (rbMedico.isSelected()) {
+        if (!eInteiro(campoCRMVCadastro.getText())) {
+          labelStatus.setText("Entrada inválida para o CRMV. Por favor, insira um número válido.");
+          return;
+        } else {
+          CRMV = Integer.parseInt(campoCRMVCadastro.getText());
+        }
+      }
+
+      if (!eLong(campoTelefone.getText()) || campoTelefone.getLength() != 11) {
+        labelStatus.setText("Entrada inválida para o telefone. Por favor, insira um número válido.");
+        return;
+      } else {
+        telefone = Long.parseLong(campoTelefone.getText());
+      }
+
+      if (!email.toLowerCase().endsWith("@gmail.com")) {
+        labelStatus.setText("O e-mail deve ser do domínio '@gmail.com'");
         return;
       }
-      RadioButton funcaoSelecionada = (RadioButton) funcao.getSelectedToggle();
-      String funcaoCliente = funcaoSelecionada.getText();
-      
-      pc.cadastrarProfissional(nome, cpf, telefone, funcaoCliente, email, senha);
-    }
 
-    labelStatus.setText("Cadastro finalizado!");
-    limparCampos();
+      if (!(senha.equals(confirmarSenha))) {
+        labelStatus.setText("Senhas diferentes!");
+        return;
+      }
+
+      RadioButton funcaoSelecionada = (RadioButton) funcao.getSelectedToggle();
+      String funcao = funcaoSelecionada.getText();
+
+      if (profissional.pesquisarProfissionais(cpf) != null || cliente.pesquisarCliente(cpf) != null) {
+        labelStatus.setText("CPF já existente!");
+        return;
+      }
+
+      if (medicoVeterinario.pesquisarMedicoVeterinarios(CRMV) != null) {
+        labelStatus.setText("CRMV já existente!");
+        return;
+      }
+
+      // CADASTRAR PROFISSIONAL NO BD: FALTA IMPLEMENTAR
+      if (rbMedico.isSelected()) {
+        medicoVeterinario.cadastrarMedicoVeterinario(nome, cpf, telefone, funcao, email, senha, CRMV);
+        // CADASTRAR MEDICO
+      } else {
+        profissional.cadastrarProfissional(nome, cpf, telefone, funcao, email, senha);
+        // CADASTRAR SECRETARIO
+      }
+
+      labelStatus.setText("Cadastro finalizado!");
+      limparCampos();
+    }
   }
 
   @FXML
   void mostrarCampoCRMV(ActionEvent event) {
     if (rbMedico.isSelected()) {
       labelCRMV.setVisible(true);
-      campoCRMV.setVisible(true);
+      campoCRMVCadastro.setVisible(true);
     } else {
       labelCRMV.setVisible(false);
-      campoCRMV.setVisible(false);
+      campoCRMVCadastro.setVisible(false);
     }
   }
 
@@ -158,7 +169,7 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
     rbMedico.setSelected(false);
     rbSecretario.setSelected(false);
     labelCRMV.setVisible(false);
-    campoCRMV.setVisible(false);
+    campoCRMVCadastro.setVisible(false);
   }
 
   private boolean eString(String str1, String str2) {

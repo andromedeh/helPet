@@ -28,7 +28,7 @@ public class PetDaoJdbc implements IPetDAO {
                     Pet p = new Pet();
                     p.setNomePet(resultSet.getString("Nome_Pet"));
                     p.setRaca(resultSet.getString("Raca_Pet"));
-                    p.setIdade(resultSet.getInt("Idade_Pet"));
+                    p.setIdade(resultSet.getFloat("Idade_Pet"));
                     p.setPeso(resultSet.getFloat("Peso_Pet"));
                     p.setEspecie(resultSet.getString("Especie_Pet"));
                     p.setCpfDono(resultSet.getLong("CPF_dono_pet"));
@@ -45,7 +45,7 @@ public class PetDaoJdbc implements IPetDAO {
     public List<Pet> getAllPetDono(Long cpf) {
         List<Pet> pets = null;
         String query = "select * from pet where cpf_dono_pet=?";
-        PreparedStatement preparedStatement= null;
+        PreparedStatement preparedStatement = null;
         Connection connection;
         try {
             connection = ConnectionFactory.concectBD();
@@ -58,7 +58,7 @@ public class PetDaoJdbc implements IPetDAO {
                     Pet p = new Pet();
                     p.setNomePet(resultSet.getString("Nome_Pet"));
                     p.setRaca(resultSet.getString("Raca_Pet"));
-                    p.setIdade(resultSet.getInt("Idade_Pet"));
+                    p.setIdade(resultSet.getFloat("Idade_Pet"));
                     p.setPeso(resultSet.getFloat("Peso_Pet"));
                     p.setEspecie(resultSet.getString("Especie_Pet"));
                     p.setCpfDono(resultSet.getLong("CPF_dono_pet"));
@@ -82,7 +82,7 @@ public class PetDaoJdbc implements IPetDAO {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, pet.getNomePet());
             preparedStatement.setString(2, pet.getRaca());
-            preparedStatement.setInt(3, pet.getIdade());
+            preparedStatement.setFloat(3, pet.getIdade());
             preparedStatement.setFloat(4, pet.getPeso());
             preparedStatement.setString(5, pet.getEspecie());
             preparedStatement.setLong(6, pet.getCpfDono());
@@ -109,7 +109,7 @@ public class PetDaoJdbc implements IPetDAO {
                 p = new Pet();
                 p.setNomePet(resultSet.getString("Nome_Pet"));
                 p.setRaca(resultSet.getString("Raca_Pet"));
-                p.setIdade(resultSet.getInt("Idade_Pet"));
+                p.setIdade(resultSet.getFloat("Idade_Pet"));
                 p.setPeso(resultSet.getFloat("Peso_Pet"));
                 p.setEspecie(resultSet.getString("Especie_Pet"));
                 p.setCpfDono(resultSet.getLong("cpf_dono_pet"));
@@ -132,7 +132,7 @@ public class PetDaoJdbc implements IPetDAO {
             connection = ConnectionFactory.concectBD();
             pst = connection.prepareStatement(query);
             pst.setString(1, pet.getRaca());
-            pst.setInt(2, pet.getIdade());
+            pst.setFloat(2, pet.getIdade());
             pst.setFloat(3, pet.getPeso());
             pst.setString(4, pet.getEspecie());
             pst.setLong(5, pet.getCpfDono());

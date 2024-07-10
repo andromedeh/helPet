@@ -2,6 +2,9 @@ package controle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controle.controle_back.MedicoVeterinarioController;
+import controle.controle_back.ProfissionalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,10 +14,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import modelo.MedicoVeterinario;
+import modelo.Profissional;
 
 public class ControladorTelaLoginProfissionalSecretaria extends ControladorBase implements Initializable {
   @FXML
-  private TextField campoEmail, campoSenhaTexto;
+  private TextField campoCPF, campoSenhaTexto;
   @FXML
   private Label labelStatus;
   @FXML
@@ -24,6 +29,7 @@ public class ControladorTelaLoginProfissionalSecretaria extends ControladorBase 
   @FXML
   private ImageView iconBtnVer;
   private boolean controleBtnVer = true;
+  MedicoVeterinarioController medico = new MedicoVeterinarioController();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -37,8 +43,22 @@ public class ControladorTelaLoginProfissionalSecretaria extends ControladorBase 
 
   @FXML
   void loginSecretaria(ActionEvent event) {
-    gerenciador.getStage().close();
-    gerenciador.trocarCena("/visao/fxml/TelaPrincipalSecretaria.fxml");
+    if (campoCPF.getText().isEmpty() || campoSenhaTexto.getText().isEmpty()) {
+      labelStatus.setText("Preencha os campos!");
+      return;
+    }
+    ProfissionalController p = new ProfissionalController();
+    Profissional profissional = p.pesquisarProfissionais(Long.parseLong(campoCPF.getText()));
+    if (profissional != null) {
+      if (profissional.getSenha().equals(campoSenhaTexto.getText())) {
+        gerenciador.getStage().close();
+        gerenciador.trocarCena("/visao/fxml/TelaPrincipalSecretaria.fxml");
+      } else {
+        labelStatus.setText("Senha Incorreta!");
+      }
+    } else {
+      labelStatus.setText("CPF Incorreto!");
+    }
   }
 
   @FXML
@@ -72,7 +92,7 @@ public class ControladorTelaLoginProfissionalSecretaria extends ControladorBase 
   }
 
   public void limparCampos() {
-    campoEmail.clear();
+    campoCPF.clear();
     campoSenhaTexto.clear();
     campoSenhaOculto.clear();
   }

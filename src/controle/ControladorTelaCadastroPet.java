@@ -3,6 +3,7 @@ package controle;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controle.controle_back.PetController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,6 +38,9 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
   String raca;
   float idade;
   float peso;
+
+  PetController pet = new PetController();
+  ControladorTelaCadastroCliente dono = new ControladorTelaCadastroCliente();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -80,6 +84,7 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
     RadioButton especieSelecionada = (RadioButton) especie.getSelectedToggle();
     especiePet = especieSelecionada.getText(); // "Gato" ou "Cachorro"
 
+    pet.cadastrarPet(nomePet, raca, idade, peso, especiePet, dono.cpf);
     // IMPLEMENTAR LOGICA PARA SALVAR OS DADOS DO CLIENTE E DO PET NO BANCO DE DADOS
 
     AnchorPaneConfirmacao.setVisible(true);
