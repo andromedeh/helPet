@@ -3,6 +3,10 @@ package controle;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controle.controle_back.ProfissionalController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +16,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import modelo.Profissional;
 
 public class ControladorTelaPrincipalAdministrador extends ControladorBase implements Initializable {
   @FXML
@@ -31,16 +37,16 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
 
   // NOMEAR CORRETAMENTE A TABELA E COLUNAS
   @FXML
-  private TableView<?> tabelaProfissionais;
+  private TableView<Profissional> tabelaProfissionais;
 
   @FXML
-  private TableColumn<?, ?> colunaProfissionalCpf;
+  private TableColumn<Profissional, Long> colunaProfissionalCpf;
 
   @FXML
-  private TableColumn<?, ?> colunaProfissionalNome;
+  private TableColumn<Profissional, String> colunaProfissionalNome;
 
   @FXML
-  private TableColumn<?, ?> colunaProfissionalFuncao;
+  private TableColumn<Profissional, String> colunaProfissionalFuncao;
 
   @FXML
   private Label labelAdm;
@@ -60,8 +66,16 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   @FXML
   private TableColumn<?, ?> colunaNomePet;
 
+  private static ProfissionalController pc = new ProfissionalController();
+
+  private static ObservableList <Profissional> profissionais = FXCollections.observableArrayList(pc.listarProfissional());
   @Override
   public void initialize(URL location, ResourceBundle resources) {
+
+    colunaProfissionalCpf.setCellValueFactory(new PropertyValueFactory<Profissional,Long>("cpf"));
+    colunaProfissionalNome.setCellValueFactory(new PropertyValueFactory<Profissional,String>("nome"));
+    colunaProfissionalFuncao.setCellValueFactory(new PropertyValueFactory<Profissional,String>("funcao"));
+    tabelaProfissionais.setItems(profissionais);
     carregarTabelaCliente(); // IMPLEMENTACAO PENDENTE
     carregarTabelaProfissional();
     visibilidade(true, false, false);

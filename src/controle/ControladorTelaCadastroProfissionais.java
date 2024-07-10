@@ -2,6 +2,9 @@ package controle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controle.controle_back.MedicoVeterinarioController;
+import controle.controle_back.ProfissionalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
-public class ControladorTelaCadastroProfissionais extends ControladorBase implements Initializable{
+public class ControladorTelaCadastroProfissionais extends ControladorBase implements Initializable {
 
   @FXML
   private AnchorPane AnchorPaneCadastroProfissionais;
@@ -48,17 +51,18 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
     String sobrenome = campoSobrenome.getText();
     long cpf = 0;
     long telefone = 0;
-    long CRMV = 0;
+    int CRMV = 0;
     String email = campoEmailCadastro.getText();
     String senha = campoSenha.getText();
     String confirmarSenha = campoConfirmarSenha.getText();
 
-    if (nome.isEmpty() || sobrenome.isEmpty() || campoCpf.getText().isEmpty() || campoTelefone.getText().isEmpty() || email.isEmpty() || senha.isEmpty() || confirmarSenha.isEmpty() || funcao.getSelectedToggle() == null) {
+    if (nome.isEmpty() || sobrenome.isEmpty() || campoCpf.getText().isEmpty() || campoTelefone.getText().isEmpty()
+        || email.isEmpty() || senha.isEmpty() || confirmarSenha.isEmpty() || funcao.getSelectedToggle() == null) {
       labelStatus.setText("Preencha todos os campos!");
       return;
-    }else{
-      if (rbMedico.isSelected()){
-        if (campoCRMV.getText().isEmpty()){
+    } else {
+      if (rbMedico.isSelected()) {
+        if (campoCRMV.getText().isEmpty()) {
           labelStatus.setText("Preencha todos os campos!");
           return;
         }
@@ -77,12 +81,12 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
       cpf = Long.parseLong(campoCpf.getText());
     }
 
-    if (rbMedico.isSelected()){
-      if (!eLong(campoCRMV.getText())) {
+    if (rbMedico.isSelected()) {
+      if (!eInteiro(campoCRMV.getText())) {
         labelStatus.setText("Entrada inválida para o CRMV. Por favor, insira um número válido.");
         return;
       } else {
-        CRMV = Long.parseLong(campoCRMV.getText());
+        CRMV = Integer.parseInt(campoCRMV.getText());
       }
     }
 
@@ -102,21 +106,39 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
       labelStatus.setText("Senhas diferentes!");
       return;
     }
-
-    // CADASTRAR PROFISSIONAL NO BD: FALTA IMPLEMENTAR
-    if (rbMedico.isSelected()){
-      // CADASTRAR MEDICO
-    } else {
-      // CADASTRAR SECRETARIO
-    }
     
+    
+    
+    // CADASTRAR PROFISSIONAL NO BD: FALTA IMPLEMENTAR.... OK!
+    if (rbMedico.isSelected()) {
+      MedicoVeterinarioController mc = new MedicoVeterinarioController();
+      ProfissionalController pc = new ProfissionalController();
+      if(mc.pesquisarMedicoVeterinarios(CRMV)!= null || pc.pesquisarProfissionals(cpf)!= null){
+        labelStatus.setText("Cadastro já existe!");
+        return;
+      }
+      RadioButton funcaoSelecionada = (RadioButton) funcao.getSelectedToggle();
+      String funcaoCliente = funcaoSelecionada.getText();
+      mc.cadastrarMedicoVeterinario(nome, cpf, telefone, funcaoCliente, email, senha, CRMV);
+    } else {
+      ProfissionalController pc = new ProfissionalController();
+      if(pc.pesquisarProfissionals(cpf)!= null){
+        labelStatus.setText("Cadastro já existe!");
+        return;
+      }
+      RadioButton funcaoSelecionada = (RadioButton) funcao.getSelectedToggle();
+      String funcaoCliente = funcaoSelecionada.getText();
+      
+      pc.cadastrarProfissional(nome, cpf, telefone, funcaoCliente, email, senha);
+    }
+
     labelStatus.setText("Cadastro finalizado!");
     limparCampos();
   }
 
   @FXML
   void mostrarCampoCRMV(ActionEvent event) {
-    if (rbMedico.isSelected()){
+    if (rbMedico.isSelected()) {
       labelCRMV.setVisible(true);
       campoCRMV.setVisible(true);
     } else {
@@ -125,7 +147,7 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
     }
   }
 
-  public void limparCampos(){
+  public void limparCampos() {
     campoNome.setText("");
     campoSobrenome.setText("");
     campoCpf.setText("");
@@ -138,7 +160,7 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
     labelCRMV.setVisible(false);
     campoCRMV.setVisible(false);
   }
-  
+
   private boolean eString(String str1, String str2) {
     if (str1.matches("[a-zA-Z\\s]+") && str2.matches("[a-zA-Z\\s]+")) {
       return true;
@@ -150,6 +172,15 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
   private boolean eLong(String l) {
     try {
       Long.parseLong(l);
+      return true;
+    } catch (NumberFormatException e) {
+      return false;
+    }
+  }
+
+  private boolean eInteiro(String str) {
+    try {
+      Integer.parseInt(str);
       return true;
     } catch (NumberFormatException e) {
       return false;

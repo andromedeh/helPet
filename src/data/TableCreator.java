@@ -99,7 +99,7 @@ public class TableCreator {
                        "Especie_Pet VARCHAR(100)," +
                        "CPF_dono_pet BIGINT NOT NULL," +
                        "PRIMARY KEY(Nome_Pet, CPF_dono_pet)," +
-                       "FOREIGN KEY(CPF_dono_pet) REFERENCES cliente(CPF_Cliente)" +
+                       "FOREIGN KEY(CPF_dono_pet) REFERENCES cliente(CPF_Cliente) ON DELETE CASCADE" +
                        ");";
         statementExtUpdate(connection, query);
         System.out.println("Pet table created");

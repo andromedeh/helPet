@@ -2,6 +2,8 @@ package controle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controle.controle_back.MedicoVeterinarioController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import modelo.MedicoVeterinario;
 
 public class ControladorTelaLoginProfissionalMedico extends ControladorBase implements Initializable {
   @FXML
@@ -36,9 +39,21 @@ public class ControladorTelaLoginProfissionalMedico extends ControladorBase impl
   }
 
   @FXML
-  void loginMedico(ActionEvent event) {
-    gerenciador.getStage().close();
-    gerenciador.trocarCena("/visao/fxml/TelaPrincipalMedico.fxml");
+  void loginMedico(ActionEvent event) {// email = crmv
+    MedicoVeterinarioController mc = new MedicoVeterinarioController();
+    MedicoVeterinario medico = mc.pesquisarMedicoVeterinarios(Integer.parseInt(campoEmail.getText()));
+    if(medico != null){
+      if (medico.getSenha().equals(campoSenhaTexto.getText())){
+        gerenciador.getStage().close();
+        gerenciador.trocarCena("/visao/fxml/TelaPrincipalMedico.fxml");
+      }else{
+        //senha incorreta
+        System.out.println(medico.getSenha());
+      }
+    }else{
+      System.out.println("crmv bla");
+    }
+    
   }
 
   @FXML
