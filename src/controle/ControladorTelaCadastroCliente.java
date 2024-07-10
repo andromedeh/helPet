@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import controle.controle_back.ClienteController;
+import controle.controle_back.ProfissionalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,6 +53,8 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
   String endereco;
   String senha;
   String confirmarSenha;
+  ClienteController cliente = new ClienteController();
+  ProfissionalController profissional = new ProfissionalController();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -104,12 +107,14 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
       labelStatusCliente.setText("Senhas diferentes!");
       return;
     }
-    ClienteController pc = new ClienteController();
-    if(pc.pesquisarCliente(cpf)!= null){
+
+    if (cliente.pesquisarCliente(cpf) != null || profissional.pesquisarProfissionals(cpf) != null) {
+      labelStatusCliente.setText("CPF já existente!");
       return;
     }
-    setCpf(Long.parseLong(campoCpf.getText()));  
-    pc.cadastrarCliente(nome, sobrenome, cpf, telefone, email, endereco, senha);
+    setCpf(Long.parseLong(campoCpf.getText()));
+
+    cliente.cadastrarCliente(nome, sobrenome, cpf, telefone, email, endereco, senha);
 
     AnchorPane anchorPane;
     try {
@@ -168,7 +173,6 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
   public static void setCpf(long cpf) {
     ControladorTelaCadastroCliente.cpf = cpf;
   }
-  
 
   /*
    * private boolean eInteiro(String str) {

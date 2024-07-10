@@ -2,6 +2,9 @@ package controle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controle.controle_back.MedicoVeterinarioController;
+import controle.controle_back.ProfissionalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,10 +14,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import modelo.MedicoVeterinario;
+import modelo.Profissional;
 
 public class ControladorTelaLoginProfissionalSecretaria extends ControladorBase implements Initializable {
   @FXML
-  private TextField campoEmail, campoSenhaTexto;
+  private TextField campoCPF, campoSenhaTexto;
   @FXML
   private Label labelStatus;
   @FXML
@@ -37,8 +42,23 @@ public class ControladorTelaLoginProfissionalSecretaria extends ControladorBase 
 
   @FXML
   void loginSecretaria(ActionEvent event) {
-    gerenciador.getStage().close();
-    gerenciador.trocarCena("/visao/fxml/TelaPrincipalSecretaria.fxml");
+    if (campoCPF.getText().isEmpty() || campoSenhaTexto.getText().isEmpty()) {
+      labelStatus.setText("Preencha todos os campos!");
+      return;
+    }
+    ProfissionalController p = new ProfissionalController();
+    Profissional profissional = p.pesquisarProfissionals(Long.parseLong(campoCPF.getText()));
+    if (profissional != null) {
+      if (profissional.getSenha().equals(campoSenhaTexto.getText())
+          && profissional.getFuncao().equals("SECRETÁRIO(A)")) {
+        gerenciador.getStage().close();
+        gerenciador.trocarCena("/visao/fxml/TelaPrincipalSecretaria.fxml");
+      } else {
+        labelStatus.setText("Senha inválida!");
+      }
+    } else {
+      labelStatus.setText("CPF inválido!");
+    }
   }
 
   @FXML
@@ -72,7 +92,7 @@ public class ControladorTelaLoginProfissionalSecretaria extends ControladorBase 
   }
 
   public void limparCampos() {
-    campoEmail.clear();
+    campoCPF.clear();
     campoSenhaTexto.clear();
     campoSenhaOculto.clear();
   }

@@ -17,7 +17,7 @@ import modelo.MedicoVeterinario;
 
 public class ControladorTelaLoginProfissionalMedico extends ControladorBase implements Initializable {
   @FXML
-  private TextField campoEmail, campoSenhaTexto;
+  private TextField campoCRMV, campoSenhaTexto;
   @FXML
   private Label labelStatus;
   @FXML
@@ -40,20 +40,22 @@ public class ControladorTelaLoginProfissionalMedico extends ControladorBase impl
 
   @FXML
   void loginMedico(ActionEvent event) {// email = crmv
-    MedicoVeterinarioController mc = new MedicoVeterinarioController();
-    MedicoVeterinario medico = mc.pesquisarMedicoVeterinarios(Integer.parseInt(campoEmail.getText()));
-    if(medico != null){
-      if (medico.getSenha().equals(campoSenhaTexto.getText())){
+    if (campoCRMV.getText().isEmpty() || campoSenhaTexto.getText().isEmpty()) {
+      labelStatus.setText("Preencha todos os campos!");
+      return;
+    }
+    MedicoVeterinarioController m = new MedicoVeterinarioController();
+    MedicoVeterinario medico = m.pesquisarMedicoVeterinario(Integer.parseInt(campoCRMV.getText()));
+    if (medico != null) {
+      if (medico.getCpf() == (Long.parseLong(campoSenhaTexto.getText()))) {
         gerenciador.getStage().close();
         gerenciador.trocarCena("/visao/fxml/TelaPrincipalMedico.fxml");
-      }else{
-        //senha incorreta
-        System.out.println(medico.getSenha());
+      } else {
+        labelStatus.setText("Senha inválida!");
       }
-    }else{
-      System.out.println("crmv bla");
+    } else {
+      labelStatus.setText("CRMV inválido!");
     }
-    
   }
 
   @FXML
@@ -87,7 +89,7 @@ public class ControladorTelaLoginProfissionalMedico extends ControladorBase impl
   }
 
   public void limparCampos() {
-    campoEmail.clear();
+    campoCRMV.clear();
     campoSenhaTexto.clear();
     campoSenhaOculto.clear();
   }

@@ -8,13 +8,13 @@ import javafx.stage.Stage;
 
 public class Principal extends Application {
 	private GerenciadorCena gerenciador;
-	
+
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		TableCreator tb = new TableCreator();
 		tb.createAllTables();
 		gerenciador = new GerenciadorCena(primaryStage);
-		gerenciador.trocarCena("/visao/fxml/TelaInicial.fxml");
+		gerenciador.trocarCena("/visao/fxml/TelaPrincipalMedico.fxml");
 	}
 
 	public static void main(String[] args) {

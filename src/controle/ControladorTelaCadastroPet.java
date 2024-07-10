@@ -39,13 +39,15 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
   int idade;
   float peso;
   long cpfDono;
+  PetController pet = new PetController();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     AnchorPaneConfirmacao.setVisible(false);
-    if(ControladorTelaCadastroCliente.getCpf()!=0){
+
+    if (ControladorTelaCadastroCliente.getCpf() != 0) {
       cpfDono = ControladorTelaCadastroCliente.getCpf();
-    }else{
+    } else {
       cpfDono = ControladorTelaLoginCliente.getCpf();
     }
   }
@@ -87,12 +89,13 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
     RadioButton especieSelecionada = (RadioButton) especie.getSelectedToggle();
     especiePet = especieSelecionada.getText(); // "Gato" ou "Cachorro"
 
-        PetController pc = new PetController();
-    if(pc.pesquisarPets(cpfDono, nomePet)!= null){
+    if (pet.pesquisarPets(cpfDono, nomePet) != null) {
+      labelStatusPet.setText("Nome do pet precisa ser diferente!");
       return;
     }
-      
-    pc.cadastrarPet(nomePet, raca, idade, peso, especiePet, cpfDono);;
+
+    pet.cadastrarPet(nomePet, raca, idade, peso, especiePet, cpfDono);
+    ;
 
     AnchorPaneConfirmacao.setVisible(true);
     btnConfirmar.setDisable(true);
@@ -109,6 +112,7 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
       return false;
     }
   }
+
   private boolean eInteiro(String str) {
     try {
       Integer.parseInt(str);
