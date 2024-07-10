@@ -39,7 +39,8 @@ public class TableCreator {
     public void createTableVacina(Connection connection) throws SQLException {
         String query = "CREATE TABLE IF NOT EXISTS vacina (" +
                 "Cod_Vacina SERIAL PRIMARY KEY," +
-                "Nome_Vacina VARCHAR(200)" +
+                "Nome_Vacina VARCHAR(200)," +
+                "Data_reforco_vacina VARCHAR(200)" +
                 ");";
         statementExtUpdate(connection, query);
         System.out.println("Vacina table created");
@@ -59,9 +60,7 @@ public class TableCreator {
         String query = "CREATE TABLE IF NOT EXISTS exame (" +
                 "Cod_Exame SERIAL PRIMARY KEY," +
                 "Nome_Exame VARCHAR(200)," +
-                "Descricao_Exame VARCHAR(400)," +
-                "Data_Exame DATE," +
-                "Hora_Exame VARCHAR(5)" +
+                "Descricao_Exame VARCHAR(400)" +
                 ");";
         statementExtUpdate(connection, query);
         System.out.println("Exame table created");

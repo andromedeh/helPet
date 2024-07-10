@@ -142,12 +142,43 @@
   -fx-font-family: "Quicksand";
 }
 
-#btnGerenciarClientes {
+#btnGerenciarClientes,
+#btnGerenciarProfissionais,
+#btnGerenciarVacinas,
+#btnGerenciarRemedios,
+#btnGerenciarExames {
   -fx-background-color: #FFE5D1;
   -fx-font-weight: bold;
   -fx-opacity: 1;
   -fx-background-radius: 60px;
   -fx-font-family: "Quicksand";
+}
+
+#btnGerenciarExames:hover {
+  -fx-background-color: #c49c7e;
+}
+
+#btnGerenciarExames:pressed {
+  -fx-background-color: #FFE5D1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
+}
+
+#btnGerenciarVacinas:hover {
+  -fx-background-color: #c49c7e;
+}
+
+#btnGerenciarVacinas:pressed {
+  -fx-background-color: #FFE5D1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
+}
+
+#btnGerenciarRemedios:hover {
+  -fx-background-color: #c49c7e;
+}
+
+#btnGerenciarRemedios:pressed {
+  -fx-background-color: #FFE5D1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
 }
 
 #btnGerenciarClientes:hover {
@@ -157,14 +188,6 @@
 #btnGerenciarClientes:pressed {
   -fx-background-color: #FFE5D1;
   -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 0);
-}
-
-#btnGerenciarProfissionais {
-  -fx-background-color: #FFE5D1;
-  -fx-font-weight: bold;
-  -fx-opacity: 1;
-  -fx-background-radius: 60px;
-  -fx-font-family: "Quicksand";
 }
 
 #btnGerenciarProfissionais:hover {
@@ -207,7 +230,10 @@
 }
 
 #tabelaProfissionais,
-#tabelaAdmClientes {
+#tabelaAdmClientes,
+#tabelaAdmRemedios,
+#tabelaAdmExames,
+#tabelaAdmVacinas {
   -fx-background-radius: 4px;
   -fx-background-color: #E15959;
   -fx-padding: 3px;
@@ -221,7 +247,16 @@
 #colunaCpfCliente,
 #colunaNomeCliente,
 #colunaNomePet,
-#colunaSobrenomeCliente {
+#colunaSobrenomeCliente,
+#colunaAdmRemedioNome,
+#colunaAdmRemedioCod,
+#colunaAdmRemedioDescricao,
+#colunaAdmExameNome,
+#colunaAdmExameCod,
+#colunaAdmExameDescricao,
+#colunaAdmVacinaNome,
+#colunaAdmVacinaCod,
+#colunaAdmVacinaDataReforco {
   -fx-background-color: #F19797;
   -fx-border-color: #E15959;
   -fx-border-width: 1px;
