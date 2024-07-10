@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controle.controle_back.ClienteController;
 import controle.controle_back.ProfissionalController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -69,17 +70,16 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   private TableColumn<Cliente, String> colunaNomePet;
 
   private static ProfissionalController pc = new ProfissionalController();
+  private static ClienteController cc = new ClienteController();
 
   private static ObservableList <Profissional> profissionais = FXCollections.observableArrayList(pc.listarProfissional());
+  private static ObservableList <Cliente> clientes = FXCollections.observableArrayList(cc.listarCliente());
   
   
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
-    colunaProfissionalCpf.setCellValueFactory(new PropertyValueFactory<Profissional,Long>("cpf"));
-    colunaProfissionalNome.setCellValueFactory(new PropertyValueFactory<Profissional,String>("nome"));
-    colunaProfissionalFuncao.setCellValueFactory(new PropertyValueFactory<Profissional,String>("funcao"));
-    tabelaProfissionais.setItems(profissionais);
+    
     carregarTabelaCliente(); // IMPLEMENTACAO PENDENTE
     carregarTabelaProfissional();
     visibilidade(true, false, false);
@@ -131,7 +131,10 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   }
 
   public void carregarTabelaProfissional() {
-    // IMPLEMENTAR LOGICA DE CARREGAR TABELA
+    colunaProfissionalCpf.setCellValueFactory(new PropertyValueFactory<Profissional,Long>("cpf"));
+    colunaProfissionalNome.setCellValueFactory(new PropertyValueFactory<Profissional,String>("nome"));
+    colunaProfissionalFuncao.setCellValueFactory(new PropertyValueFactory<Profissional,String>("funcao"));
+    tabelaProfissionais.setItems(profissionais);
   }
 
   // PANE GERENCIAR CLIENTES
@@ -141,7 +144,9 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   }
 
   public void carregarTabelaCliente() {
-    // IMPLEMENTAR LOGICA DE CARREGAR TABELA
+    colunaCpfCliente.setCellValueFactory(new PropertyValueFactory<Cliente,Long>("cpf"));
+    colunaProfissionalNome.setCellValueFactory(new PropertyValueFactory<Profissional,String>("nome"));
+    tabelaAdmClientes.setItems(clientes);
   }
 
   @FXML

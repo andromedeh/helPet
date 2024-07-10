@@ -42,7 +42,7 @@ public class PetDaoJdbc implements IPetDAO {
         return pets;
     }
 
-    public List<Pet> getAllPetDono(Long cpf) {
+    public List<Pet> getAllPetDono(long cpf) {
         List<Pet> pets = null;
         String query = "select * from pet where cpf_dono_pet=?";
         PreparedStatement preparedStatement= null;
@@ -96,7 +96,7 @@ public class PetDaoJdbc implements IPetDAO {
     }
 
     @Override
-    public Pet readPet(Long cpfDono, String nome) {
+    public Pet readPet(long cpfDono, String nome) {
         String query = "select * from pet where cpf_dono_Pet=? and nome_pet =?";
         Connection connection = ConnectionFactory.concectBD();
         Pet p = null;
@@ -173,4 +173,5 @@ public class PetDaoJdbc implements IPetDAO {
         resultSet = statement.executeQuery(query);
         return resultSet;
     }
+
 }

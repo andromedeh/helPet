@@ -3,6 +3,8 @@ package controle;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controle.controle_back.ClienteController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,7 +46,7 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
   // DADOS CLIENTE
   String nome;
   String sobrenome;
-  long cpf;
+  static long cpf;
   long telefone;
   String email;
   String endereco;
@@ -102,6 +104,12 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
       labelStatusCliente.setText("Senhas diferentes!");
       return;
     }
+    ClienteController pc = new ClienteController();
+    if(pc.pesquisarCliente(cpf)!= null){
+      return;
+    }
+    setCpf(Long.parseLong(campoCpf.getText()));  
+    pc.cadastrarCliente(nome, sobrenome, cpf, telefone, email, endereco, senha);
 
     AnchorPane anchorPane;
     try {
@@ -110,6 +118,7 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
       Scene secondScene = new Scene(anchorPane);
       secondStage.setScene(secondScene);
       secondStage.showAndWait();
+      setCpf(0);
     } catch (IOException ex) {
     }
 
@@ -151,6 +160,15 @@ public class ControladorTelaCadastroCliente extends ControladorBase implements I
     campoConfirmarSenha.setText("");
     labelStatusCliente.setText("");
   }
+
+  public static long getCpf() {
+    return cpf;
+  }
+
+  public static void setCpf(long cpf) {
+    ControladorTelaCadastroCliente.cpf = cpf;
+  }
+  
 
   /*
    * private boolean eInteiro(String str) {

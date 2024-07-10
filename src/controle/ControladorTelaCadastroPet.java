@@ -3,6 +3,7 @@ package controle;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controle.controle_back.PetController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,12 +36,18 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
   String especiePet;
   String nomePet;
   String raca;
-  float idade;
+  int idade;
   float peso;
+  long cpfDono;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     AnchorPaneConfirmacao.setVisible(false);
+    if(ControladorTelaCadastroCliente.getCpf()!=0){
+      cpfDono = ControladorTelaCadastroCliente.getCpf();
+    }else{
+      cpfDono = ControladorTelaLoginCliente.getCpf();
+    }
   }
 
   @FXML
@@ -64,11 +71,11 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
       labelStatusPet.setText("a raça do pet deve conter apenas letras.");
       return;
     }
-    if (!eFlutuante(campoIdade.getText())) {
+    if (!eInteiro(campoIdade.getText())) {
       labelStatusPet.setText("Entrada inválida para a idade. Por favor, insira um número válido.");
       return;
     } else {
-      idade = Float.parseFloat(campoIdade.getText());
+      idade = Integer.parseInt(campoIdade.getText());
     }
     if (!eFlutuante(campoPeso.getText())) {
       labelStatusPet.setText("Entrada inválida para o peso. Por favor, insira um número válido.");
@@ -80,7 +87,12 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
     RadioButton especieSelecionada = (RadioButton) especie.getSelectedToggle();
     especiePet = especieSelecionada.getText(); // "Gato" ou "Cachorro"
 
-    // IMPLEMENTAR LOGICA PARA SALVAR OS DADOS DO CLIENTE E DO PET NO BANCO DE DADOS
+        PetController pc = new PetController();
+    if(pc.pesquisarPets(cpfDono, nomePet)!= null){
+      return;
+    }
+      
+    pc.cadastrarPet(nomePet, raca, idade, peso, especiePet, cpfDono);;
 
     AnchorPaneConfirmacao.setVisible(true);
     btnConfirmar.setDisable(true);
@@ -92,6 +104,14 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
   private boolean eFlutuante(String str) {
     try {
       Float.parseFloat(str);
+      return true;
+    } catch (NumberFormatException e) {
+      return false;
+    }
+  }
+  private boolean eInteiro(String str) {
+    try {
+      Integer.parseInt(str);
       return true;
     } catch (NumberFormatException e) {
       return false;

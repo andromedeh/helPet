@@ -16,6 +16,10 @@ public class TableCreator {
             createTableCliente(connection);
             createTablePet(connection);
             createTableMedicoVeterinario(connection);
+            createTableAplicaVacina(connection);
+            createTablePrescicaoRemedio(connection);
+            createTableRealizaExame(connection);
+            createTableConsulta(connection);
             connection.close();
         } catch (SQLException e) {
             System.out.println("Erro ao criar tabelas");
@@ -116,5 +120,61 @@ public class TableCreator {
                        ");";
         statementExtUpdate(connection, query);
         System.out.println("Medico Veterinario table created");
-    } 
+    }
+    public void createTableRealizaExame(Connection connection) throws SQLException {
+        String query = "CREATE TABLE IF NOT EXISTS realizaExame (" +
+                       "nomePet_RealizaExame VARCHAR(200) NOT NULL," +
+                       "cpfDono_RealizaExame BIGINT NOT NULL," +
+                       "crmvMedico_RealizaExame INT NOT NULL," +
+                       "codigoExame_RealizaExame INT," +
+                       "PRIMARY KEY(nomePet_RealizaExame, cpfDono_RealizaExame, crmvMedico_RealizaExame)," +
+                       "FOREIGN KEY (nomePet_RealizaExame, cpfDono_RealizaExame) REFERENCES pet(Nome_Pet, CPF_dono_pet)," +
+                       "FOREIGN KEY (crmvMedico_RealizaExame) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)," +
+                       "FOREIGN KEY (codigoExame_RealizaExame) REFERENCES exame(Cod_Exame)" +
+                       ");";
+        statementExtUpdate(connection, query);
+        System.out.println("RealizaExame table created");
+    }
+    public void createTablePrescicaoRemedio(Connection connection) throws SQLException {
+        String query = "CREATE TABLE IF NOT EXISTS PrescicaoRemedio (" +
+                       "nomePet_PrescicaoRemedio VARCHAR(200) NOT NULL," +
+                       "cpfDono_PrescicaoRemedio BIGINT NOT NULL," +
+                       "crmvMedico_PrescicaoRemedio INT NOT NULL," +
+                       "codigoExame_PrescicaoRemedio INT," +
+                       "PRIMARY KEY(nomePet_PrescicaoRemedio, cpfDono_PrescicaoRemedio, crmvMedico_PrescicaoRemedio)," +
+                       "FOREIGN KEY (nomePet_PrescicaoRemedio, cpfDono_PrescicaoRemedio) REFERENCES pet(Nome_Pet, CPF_dono_pet)," +
+                       "FOREIGN KEY (crmvMedico_PrescicaoRemedio) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)," +
+                       "FOREIGN KEY (codigoExame_PrescicaoRemedio) REFERENCES exame(Cod_Exame)" +
+                       ");";
+        statementExtUpdate(connection, query);
+        System.out.println("PrescicaoRemedio table created");
+    }
+    public void createTableAplicaVacina(Connection connection) throws SQLException {
+        String query = "CREATE TABLE IF NOT EXISTS AplicaVacina (" +
+                       "nomePet_AplicaVacina VARCHAR(200) NOT NULL," +
+                       "cpfDono_AplicaVacina BIGINT NOT NULL," +
+                       "crmvMedico_AplicaVacina INT NOT NULL," +
+                       "codigoExame_AplicaVacina INT," +
+                       "PRIMARY KEY(nomePet_AplicaVacina, cpfDono_AplicaVacina, crmvMedico_AplicaVacina)," +
+                       "FOREIGN KEY (nomePet_AplicaVacina, cpfDono_AplicaVacina) REFERENCES pet(Nome_Pet, CPF_dono_pet)," +
+                       "FOREIGN KEY (crmvMedico_AplicaVacina) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)," +
+                       "FOREIGN KEY (codigoExame_AplicaVacina) REFERENCES exame(Cod_Exame)" +
+                       ");";
+        statementExtUpdate(connection, query);
+        System.out.println("AplicaVacina table created");
+    }
+    public void createTableConsulta(Connection connection) throws SQLException {
+        String query = "CREATE TABLE IF NOT EXISTS consulta (" +
+                       "Nome_Pet VARCHAR(200) NOT NULL," +
+                       "CPF_dono_pet BIGINT NOT NULL," +
+                       "CRMV_MedicoVeterinario INTEGER NOT NULL," +
+                       "Horario TIME," +
+                       "Data_Consulta DATE NOT NULL," +
+                       "PRIMARY KEY (Nome_Pet, CPF_dono_pet, CRMV_MedicoVeterinario, Data_Consulta)," +
+                       "FOREIGN KEY (Nome_Pet, CPF_dono_pet) REFERENCES pet(Nome_Pet, CPF_dono_pet)," +
+                       "FOREIGN KEY (CRMV_MedicoVeterinario) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)" +
+                       ");";
+        statementExtUpdate(connection, query);
+        System.out.println("Consulta table created");
+    }
 }

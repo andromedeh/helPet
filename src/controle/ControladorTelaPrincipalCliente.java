@@ -24,6 +24,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -65,22 +66,22 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
 
   // TABELA PETS
   @FXML
-  private TableView<?> tabelaMeusPets;
+  private TableView<Pet> tabelaMeusPets;
 
   @FXML
-  private TableColumn<?, ?> colunaMeuPetNome;
+  private TableColumn<Pet, String> colunaMeuPetNome;
   
   @FXML
-  private TableColumn<?, ?> colunaMeuPetEspecie;
+  private TableColumn<Pet, String> colunaMeuPetEspecie;
 
   @FXML
-  private TableColumn<?, ?> colunaMeuPetRaca;
+  private TableColumn<Pet, String> colunaMeuPetRaca;
 
   @FXML
-  private TableColumn<?, ?> colunaMeuPetPeso;
+  private TableColumn<Pet, Float> colunaMeuPetPeso;
 
   @FXML
-  private TableColumn<?, ?> colunaMeuPetIdade;
+  private TableColumn<Pet, Integer> colunaMeuPetIdade;
 
   // TABELA CONSULTAS
   @FXML
@@ -172,7 +173,7 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
   private static RemedioController rc = new RemedioController();
   private static ExameController ec = new ExameController();
 
-  private static ObservableList <Pet> pets = FXCollections.observableArrayList(ptc.listarPet());
+  private static ObservableList <Pet> pets = FXCollections.observableArrayList(ptc.listarPetDono(ControladorTelaLoginCliente.getCpf()));
   private static ObservableList <Vacina> vacinas = FXCollections.observableArrayList(vc.listarVacinas());
   private static ObservableList <Remedio> remedios = FXCollections.observableArrayList(rc.listarRemedios());
   private static ObservableList <Exame> exames = FXCollections.observableArrayList(ec.listarExames());
@@ -200,6 +201,12 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
 
   @FXML
   void meusPets(ActionEvent event) {
+    colunaMeuPetNome.setCellValueFactory(new PropertyValueFactory<Pet,String>("nomePet"));
+    colunaMeuPetEspecie.setCellValueFactory(new PropertyValueFactory<Pet,String>("especie"));
+    colunaMeuPetIdade.setCellValueFactory(new PropertyValueFactory<Pet,Integer>("idade"));
+    colunaMeuPetPeso.setCellValueFactory(new PropertyValueFactory<Pet,Float>("peso"));
+    colunaMeuPetRaca.setCellValueFactory(new PropertyValueFactory<Pet,String>("raca"));
+    tabelaMeusPets.setItems(pets);
     visibilidadeTelas(false, true, false, false, false, false, false, false);
   }
 
