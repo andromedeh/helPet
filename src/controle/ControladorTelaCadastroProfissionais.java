@@ -3,6 +3,7 @@ package controle;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controle.controle_back.ClienteController;
 import controle.controle_back.MedicoVeterinarioController;
 import controle.controle_back.ProfissionalController;
 import javafx.event.ActionEvent;
@@ -38,6 +39,10 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
 
   @FXML
   private ToggleGroup funcao;
+
+  MedicoVeterinarioController medico = new MedicoVeterinarioController();
+  ProfissionalController profissional = new ProfissionalController();
+  ClienteController cliente = new ClienteController();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -106,30 +111,25 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
       labelStatus.setText("Senhas diferentes!");
       return;
     }
-    
-    
-    
+
+    RadioButton funcaoSelecionada = (RadioButton) funcao.getSelectedToggle();
+    String funcaoCliente = funcaoSelecionada.getText();
+
+    if (profissional.pesquisarProfissionals(cpf) != null || cliente.pesquisarCliente(cpf) != null) {
+      labelStatus.setText("CPF já cadastrado!");
+      return;
+    }
+    if (medico.pesquisarMedicoVeterinario(CRMV) != null) {
+      labelStatus.setText("CRMV já cadastrado!");
+      return;
+    }
+
     // CADASTRAR PROFISSIONAL NO BD: FALTA IMPLEMENTAR.... OK!
     if (rbMedico.isSelected()) {
-      MedicoVeterinarioController mc = new MedicoVeterinarioController();
-      ProfissionalController pc = new ProfissionalController();
-      if(mc.pesquisarMedicoVeterinarios(CRMV)!= null || pc.pesquisarProfissionals(cpf)!= null){
-        labelStatus.setText("Cadastro já existe!");
-        return;
-      }
-      RadioButton funcaoSelecionada = (RadioButton) funcao.getSelectedToggle();
-      String funcaoCliente = funcaoSelecionada.getText();
-      mc.cadastrarMedicoVeterinario(nome, cpf, telefone, funcaoCliente, email, senha, CRMV);
+      medico.cadastrarMedicoVeterinario(nome, cpf, telefone, funcaoCliente, email, senha, CRMV);
     } else {
-      ProfissionalController pc = new ProfissionalController();
-      if(pc.pesquisarProfissionals(cpf)!= null){
-        labelStatus.setText("Cadastro já existe!");
-        return;
-      }
-      RadioButton funcaoSelecionada = (RadioButton) funcao.getSelectedToggle();
-      String funcaoCliente = funcaoSelecionada.getText();
-      
-      pc.cadastrarProfissional(nome, cpf, telefone, funcaoCliente, email, senha);
+      // TALVEZ CRIAR A TABELA SECRETARIO E ALTERAR AQUI
+      profissional.cadastrarProfissional(nome, cpf, telefone, funcaoCliente, email, senha);
     }
 
     labelStatus.setText("Cadastro finalizado!");

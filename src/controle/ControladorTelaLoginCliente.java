@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import controle.controle_back.ClienteController;
+import controle.controle_back.MedicoVeterinarioController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,12 +16,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import modelo.Cliente;
+import modelo.MedicoVeterinario;
 
 public class ControladorTelaLoginCliente extends ControladorBase implements Initializable {
   @FXML
   private AnchorPane AnchorPaneTelaLoginCliente;
   @FXML
-  private TextField campoEmail, campoSenhaTexto;
+  private TextField campoCPF, campoSenhaTexto;
   @FXML
   private Label labelStatus;
   @FXML
@@ -31,6 +33,7 @@ public class ControladorTelaLoginCliente extends ControladorBase implements Init
   private ImageView iconBtnVer;
   private boolean controleBtnVer = true;
   private static long cpf;
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     limparCampos();
@@ -43,21 +46,23 @@ public class ControladorTelaLoginCliente extends ControladorBase implements Init
 
   @FXML
   void loginCliente(ActionEvent event) {
-    ClienteController mc = new ClienteController();
-    Cliente cliente = mc.pesquisarCliente(Long.parseLong(campoEmail.getText()));
-    if(cliente != null){
-      if (cliente.getSenha().equals(campoSenhaTexto.getText())){
-        setCpf(Long.parseLong(campoEmail.getText()));
+    if (campoCPF.getText().isEmpty() || campoSenhaTexto.getText().isEmpty()) {
+      labelStatus.setText("Preencha todos os campos!");
+      return;
+    }
+    ClienteController c = new ClienteController();
+    Cliente cliente = c.pesquisarCliente(Long.parseLong(campoCPF.getText()));
+    if (cliente != null) {
+      if (cliente.getSenha().equals(campoSenhaTexto.getText())) {
         gerenciador.getStage().close();
         gerenciador.trocarCena("/visao/fxml/TelaPrincipalCliente.fxml");
-      }else{
-        //senha incorreta
-        System.out.println(cliente.getSenha());
+      } else {
+        labelStatus.setText("Senha inválida!");
       }
-    }else{
-      System.out.println("crmv bla");
+    } else {
+      labelStatus.setText("CPF inválido!");
     }
-    
+
   }
 
   @FXML
@@ -91,7 +96,7 @@ public class ControladorTelaLoginCliente extends ControladorBase implements Init
   }
 
   public void limparCampos() {
-    campoEmail.clear();
+    campoCPF.clear();
     campoSenhaTexto.clear();
     campoSenhaOculto.clear();
   }
@@ -104,5 +109,4 @@ public class ControladorTelaLoginCliente extends ControladorBase implements Init
     ControladorTelaLoginCliente.cpf = cpf;
   }
 
-  
 }

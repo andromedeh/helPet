@@ -217,9 +217,11 @@
 #colunaProfissionalCpf,
 #colunaProfissionalNome,
 #colunaProfissionalFuncao,
+#colunaProfissionalCRMV,
 #colunaCpfCliente,
 #colunaNomeCliente,
-#colunaNomePet {
+#colunaNomePet,
+#colunaSobrenomeCliente {
   -fx-background-color: #F19797;
   -fx-border-color: #E15959;
   -fx-border-width: 1px;
