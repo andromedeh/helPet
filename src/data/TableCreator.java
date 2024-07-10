@@ -39,9 +39,7 @@ public class TableCreator {
     public void createTableVacina(Connection connection) throws SQLException {
         String query = "CREATE TABLE IF NOT EXISTS vacina (" +
                 "Cod_Vacina SERIAL PRIMARY KEY," +
-                "Nome_Vacina VARCHAR(200)," +
-                "Data_aplicacao_vacina DATE," +
-                "Data_reforco_vacina DATE" +
+                "Nome_Vacina VARCHAR(200)" +
                 ");";
         statementExtUpdate(connection, query);
         System.out.println("Vacina table created");
@@ -160,6 +158,8 @@ public class TableCreator {
                 "cpfDono_AplicaVacina BIGINT NOT NULL," +
                 "crmvMedico_AplicaVacina INT NOT NULL," +
                 "codigoExame_AplicaVacina INT," +
+                "Data_aplicacao_vacina DATE," +
+                "Data_reforco_vacina DATE" +
                 "PRIMARY KEY(nomePet_AplicaVacina, cpfDono_AplicaVacina, crmvMedico_AplicaVacina)," +
                 "FOREIGN KEY (nomePet_AplicaVacina, cpfDono_AplicaVacina) REFERENCES pet(Nome_Pet, CPF_dono_pet)," +
                 "FOREIGN KEY (crmvMedico_AplicaVacina) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)," +

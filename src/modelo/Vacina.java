@@ -8,8 +8,6 @@ public class Vacina implements Serializable{
 
 private String nomeVacina;
 private int codVacina;
-private Date data_aplicacao;
-private Date data_reforco;
 
 public Vacina() {
 }
