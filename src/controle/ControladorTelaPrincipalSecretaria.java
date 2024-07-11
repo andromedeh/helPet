@@ -55,14 +55,9 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
   @FXML
   private TableColumn<Consulta, String> colunaConsultaHora;
   
-  @FXML
-  private TableColumn<Consulta, String> colunaConsultaMedico;
 
   @FXML
-  private TableColumn<Consulta, Long> colunaConsultaMedicoCpf;
-  
-  @FXML
-  private TableColumn<Consulta, String> colunaConsultaCliente;
+  private TableColumn<Consulta, Integer> colunaConsultaMedicoCpf;
   
   @FXML
   private TableColumn<Consulta, Long> colunaConsultaClienteCpf;
@@ -80,9 +75,7 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
     colunaConsultaClienteCpf.setCellValueFactory(new PropertyValueFactory<Consulta,Long>("cpfDono"));
     colunaConsultaHora.setCellValueFactory(new PropertyValueFactory<Consulta,String>("horario"));
     colunaConsultaData.setCellValueFactory(new PropertyValueFactory<Consulta,Date>("date"));
-    colunaConsultaMedico.setCellValueFactory(new PropertyValueFactory<Consulta,String>("nomeMedico"));
-    colunaConsultaCliente.setCellValueFactory(new PropertyValueFactory<Consulta,String>("nomeCliente"));
-    colunaConsultaMedicoCpf.setCellValueFactory(new PropertyValueFactory<Consulta,Long>("cpfMedico"));
+    colunaConsultaMedicoCpf.setCellValueFactory(new PropertyValueFactory<Consulta,Integer>("crmvMedico"));
     tabelaConsultas.setItems(consultas);
     visibilidadeTelas(true, false);
     labelNome.setText("Bem vindx, Secre. Fulano!");

@@ -12,9 +12,7 @@ public class Consulta {
     private int crmvMedico;
     private String horario;
     private Date date;
-    private String nomeMedico;
-    private String nomeCliente;
-    private long cpfMedico;
+
     public Consulta(){}
     public Consulta(String nomePet,long cpfDono, int crmvMedico, String horario, Date date){
         ClienteController cc = new ClienteController();
@@ -25,10 +23,6 @@ public class Consulta {
         setDate(date);  
         setHorario(horario);
         setNomePet(nomePet);
-        nomeMedico=(pp.pesquisarProfissionals(mvc.pesquisarMedicoVeterinario(crmvMedico).getCpf()).getNome());
-        nomeCliente =(cc.pesquisarCliente(cpfDono).getNome());
-        cpfMedico = (mvc.pesquisarMedicoVeterinario(crmvMedico).getCpf());
-        System.out.println(nomeMedico+" "+nomeCliente+" "+cpfMedico);
     }
 
     public String getNomePet() {
@@ -61,24 +55,6 @@ public class Consulta {
     public void setDate(Date date) {
         this.date = date;
     }
-    public String getNomeMedico() {
-        return nomeMedico;
-    }
-    public void setNomeMedico(String nomeMedico) {
-        this.nomeMedico = nomeMedico;
-    }
-    public String getNomeCliente() {
-        return nomeCliente;
-    }
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
-    public long getCpfMedico() {
-        return cpfMedico;
-    }
-    public void setCpfMedico(long cpfMedico) {
-        this.cpfMedico = cpfMedico;
-    }
-
+    
     
 }
