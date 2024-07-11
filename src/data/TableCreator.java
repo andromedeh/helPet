@@ -170,14 +170,14 @@ public class TableCreator {
 
     public void createTableConsulta(Connection connection) throws SQLException {
         String query = "CREATE TABLE IF NOT EXISTS consulta (" +
-                "Nome_Pet VARCHAR(200) NOT NULL," +
-                "CPF_dono_pet BIGINT NOT NULL," +
-                "CRMV_MedicoVeterinario INTEGER NOT NULL," +
-                "Horario TIME," +
-                "Data_Consulta DATE NOT NULL," +
-                "PRIMARY KEY (Nome_Pet, CPF_dono_pet, CRMV_MedicoVeterinario, Data_Consulta)," +
-                "FOREIGN KEY (Nome_Pet, CPF_dono_pet) REFERENCES pet(Nome_Pet, CPF_dono_pet)," +
-                "FOREIGN KEY (CRMV_MedicoVeterinario) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)" +
+                "nomePet_Consulta VARCHAR(200) NOT NULL," +
+                "cpfDono_Consulta BIGINT NOT NULL," +
+                "crmvMedico_Consulta INTEGER NOT NULL," +
+                "Horario_Consulta VARCHAR(200)," +
+                "Date_Consulta DATE NOT NULL," +
+                "PRIMARY KEY (nomePet_Consulta, cpfDono_Consulta, crmvMedico_Consulta, Date_Consulta)," +
+                "FOREIGN KEY (nomePet_Consulta, cpfDono_Consulta) REFERENCES pet(Nome_Pet, CPF_dono_pet)," +
+                "FOREIGN KEY (crmvMedico_Consulta) REFERENCES medico_veterinario(CRMV_MedicoVeterinario)" +
                 ");";
         statementExtUpdate(connection, query);
         System.out.println("Consulta table created");

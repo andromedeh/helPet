@@ -19,7 +19,7 @@ public class ProfissionalController {
     return profissionals;
   }
 
-  public Profissional pesquisarProfissionals(Long cpf) {
+  public Profissional pesquisarProfissionals(long cpf) {
     return ProfissionalDAO.readProfissional(cpf);
   }
 

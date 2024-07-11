@@ -1,16 +1,24 @@
 package controle;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 
+import controle.controle_back.ConsultaController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -18,6 +26,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import modelo.Consulta;
+import modelo.Pet;
 import javafx.stage.Stage;
 
 public class ControladorTelaPrincipalSecretaria extends ControladorBase implements Initializable {
@@ -37,33 +47,43 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
   private ImageView fotoPerfil;
 
   @FXML
-  private TableView<?> tabelaConsultas;
+  private TableView<Consulta> tabelaConsultas;
 
   @FXML
-  private TableColumn<?, ?> colunaConsultaData;
+  private TableColumn<Consulta, Date> colunaConsultaData;
 
   @FXML
-  private TableColumn<?, ?> colunaConsultaHora;
+  private TableColumn<Consulta, String> colunaConsultaHora;
   
   @FXML
-  private TableColumn<?, ?> colunaConsultaMedico;
+  private TableColumn<Consulta, String> colunaConsultaMedico;
 
   @FXML
-  private TableColumn<?, ?> colunaConsultaMedicoCpf;
+  private TableColumn<Consulta, Long> colunaConsultaMedicoCpf;
   
   @FXML
-  private TableColumn<?, ?> colunaConsultaCliente;
+  private TableColumn<Consulta, String> colunaConsultaCliente;
   
   @FXML
-  private TableColumn<?, ?> colunaConsultaClienteCpf;
+  private TableColumn<Consulta, Long> colunaConsultaClienteCpf;
   
   @FXML
-  private TableColumn<?, ?> colunaConsultaPet;
+  private TableColumn<Consulta, String> colunaConsultaPet;
 
   private Stage stage;
+  private static ConsultaController cc = new ConsultaController();
+  private static ObservableList <Consulta> consultas = FXCollections.observableArrayList(cc.listarConsultas());
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
+    colunaConsultaPet.setCellValueFactory(new PropertyValueFactory<Consulta,String>("nomePet"));
+    colunaConsultaClienteCpf.setCellValueFactory(new PropertyValueFactory<Consulta,Long>("cpfDono"));
+    colunaConsultaHora.setCellValueFactory(new PropertyValueFactory<Consulta,String>("horario"));
+    colunaConsultaData.setCellValueFactory(new PropertyValueFactory<Consulta,Date>("date"));
+    colunaConsultaMedico.setCellValueFactory(new PropertyValueFactory<Consulta,String>("nomeMedico"));
+    colunaConsultaCliente.setCellValueFactory(new PropertyValueFactory<Consulta,String>("nomeCliente"));
+    colunaConsultaMedicoCpf.setCellValueFactory(new PropertyValueFactory<Consulta,Long>("cpfMedico"));
+    tabelaConsultas.setItems(consultas);
     visibilidadeTelas(true, false);
     labelNome.setText("Bem vindx, Secre. Fulano!");
   }
@@ -88,13 +108,34 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
 
   @FXML
   void marcarConsulta(ActionEvent event) {
-
+      AnchorPane anchorPane;
+    try {
+      anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/visao/fxml/TelaCadastroConsulta.fxml"));
+      Stage secondStage = new Stage();
+      Scene secondScene = new Scene(anchorPane);
+      secondStage.setScene(secondScene);
+      secondStage.show();
+    } catch (IOException ex) {
+    }
+    consultas = FXCollections.observableArrayList(cc.listarConsultas());
+    tabelaConsultas.setItems(consultas);
   }
 
   @FXML
   void cancelarConsulta(ActionEvent event) {
-    gerenciador.getStage().close();
-    gerenciador.trocarCena("/visao/fxml/TelaEscolhaProfissional.fxml");
+    Consulta selecionado = tabelaConsultas.getSelectionModel().getSelectedItem();
+    if (selecionado != null) {
+      String nome = selecionado.getHorario();
+      Long cpfDono = selecionado.getCpfDono();
+      int crmv = selecionado.getCrmvMedico();
+      Date date = selecionado.getDate();
+      String horario = selecionado.getHorario();
+      cc.deletarConsulta(nome, cpfDono, crmv, horario, date);
+      
+      consultas = FXCollections.observableArrayList(cc.listarConsultas());
+      tabelaConsultas.setItems(consultas);
+      
+    }
   }
 
   public void visibilidadeTelas(boolean conteudo, boolean administarConsultas) {
@@ -105,6 +146,6 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
   @FXML
   void sair(ActionEvent event) {
     gerenciador.getStage().close();
-    gerenciador.trocarCena("/visao/fxml/TelaCadastroConsulta.fxml");
+    gerenciador.trocarCena("/visao/fxml/TelaEscolhaProfissional.fxml");
   }
 }

@@ -1,10 +1,12 @@
 package controle;
 
 import java.net.URL;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import controle.controle_back.ConsultaController;
+import controle.controle_back.MedicoVeterinarioController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,8 +16,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import modelo.MedicoVeterinario;
 
-public class ControladorTelaCadastroConsulta extends ControladorBase implements Initializable {
+public class ControladorTelaCadastrarConsulta extends ControladorBase implements Initializable {
   @FXML
   AnchorPane AnchorPaneTelaCadastroConsulta;
 
@@ -49,7 +52,7 @@ public class ControladorTelaCadastroConsulta extends ControladorBase implements 
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    AnchorPaneTelaCadastroConsulta.setVisible(false);
+    AnchorPaneTelaCadastroConsulta.setVisible(true);
 
     if (ControladorTelaCadastroCliente.getCpf() != 0) {
       cpfDono = ControladorTelaCadastroCliente.getCpf();
@@ -63,8 +66,11 @@ public class ControladorTelaCadastroConsulta extends ControladorBase implements 
     nomePet = campoNomePet.getText();
     CRMV = campoCRMVMedico.getText();
     horario = campoHora.getText();
-    LocalDate date=safeGetDateFromDatePicker(dataConsulta);
-    dataConsulta = safeGetDateFromDatePicker(dataConsulta);
+    cpfDono = Long.parseLong(campoCPFDono.getText());
+    MedicoVeterinarioController mvc = new MedicoVeterinarioController();
+    System.out.println(mvc.pesquisarMedicoVeterinario(Integer.parseInt(CRMV)).getNome());
+    Date date=Date.valueOf(safeGetDateFromDatePicker(campoData));
+    
 
     if (nomePet.isEmpty() || cpfDono < 0 || CRMV.isEmpty() || horario.isEmpty()) {
       labelStatusConsulta.setText("Preencha todos os campos!");
@@ -80,17 +86,18 @@ public class ControladorTelaCadastroConsulta extends ControladorBase implements 
       return;
     }
 
-    if (consulta.pesquisarConsultas(nomePet, cpfDono, Integer.parseInt(CRMV), dataConsulta) != null) {
+    if (consulta.pesquisarConsultas(nomePet, cpfDono, Integer.parseInt(CRMV), date) != null) {
       labelStatusConsulta.setText("Nome do pet/ CPF do Dono / CRMV / data da consulta precisa ser diferente!");
       return;
     }
 
-    consulta.cadastrarConsulta(nomePet, CRMV, horario, dataConsulta);
-    ;
+    consulta.cadastrarConsulta(nomePet, cpfDono, Integer.parseInt(CRMV), horario, date);
+    
 
     AnchorPaneTelaCadastroConsulta.setVisible(true);
     btnCadastrarConsulta.setDisable(true);
-    btnCadastrarConsulta.setVisible(false);
+    btnCadastrarConsulta.setVisible(true);
+    labelStatusConsulta.setText("Cadastrado");
     limparCamposConsulta();
 
   }

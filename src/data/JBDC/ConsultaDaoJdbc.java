@@ -46,6 +46,8 @@ public class ConsultaDaoJdbc implements IConsultaDao {
     public void createConsulta(Consulta consulta) {
         String query = "INSERT INTO consulta (nomePet_Consulta, cpfDono_Consulta, crmvMedico_Consulta, horario_Consulta, date_Consulta) VALUES (?, ?, ?, ?, ?)";
         try {
+            System.out.println(consulta.getNomePet());
+            System.out.println(consulta.getCpfDono());
             connection = ConnectionFactory.concectBD();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, consulta.getNomePet());
@@ -64,11 +66,16 @@ public class ConsultaDaoJdbc implements IConsultaDao {
 
     @Override
     public Consulta readConsulta(String nomePet, long cpfDono, int crmvMedico, Date data) {
-        String query = "SELECT * FROM consulta WHERE nomePet_Consulta = '" + nomePet + "' AND cpfDono_Consulta = " + cpfDono + " AND crmvMedico_Consulta = " + crmvMedico+ " AND date_Consulta= "+data;
+        String query = "SELECT * FROM consulta WHERE nomePet_Consulta = ? AND cpfDono_Consulta = ? AND crmvMedico_Consulta = ? AND date_Consulta = ?";
         Consulta consulta = null;
         try {
             connection = ConnectionFactory.concectBD();
-            ResultSet resultSet = statementExQuery(connection, query);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, nomePet);
+            preparedStatement.setLong(2, cpfDono);
+            preparedStatement.setInt(3, crmvMedico);
+            preparedStatement.setDate(4, data);
+            ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 consulta = new Consulta();
                 consulta.setNomePet(resultSet.getString("nomePet_Consulta"));

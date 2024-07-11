@@ -11,10 +11,11 @@ public class Principal extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
+		
 		TableCreator tb = new TableCreator();
 		tb.createAllTables();
 		gerenciador = new GerenciadorCena(primaryStage);
-		gerenciador.trocarCena("/visao/fxml/TelaPrincipalAdministrador.fxml");
+		gerenciador.trocarCena("/visao/fxml/TelaPrincipalSecretaria.fxml");
 	}
 
 	public static void main(String[] args) {

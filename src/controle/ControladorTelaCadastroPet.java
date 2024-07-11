@@ -89,10 +89,7 @@ public class ControladorTelaCadastroPet extends ControladorBase implements Initi
     RadioButton especieSelecionada = (RadioButton) especie.getSelectedToggle();
     especiePet = especieSelecionada.getText(); // "Gato" ou "Cachorro"
 
-    if (pet.pesquisarPets(cpfDono, nomePet) != null) {
-      labelStatusPet.setText("Nome do pet precisa ser diferente!");
-      return;
-    }
+    
 
     pet.cadastrarPet(nomePet, raca, idade, peso, especiePet, cpfDono);
     ;
