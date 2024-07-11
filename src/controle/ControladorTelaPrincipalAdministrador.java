@@ -262,8 +262,8 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   }
 
   public void carregarTabelaExame() {
-    colunaAdmExameCod.setCellValueFactory(new PropertyValueFactory<Exame, Integer>("codigo"));
-    colunaAdmExameNome.setCellValueFactory(new PropertyValueFactory<Exame, String>("nome"));
+    colunaAdmExameCod.setCellValueFactory(new PropertyValueFactory<Exame, Integer>("codExame"));
+    colunaAdmExameNome.setCellValueFactory(new PropertyValueFactory<Exame, String>("nomeExame"));
     colunaAdmExameDescricao.setCellValueFactory(new PropertyValueFactory<Exame, String>("descricao"));
     tabelaAdmExames.setItems(exames);
   }
@@ -305,7 +305,7 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   }
 
   public void carregarTabelaRemedio() {
-    colunaAdmRemedioCod.setCellValueFactory(new PropertyValueFactory<Remedio, Integer>("codigo"));
+    colunaAdmRemedioCod.setCellValueFactory(new PropertyValueFactory<Remedio, Integer>("codRemedio"));
     colunaAdmRemedioNome.setCellValueFactory(new PropertyValueFactory<Remedio, String>("nome"));
     colunaAdmRemedioDescricao.setCellValueFactory(new PropertyValueFactory<Remedio, String>("descricao"));
     tabelaAdmRemedios.setItems(remedios);
