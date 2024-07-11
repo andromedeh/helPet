@@ -93,7 +93,8 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
 
   @FXML
   void cancelarConsulta(ActionEvent event) {
-
+    gerenciador.getStage().close();
+    gerenciador.trocarCena("/visao/fxml/TelaEscolhaProfissional.fxml");
   }
 
   public void visibilidadeTelas(boolean conteudo, boolean administarConsultas) {
@@ -104,6 +105,6 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
   @FXML
   void sair(ActionEvent event) {
     gerenciador.getStage().close();
-    gerenciador.trocarCena("/visao/fxml/TelaEscolhaProfissional.fxml");
+    gerenciador.trocarCena("/visao/fxml/TelaCadastroConsulta.fxml");
   }
 }

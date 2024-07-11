@@ -1,8 +1,6 @@
 package modelo;
 
 import java.io.Serializable;
-import java.sql.Date;
-
 public class Vacina implements Serializable {
 
   private String nomeVacina;

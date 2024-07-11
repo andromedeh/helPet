@@ -560,3 +560,32 @@
   -fx-font-size: 12px;
   -fx-border-radius: 2px;
 }
+.date-picker {
+  -fx-background-color: #7756A6; 
+  -fx-border-color: #7756A6;      
+  -fx-border-radius: 60;          
+  -fx-background-radius: 60;      
+}
+
+.date-picker .arrow-button {
+  -fx-background-color:  #FAF9F6; 
+  -fx-border-radius: 60;          
+  -fx-background-radius: 60;      
+}
+
+.date-picker .text-field {
+  -fx-background-color: #7756A6; 
+  -fx-text-fill: #FAF9F6;         
+  -fx-border-radius: 60;          
+  -fx-background-radius: 60;       
+}
+
+#campoCPF,
+#campoCRMV {
+  -fx-font-weight: bold;
+  -fx-background-color: #E15959;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}

@@ -12,7 +12,7 @@ import data.DAO.IMedicoVeterinarioDAO;
 import modelo.MedicoVeterinario;
 
 public class MedicoVeterinarioDaoJdbc implements IMedicoVeterinarioDAO {
-    private Connection connection;
+    
 
     @Override
     public List<MedicoVeterinario> getAllMedicoVeterinario() {
