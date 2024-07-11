@@ -64,13 +64,4 @@ public class ControladorTelaCadastroVacina extends ControladorBase implements In
     campoCodigoVacina.clear();
     labelStatusVacina.setText("");
   }
-
-  private boolean eInteiro(String str) {
-    try {
-      Integer.parseInt(str);
-      return true;
-    } catch (NumberFormatException e) {
-      return false;
-    }
-  }
 }

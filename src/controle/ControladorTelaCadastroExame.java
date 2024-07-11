@@ -57,7 +57,7 @@ public class ControladorTelaCadastroExame extends ControladorBase implements Ini
       return;
     }
 
-    exame.cadastrarExame(nomeExame, descricaoExame, null, null);
+    exame.cadastrarExame(nomeExame, descricaoExame);
 
     AnchorPaneTelaCadastroExame.setVisible(true);
     btnCadastrarExame.setDisable(true);
