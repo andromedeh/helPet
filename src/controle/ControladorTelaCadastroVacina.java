@@ -33,6 +33,7 @@ public class ControladorTelaCadastroVacina extends ControladorBase implements In
 
   @FXML
   void cadastrarVacina(ActionEvent event) {
+
     nome = campoNomeVacina.getText();
     tempoReforco = campoTempoReforco.getText();
 

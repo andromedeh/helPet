@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import controle.controle_back.ClienteController;
-import controle.controle_back.MedicoVeterinarioController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import modelo.Cliente;
-import modelo.MedicoVeterinario;
 
 public class ControladorTelaLoginCliente extends ControladorBase implements Initializable {
   @FXML

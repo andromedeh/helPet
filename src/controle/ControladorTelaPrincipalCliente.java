@@ -7,13 +7,11 @@ import java.sql.Date;
 import java.util.ResourceBundle;
 
 import controle.controle_back.PetController;
-import controle.controle_back.VacinaController;
 import controle.controle_back.RemedioController;
 import controle.controle_back.AplicaVacinaController;
 import controle.controle_back.ClienteController;
 import controle.controle_back.ConsultaController;
 import controle.controle_back.ExameController;
-import controle.controle_back.ProfissionalController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,11 +21,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,14 +33,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import modelo.AplicaVacina;
-import modelo.Cliente;
 import modelo.Consulta;
 import modelo.Exame;
 import modelo.Pet;
 import modelo.PrescricaoRemedio;
-import modelo.Profissional;
 import modelo.Remedio;
-import modelo.Vacina;
 
 public class ControladorTelaPrincipalCliente extends ControladorBase implements Initializable {
   @FXML

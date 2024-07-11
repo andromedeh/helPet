@@ -3,7 +3,6 @@ package controle;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import controle.controle_back.MedicoVeterinarioController;
 import controle.controle_back.ProfissionalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +13,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import modelo.MedicoVeterinario;
 import modelo.Profissional;
 
 public class ControladorTelaLoginProfissionalSecretaria extends ControladorBase implements Initializable {

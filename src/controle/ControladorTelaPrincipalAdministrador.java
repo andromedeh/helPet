@@ -2,7 +2,6 @@ package controle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.util.ResourceBundle;
 
 import controle.controle_back.ClienteController;

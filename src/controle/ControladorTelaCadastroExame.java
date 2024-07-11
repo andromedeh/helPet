@@ -40,6 +40,8 @@ public class ControladorTelaCadastroExame extends ControladorBase implements Ini
 
   @FXML
   void confirmar(ActionEvent event) {
+    
+
     nomeExame = campoNomeExame.getText();
     descricaoExame = campoDescricaoExame.getText();
 

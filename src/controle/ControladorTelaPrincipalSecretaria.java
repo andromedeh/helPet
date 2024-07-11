@@ -27,7 +27,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import modelo.Consulta;
-import modelo.Pet;
 import javafx.stage.Stage;
 
 public class ControladorTelaPrincipalSecretaria extends ControladorBase implements Initializable {
