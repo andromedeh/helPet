@@ -15,18 +15,18 @@
    <children>
       <Pane fx:id="PaneMenu" prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #E15959;" stylesheets="@../Estilo.css">
          <children>
-            <Label fx:id="labelAdm" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="133.0" text="ADMINISTRADOR" textAlignment="CENTER" />
+            <Label fx:id="labelAdm" alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="137.0" prefHeight="45.0" prefWidth="133.0" text="ADMINISTRADOR" textAlignment="CENTER" />
             <ImageView layoutX="78.0" layoutY="50.0">
                <image>
                   <Image url="@../img/iconAdm.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnGerenciarProfissionais" layoutX="58.0" layoutY="186.0" mnemonicParsing="false" onAction="#gerenciarProfissionais" prefHeight="45.0" prefWidth="133.0" text="PROFISSIONAIS">
+            <Button fx:id="btnGerenciarProfissionais" layoutX="58.0" layoutY="208.0" mnemonicParsing="false" onAction="#gerenciarProfissionais" prefHeight="45.0" prefWidth="133.0" text="PROFISSIONAIS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnGerenciarClientes" layoutX="58.0" layoutY="248.0" mnemonicParsing="false" onAction="#gerenciarClientes" prefHeight="45.0" prefWidth="133.0" text="CLIENTES">
+            <Button fx:id="btnGerenciarClientes" layoutX="58.0" layoutY="270.0" mnemonicParsing="false" onAction="#gerenciarClientes" prefHeight="45.0" prefWidth="133.0" text="CLIENTES">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -36,17 +36,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnGerenciarVacinas" layoutX="58.0" layoutY="380.0" mnemonicParsing="false" onAction="#gerenciarVacinas" prefHeight="45.0" prefWidth="133.0" text="ADD VACINAS">
+            <Button fx:id="btnGerenciarVacinas" layoutX="58.0" layoutY="402.0" mnemonicParsing="false" onAction="#gerenciarVacinas" prefHeight="45.0" prefWidth="133.0" text="ADD VACINAS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnGerenciarExames" layoutX="58.0" layoutY="442.0" mnemonicParsing="false" onAction="#gerenciarExames" prefHeight="45.0" prefWidth="133.0" text="ADD EXAMES">
+            <Button fx:id="btnGerenciarExames" layoutX="58.0" layoutY="464.0" mnemonicParsing="false" onAction="#gerenciarExames" prefHeight="45.0" prefWidth="133.0" text="ADD EXAMES">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnGerenciarRemedios" layoutX="58.0" layoutY="315.0" mnemonicParsing="false" onAction="#gerenciarRemedios" prefHeight="45.0" prefWidth="133.0" text="ADD REMEDIOS">
+            <Button fx:id="btnGerenciarRemedios" layoutX="58.0" layoutY="337.0" mnemonicParsing="false" onAction="#gerenciarRemedios" prefHeight="45.0" prefWidth="133.0" text="ADD REMEDIOS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -156,7 +156,7 @@
                <graphic>
                   <ImageView>
                      <image>
-                        <Image url="@../img/iconCadastrar.png" />
+                        <Image url="@../img/iconAdd.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -201,7 +201,7 @@
             </TableView>
          </children>
       </Pane>
-      <Pane fx:id="PaneVacinas" layoutX="251.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css" visible="false">
+      <Pane fx:id="PaneVacinas" layoutX="251.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css">
          <children>
             <ImageView layoutX="128.0" layoutY="36.0">
                <image>
@@ -212,7 +212,7 @@
                <graphic>
                   <ImageView>
                      <image>
-                        <Image url="@../img/iconCadastrar.png" />
+                        <Image url="@../img/iconAdd.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -253,7 +253,7 @@
             </TableView>
          </children>
       </Pane>
-      <Pane fx:id="PaneExames" layoutX="251.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css" visible="false">
+      <Pane fx:id="PaneExames" layoutX="251.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFE5D1;" stylesheets="@../Estilo.css">
          <children>
             <ImageView layoutX="128.0" layoutY="36.0">
                <image>
@@ -264,7 +264,7 @@
                <graphic>
                   <ImageView>
                      <image>
-                        <Image url="@../img/iconCadastrar.png" />
+                        <Image url="@../img/iconAdd.png" />
                      </image>
                   </ImageView>
                </graphic>

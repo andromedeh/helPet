@@ -26,7 +26,7 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
   private Button btnConfirmar;
 
   @FXML
-  private TextField campoNome, campoSobrenome, campoCpf, campoTelefone, campoEmailCadastro, campoCRMV;
+  private TextField campoNome, campoSobrenome, campoCpf, campoTelefone, campoEmailCadastro, campoProfissionalCRMV;
 
   @FXML
   private PasswordField campoSenha, campoConfirmarSenha;
@@ -67,7 +67,7 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
       return;
     } else {
       if (rbMedico.isSelected()) {
-        if (campoCRMV.getText().isEmpty()) {
+        if (campoProfissionalCRMV.getText().isEmpty()) {
           labelStatus.setText("Preencha todos os campos!");
           return;
         }
@@ -87,11 +87,11 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
     }
 
     if (rbMedico.isSelected()) {
-      if (!eInteiro(campoCRMV.getText())) {
+      if (!eInteiro(campoProfissionalCRMV.getText())) {
         labelStatus.setText("Entrada inválida para o CRMV. Por favor, insira um número válido.");
         return;
       } else {
-        CRMV = Integer.parseInt(campoCRMV.getText());
+        CRMV = Integer.parseInt(campoProfissionalCRMV.getText());
       }
     }
 
@@ -140,10 +140,10 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
   void mostrarCampoCRMV(ActionEvent event) {
     if (rbMedico.isSelected()) {
       labelCRMV.setVisible(true);
-      campoCRMV.setVisible(true);
+      campoProfissionalCRMV.setVisible(true);
     } else {
       labelCRMV.setVisible(false);
-      campoCRMV.setVisible(false);
+      campoProfissionalCRMV.setVisible(false);
     }
   }
 
@@ -158,7 +158,7 @@ public class ControladorTelaCadastroProfissionais extends ControladorBase implem
     rbMedico.setSelected(false);
     rbSecretario.setSelected(false);
     labelCRMV.setVisible(false);
-    campoCRMV.setVisible(false);
+    campoProfissionalCRMV.setVisible(false);
   }
 
   private boolean eString(String str1, String str2) {

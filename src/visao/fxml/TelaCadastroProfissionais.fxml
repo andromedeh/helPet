@@ -76,7 +76,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </RadioButton>
-      <TextField fx:id="campoCRMV" layoutX="618.0" layoutY="396.0" prefHeight="25.0" prefWidth="171.0" stylesheets="@../Estilo.css">
+      <TextField fx:id="campoProfissionalCRMV" layoutX="618.0" layoutY="396.0" prefHeight="25.0" prefWidth="171.0" stylesheets="@../Estilo.css">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>

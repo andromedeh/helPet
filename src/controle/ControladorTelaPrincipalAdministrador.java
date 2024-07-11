@@ -273,7 +273,8 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
     if (selecionado != null) {
       String nome = selecionado.getNomeExame();
       String descricao = selecionado.getDescricao();
-      exame.deletarExame(nome, descricao);
+      int codigo = selecionado.getCodExame();
+      exame.deletarExame(nome, descricao, codigo);
       atualizarTabelaExame(event);
     }
   }
@@ -312,11 +313,13 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
 
   @FXML
   void excluirRemedio(ActionEvent event) {
+
     Remedio selecionado = tabelaAdmRemedios.getSelectionModel().getSelectedItem();
     if (selecionado != null) {
       String nome = selecionado.getNome();
       String descricao = selecionado.getDescricao();
-      remedio.deletarRemedio(nome, descricao);
+      int codigo = selecionado.getCodRemedio();
+      remedio.deletarRemedio(nome, descricao, codigo);
       atualizarTabelaRemedio(event);
     }
   }

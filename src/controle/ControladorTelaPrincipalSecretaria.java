@@ -53,28 +53,27 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
 
   @FXML
   private TableColumn<Consulta, String> colunaConsultaHora;
-  
 
   @FXML
   private TableColumn<Consulta, Integer> colunaConsultaMedicoCpf;
-  
+
   @FXML
   private TableColumn<Consulta, Long> colunaConsultaClienteCpf;
-  
+
   @FXML
   private TableColumn<Consulta, String> colunaConsultaPet;
 
   private Stage stage;
   private static ConsultaController cc = new ConsultaController();
-  private static ObservableList <Consulta> consultas = FXCollections.observableArrayList(cc.listarConsultas());
+  private static ObservableList<Consulta> consultas = FXCollections.observableArrayList(cc.listarConsultas());
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    colunaConsultaPet.setCellValueFactory(new PropertyValueFactory<Consulta,String>("nomePet"));
-    colunaConsultaClienteCpf.setCellValueFactory(new PropertyValueFactory<Consulta,Long>("cpfDono"));
-    colunaConsultaHora.setCellValueFactory(new PropertyValueFactory<Consulta,String>("horario"));
-    colunaConsultaData.setCellValueFactory(new PropertyValueFactory<Consulta,Date>("date"));
-    colunaConsultaMedicoCpf.setCellValueFactory(new PropertyValueFactory<Consulta,Integer>("crmvMedico"));
+    colunaConsultaPet.setCellValueFactory(new PropertyValueFactory<Consulta, String>("nomePet"));
+    colunaConsultaClienteCpf.setCellValueFactory(new PropertyValueFactory<Consulta, Long>("cpfDono"));
+    colunaConsultaHora.setCellValueFactory(new PropertyValueFactory<Consulta, String>("horario"));
+    colunaConsultaData.setCellValueFactory(new PropertyValueFactory<Consulta, Date>("date"));
+    colunaConsultaMedicoCpf.setCellValueFactory(new PropertyValueFactory<Consulta, Integer>("crmvMedico"));
     tabelaConsultas.setItems(consultas);
     visibilidadeTelas(true, false);
     labelNome.setText("Bem vindx, Secre. Fulano!");
@@ -100,13 +99,13 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
 
   @FXML
   void marcarConsulta(ActionEvent event) {
-      AnchorPane anchorPane;
+    AnchorPane anchorPane;
     try {
       anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/visao/fxml/TelaCadastroConsulta.fxml"));
       Stage secondStage = new Stage();
       Scene secondScene = new Scene(anchorPane);
       secondStage.setScene(secondScene);
-      secondStage.show();
+      secondStage.showAndWait();
     } catch (IOException ex) {
     }
     consultas = FXCollections.observableArrayList(cc.listarConsultas());
@@ -123,10 +122,10 @@ public class ControladorTelaPrincipalSecretaria extends ControladorBase implemen
       Date date = selecionado.getDate();
       String horario = selecionado.getHorario();
       cc.deletarConsulta(nome, cpfDono, crmv, horario, date);
-      
+
       consultas = FXCollections.observableArrayList(cc.listarConsultas());
       tabelaConsultas.setItems(consultas);
-      
+
     }
   }
 

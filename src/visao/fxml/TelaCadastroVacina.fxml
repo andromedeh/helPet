@@ -26,13 +26,13 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label fx:id="labelStatusVacina" alignment="CENTER" contentDisplay="CENTER" layoutX="178.0" layoutY="512.0" prefHeight="21.0" prefWidth="526.0" stylesheets="@../Estilo.css" textAlignment="CENTER" />
-      <Label layoutX="117.0" layoutY="308.0" stylesheets="@../Estilo.css" text="TEMPO DE REFORÇO:" textFill="#322073">
+      <Label fx:id="labelStatusVacina" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="504.0" prefHeight="21.0" prefWidth="526.0" stylesheets="@../Estilo.css" textAlignment="CENTER" />
+      <Label layoutX="117.0" layoutY="274.0" stylesheets="@../Estilo.css" text="TEMPO DE REFORÇO:" textFill="#322073">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Label>
-      <TextField fx:id="campoTempoReforco" layoutX="117.0" layoutY="332.0" prefHeight="25.0" prefWidth="454.0" stylesheets="@../Estilo.css">
+      <TextField fx:id="campoTempoReforco" layoutX="118.0" layoutY="300.0" prefHeight="25.0" prefWidth="318.0" stylesheets="@../Estilo.css">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>

@@ -11,7 +11,7 @@ public class Principal extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		
+
 		TableCreator tb = new TableCreator();
 		tb.createAllTables();
 		gerenciador = new GerenciadorCena(primaryStage);

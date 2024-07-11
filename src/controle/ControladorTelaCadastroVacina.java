@@ -20,14 +20,13 @@ public class ControladorTelaCadastroVacina extends ControladorBase implements In
   private Button btnCadastrarVacina;
 
   @FXML
-  private TextField campoNomeVacina, campoCodigoVacina, campoTempoReforco;
+  private TextField campoNomeVacina, campoTempoReforco;
 
   @FXML
   private Label labelStatusVacina;
 
   String nome;
   String tempoReforco;
-  int codigo;
 
   VacinaController vacina = new VacinaController();
 
@@ -49,9 +48,6 @@ public class ControladorTelaCadastroVacina extends ControladorBase implements In
 
     vacina.cadastrarVacina(nome, tempoReforco);
     labelStatusVacina.setText("Cadastrado");
-
-    // VERIFICAR SE JA EXISTE CODIGO CADASTRADO
-    // CADASTRAR VACINA
   }
 
   @Override
@@ -62,7 +58,6 @@ public class ControladorTelaCadastroVacina extends ControladorBase implements In
   public void limparCampos() {
     campoNomeVacina.clear();
     campoTempoReforco.clear();
-    campoCodigoVacina.clear();
     labelStatusVacina.setText("");
   }
 }

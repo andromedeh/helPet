@@ -28,6 +28,7 @@ public class ControladorTelaLoginProfissionalMedico extends ControladorBase impl
   private ImageView iconBtnVer;
   private boolean controleBtnVer = true;
   private static int crmv;
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     limparCampos();
@@ -50,6 +51,7 @@ public class ControladorTelaLoginProfissionalMedico extends ControladorBase impl
       if (medico.getCpf() == (Long.parseLong(campoSenhaTexto.getText()))) {
         gerenciador.getStage().close();
         this.crmv = Integer.parseInt(campoCRMV.getText());
+        gerenciador.getStage().close();
         gerenciador.trocarCena("/visao/fxml/TelaPrincipalMedico.fxml");
       } else {
         labelStatus.setText("Senha inválida!");
@@ -98,5 +100,5 @@ public class ControladorTelaLoginProfissionalMedico extends ControladorBase impl
   public static int getCrmv() {
     return crmv;
   }
-  
+
 }

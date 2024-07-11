@@ -13,10 +13,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class ControladorTelaCadastroExame extends ControladorBase implements Initializable {
-  
+
   @FXML
   AnchorPane AnchorPaneTelaCadastroExame;
-  
+
   @FXML
   Button btnCadastrarExame;
 
@@ -32,15 +32,14 @@ public class ControladorTelaCadastroExame extends ControladorBase implements Ini
   String nomeExame;
   String descricaoExame;
   ExameController exame = new ExameController();
-  
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    AnchorPaneTelaCadastroExame.setVisible(false);
+    limparCamposExame();
   }
 
   @FXML
   void confirmar(ActionEvent event) {
-    
 
     nomeExame = campoNomeExame.getText();
     descricaoExame = campoDescricaoExame.getText();
@@ -51,15 +50,16 @@ public class ControladorTelaCadastroExame extends ControladorBase implements Ini
     }
 
     if (!nomeExame.matches("[a-zA-Z\\s]+")) {
-      labelStatusExame.setText("O nome do pet deve conter apenas letras.");
+      labelStatusExame.setText("O nome do exame deve conter apenas letras.");
       return;
     }
     if (!descricaoExame.matches("[a-zA-Z\\s]+")) {
-      labelStatusExame.setText("a raça do pet deve conter apenas letras.");
+      labelStatusExame.setText("A descrição do exame deve conter apenas letras.");
       return;
     }
 
     exame.cadastrarExame(nomeExame, descricaoExame);
+    labelStatusExame.setText("Cadastrado");
 
     AnchorPaneTelaCadastroExame.setVisible(true);
     btnCadastrarExame.setDisable(true);

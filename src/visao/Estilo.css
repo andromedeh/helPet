@@ -48,6 +48,21 @@
   -fx-font-family: "Quicksand";
 }
 
+#campoProfissionalCRMV {
+  -fx-font-weight: bold;
+  -fx-background-color: #7756A6;
+  -fx-background-radius: 60px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #FAF9F6;
+  -fx-font-family: "Quicksand";
+}
+
+#campoProfissionalCRMV:focused {
+  -fx-border-radius: 60px;
+  -fx-border-color: #322073;
+  -fx-background-color: #AA9ACF;
+}
+
 .text-field:focused {
   -fx-border-radius: 60px;
   -fx-border-color: #322073;
@@ -560,24 +575,25 @@
   -fx-font-size: 12px;
   -fx-border-radius: 2px;
 }
+
 .date-picker {
-  -fx-background-color: #7756A6; 
-  -fx-border-color: #7756A6;      
-  -fx-border-radius: 60;          
-  -fx-background-radius: 60;      
+  -fx-background-color: #7756A6;
+  -fx-border-color: #7756A6;
+  -fx-border-radius: 60;
+  -fx-background-radius: 60;
 }
 
 .date-picker .arrow-button {
-  -fx-background-color:  #FAF9F6; 
-  -fx-border-radius: 60;          
-  -fx-background-radius: 60;      
+  -fx-background-color: #FAF9F6;
+  -fx-border-radius: 60;
+  -fx-background-radius: 60;
 }
 
 .date-picker .text-field {
-  -fx-background-color: #7756A6; 
-  -fx-text-fill: #FAF9F6;         
-  -fx-border-radius: 60;          
-  -fx-background-radius: 60;       
+  -fx-background-color: #7756A6;
+  -fx-text-fill: #FAF9F6;
+  -fx-border-radius: 60;
+  -fx-background-radius: 60;
 }
 
 #campoCPF,

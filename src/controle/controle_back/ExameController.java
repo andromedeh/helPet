@@ -28,8 +28,9 @@ public class ExameController {
     exameDAO.updateExame(exame);
   }
 
-  public void deletarExame(String nome, String descricao) {
+  public void deletarExame(String nome, String descricao, int codigo) {
     Exame exame = new Exame(nome, descricao);
+    exame.setCodExame(codigo);
     exameDAO.deleteExame(exame);
   }
 

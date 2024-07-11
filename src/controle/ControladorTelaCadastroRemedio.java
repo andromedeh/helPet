@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class ControladorTelaCadastroRemedio extends ControladorBase implements Initializable {
-  
+
   @FXML
   AnchorPane AnchorPaneTelaCadastroRemedio;
 
@@ -35,12 +35,11 @@ public class ControladorTelaCadastroRemedio extends ControladorBase implements I
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    AnchorPaneTelaCadastroRemedio.setVisible(false);
-  
+    limparCamposRemedio();
   }
 
   @FXML
-  void cadastrarConsulta(ActionEvent event) {
+  void cadastrarRemedio(ActionEvent event) {
     nomeRemedio = campoNomeRemedio.getText();
     descricaoRemedio = campoDescricaoRemedio.getText();
 
@@ -54,11 +53,12 @@ public class ControladorTelaCadastroRemedio extends ControladorBase implements I
       return;
     }
     if (!descricaoRemedio.matches("[a-zA-Z\\s]+")) {
-        labelStatusRemedio.setText("A descrição do remédio deve conter apenas letras.");
+      labelStatusRemedio.setText("A descrição do remédio deve conter apenas letras.");
       return;
     }
 
     remedio.cadastrarRemedio(nomeRemedio, descricaoRemedio);
+    labelStatusRemedio.setText("Cadastrado");
     ;
 
     AnchorPaneTelaCadastroRemedio.setVisible(true);
@@ -71,6 +71,5 @@ public class ControladorTelaCadastroRemedio extends ControladorBase implements I
   void limparCamposRemedio() {
     campoNomeRemedio.setText("");
     campoDescricaoRemedio.setText("");
-    limparCamposRemedio();
   }
 }

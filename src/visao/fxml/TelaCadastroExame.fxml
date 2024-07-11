@@ -15,7 +15,7 @@
             <Image url="@../img/telaCadastroExame.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnCadastrarExame" layoutX="366.0" layoutY="587.0" mnemonicParsing="false" onAction="#cadastrarExame" prefHeight="42.0" prefWidth="135.0" stylesheets="@../Estilo.css" text="CADASTRAR" textFill="#faf9f6">
+      <Button fx:id="btnCadastrarExame" layoutX="366.0" layoutY="587.0" mnemonicParsing="false" onAction="#confirmar" prefHeight="42.0" prefWidth="135.0" stylesheets="@../Estilo.css" text="CADASTRAR" textFill="#faf9f6">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -27,12 +27,12 @@
          </cursor>
       </TextField>
       <Label fx:id="labelStatusExame" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="504.0" prefHeight="21.0" prefWidth="526.0" stylesheets="@../Estilo.css" textAlignment="CENTER" />
-      <Label layoutX="117.0" layoutY="308.0" stylesheets="@../Estilo.css" text="DESCRIÇÃO:" textFill="#322073">
+      <Label layoutX="117.0" layoutY="283.0" stylesheets="@../Estilo.css" text="DESCRIÇÃO DO EXAME:" textFill="#322073">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Label>
-      <TextField fx:id="campoDescricaoExame" layoutX="117.0" layoutY="338.0" prefHeight="25.0" prefWidth="666.0" stylesheets="@../Estilo.css">
+      <TextField fx:id="campoDescricaoExame" layoutX="118.0" layoutY="309.0" prefHeight="25.0" prefWidth="318.0" stylesheets="@../Estilo.css">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
