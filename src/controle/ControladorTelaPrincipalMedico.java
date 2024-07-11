@@ -2,8 +2,13 @@ package controle;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 
+import controle.controle_back.ConsultaController;
+import controle.controle_back.MedicoVeterinarioController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -19,6 +25,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import modelo.Consulta;
 
 public class ControladorTelaPrincipalMedico extends ControladorBase implements Initializable {
   @FXML
@@ -49,22 +56,22 @@ public class ControladorTelaPrincipalMedico extends ControladorBase implements I
 
   // TABELA CONSULTAS
   @FXML
-  private TableView<?> tabelaConsultas;
+  private TableView<Consulta> tabelaConsultas;
 
   @FXML
-  private TableColumn<?, ?> colunaConsultaData;
+  private TableColumn<Consulta, Date> colunaConsultaData;
 
   @FXML
-  private TableColumn<?, ?> colunaConsultaHora;
+  private TableColumn<Consulta, String> colunaConsultaHora;
 
   @FXML
-  private TableColumn<?, ?> colunaConsultaNomeCliente;
+  private TableColumn<Consulta, String> colunaConsultaNomeCliente;
   
   @FXML
-  private TableColumn<?, ?> colunaConsultaCPF;
+  private TableColumn<Consulta, Long> colunaConsultaCPF;
   
   @FXML
-  private TableColumn<?, ?> colunaConsultaNomePet;
+  private TableColumn<Consulta,String> colunaConsultaNomePet;
   
 // TABELA EXAMES
   @FXML
@@ -79,8 +86,6 @@ public class ControladorTelaPrincipalMedico extends ControladorBase implements I
   @FXML
   private TableColumn<?, ?> colunaExameTipo;
   
-  @FXML
-  private TableColumn<?, ?> colunaExameNomeCliente;
   
   @FXML
   private TableColumn<?, ?> colunaExameCPF;
@@ -94,12 +99,17 @@ public class ControladorTelaPrincipalMedico extends ControladorBase implements I
   @FXML
   private ImageView fotoPerfil;
 
+  private static ConsultaController cct = new ConsultaController();
+  private static MedicoVeterinarioController mc = new MedicoVeterinarioController();
+  
+  private static ObservableList <Consulta> consultas = FXCollections.observableArrayList(cct.listarConsultasMedico(ControladorTelaLoginProfissionalMedico.getCrmv()));
+
   private Stage stage;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     visibilidadeTelas(true, false, false, false);
-    labelNome.setText("Bem vindx, Dr. Fulano!");
+    labelNome.setText("Bem vindx Dr.!!!");
   }
 
   @FXML
@@ -127,6 +137,11 @@ public class ControladorTelaPrincipalMedico extends ControladorBase implements I
 
   @FXML
   void consultasAgendadas(ActionEvent event) {
+    colunaConsultaNomePet.setCellValueFactory(new PropertyValueFactory<Consulta,String>("nomePet"));
+    colunaConsultaHora.setCellValueFactory(new PropertyValueFactory<Consulta,String>("horario"));
+    colunaConsultaData.setCellValueFactory(new PropertyValueFactory<Consulta,Date>("date"));
+    colunaConsultaCPF.setCellValueFactory(new PropertyValueFactory<Consulta,Long>("cpfDono"));
+    tabelaConsultas.setItems(consultas);
     visibilidadeTelas(false, false, true, false);
   }
 
@@ -158,4 +173,5 @@ public class ControladorTelaPrincipalMedico extends ControladorBase implements I
     gerenciador.getStage().close();
     gerenciador.trocarCena("/visao/fxml/TelaEscolhaProfissional.fxml");
   }
+
 }

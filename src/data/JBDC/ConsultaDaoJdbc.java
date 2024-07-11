@@ -140,7 +140,7 @@ public class ConsultaDaoJdbc implements IConsultaDao {
     @Override
     public List<Consulta> getAllConsultaMedico(int crmv) {
         List<Consulta> consultas = null;
-        String query = "SELECT * FROM consulta where crmv_Consulta="+crmv;
+        String query = "SELECT * FROM consulta where crmvMedico_Consulta="+crmv;
         try {
             connection = ConnectionFactory.concectBD();
             ResultSet resultSet = statementExQuery(connection, query);

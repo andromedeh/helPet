@@ -15,7 +15,7 @@ public class Principal extends Application {
 		TableCreator tb = new TableCreator();
 		tb.createAllTables();
 		gerenciador = new GerenciadorCena(primaryStage);
-		gerenciador.trocarCena("/visao/fxml/TelaPrincipalSecretaria.fxml");
+		gerenciador.trocarCena("/visao/fxml/TelaInicial.fxml");
 	}
 
 	public static void main(String[] args) {

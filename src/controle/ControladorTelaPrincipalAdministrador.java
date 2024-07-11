@@ -252,7 +252,7 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   void cadastrarExame(ActionEvent event) {
     AnchorPane anchorPane;
     try {
-      anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/visao/fxml/TelaCadastroProfissionais.fxml"));
+      anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/visao/fxml/TelaCadastroExame.fxml"));
       Stage secondStage = new Stage();
       Scene secondScene = new Scene(anchorPane);
       secondStage.setScene(secondScene);
@@ -295,7 +295,7 @@ public class ControladorTelaPrincipalAdministrador extends ControladorBase imple
   void cadastrarRemedio(ActionEvent event) {
     AnchorPane anchorPane;
     try {
-      anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/visao/fxml/TelaCadastroProfissionais.fxml"));
+      anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/visao/fxml/TelaCadastroRemedio.fxml"));
       Stage secondStage = new Stage();
       Scene secondScene = new Scene(anchorPane);
       secondStage.setScene(secondScene);

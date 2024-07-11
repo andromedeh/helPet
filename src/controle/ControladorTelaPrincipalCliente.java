@@ -11,6 +11,7 @@ import controle.controle_back.VacinaController;
 import controle.controle_back.RemedioController;
 import controle.controle_back.AplicaVacinaController;
 import controle.controle_back.ClienteController;
+import controle.controle_back.ConsultaController;
 import controle.controle_back.ExameController;
 import controle.controle_back.ProfissionalController;
 import javafx.collections.FXCollections;
@@ -179,7 +180,9 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
   private static RemedioController rc = new RemedioController();
   private static ExameController ec = new ExameController();
   private static ClienteController cc = new ClienteController();
-
+  private static ConsultaController cct = new ConsultaController();
+  
+  private static ObservableList <Consulta> consultas = FXCollections.observableArrayList(cct.listarConsultasCliente(ControladorTelaLoginCliente.getCpf()));
   private static ObservableList <Pet> pets = FXCollections.observableArrayList(ptc.listarPetDono(ControladorTelaLoginCliente.getCpf()));
   private static ObservableList <AplicaVacina> vacinas = FXCollections.observableArrayList(avc.listarAplicaVacinasCliente(ControladorTelaLoginCliente.getCpf()));
   private static ObservableList <Remedio> remedios = FXCollections.observableArrayList(rc.listarRemedios());
@@ -255,6 +258,11 @@ public class ControladorTelaPrincipalCliente extends ControladorBase implements 
 
   @FXML
   void Consultas(ActionEvent event) {
+    colunaConsultaPet.setCellValueFactory(new PropertyValueFactory<Consulta,String>("nomePet"));
+    colunaConsultaHora.setCellValueFactory(new PropertyValueFactory<Consulta,String>("horario"));
+    colunaConsultaData.setCellValueFactory(new PropertyValueFactory<Consulta,Date>("date"));
+    colunaConsultaMedico.setCellValueFactory(new PropertyValueFactory<Consulta,Integer>("crmvMedico"));
+    tabelaConsultas.setItems(consultas);
     visibilidadeTelas(false, false, true, false, false, false, false, false);
   }
 
