@@ -2,12 +2,17 @@ package modelo;
 
 import java.sql.Date;
 
+import controle.controle_back.VacinaController;
+
 public class AplicaVacina {
     private String nomePet;
     private long cpfDono;
     private int crmvMedico;
     private int codigoVacina;
     private Date data_aplicacao;
+    private String reforcoV;
+    private String nomeV;
+    
     public AplicaVacina(){}
     public AplicaVacina(String nomePet, long cpfDono, int crmcMedico,int codigoVacina, Date data_aplicacao){
         setCodigoVacina(codigoVacina);
@@ -15,6 +20,9 @@ public class AplicaVacina {
         setCrmvMedico(crmcMedico);
         setNomePet(nomePet);
         setData_aplicacao(data_aplicacao);
+        VacinaController vc = new VacinaController();
+        setNomeV(vc.pesquisarVacinas(codigoVacina).getNomeVacina());
+        setReforcoV(vc.pesquisarVacinas(codigoVacina).getData_reforco());
     }
 
     public String getNomePet() {
@@ -46,6 +54,18 @@ public class AplicaVacina {
     }
     public void setData_aplicacao(Date data_aplicacao) {
         this.data_aplicacao = data_aplicacao;
+    }
+    public String getReforcoV() {
+        return reforcoV;
+    }
+    public void setReforcoV(String reforcoV) {
+        this.reforcoV = reforcoV;
+    }
+    public String getNomeV() {
+        return nomeV;
+    }
+    public void setNomeV(String nomeV) {
+        this.nomeV = nomeV;
     }
     
     

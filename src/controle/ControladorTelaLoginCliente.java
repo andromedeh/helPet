@@ -55,6 +55,7 @@ public class ControladorTelaLoginCliente extends ControladorBase implements Init
     if (cliente != null) {
       if (cliente.getSenha().equals(campoSenhaTexto.getText())) {
         gerenciador.getStage().close();
+        setCpf(Long.parseLong(campoCPF.getText()));
         gerenciador.trocarCena("/visao/fxml/TelaPrincipalCliente.fxml");
       } else {
         labelStatus.setText("Senha inválida!");

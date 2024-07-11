@@ -103,7 +103,7 @@ public class PetDaoJdbc implements IPetDAO {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setLong(1, cpfDono);
-            preparedStatement.setString(1, nome);
+            preparedStatement.setString(2, nome);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet != null) {
                 p = new Pet();
